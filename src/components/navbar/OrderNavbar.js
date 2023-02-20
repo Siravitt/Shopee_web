@@ -5,7 +5,7 @@ import Shipping from "../../images/Shipping.png";
 export default function OrderNavbar() {
   return (
     <>
-      <div className="h-[100px] w-[390px] flex justify-between items-center px-10 bg-slate-200">
+      <div className="h-[100px] w-[390px] flex justify-between items-center px-10 bg-slate-2git 00">
         <div className="flex flex-col justify-center items-center">
           <img src={Pending} alt="" />
 
