@@ -1,23 +1,26 @@
-import home from "../images/home.png";
-import chat from "../images/chat.png";
-import warn from "../images/warn.png";
-import profile from "../images/profile.png";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import MessageOutlinedIcon from "@mui/icons-material/MessageOutlined";
+import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
+import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 
 export default function BottomNavbar() {
   return (
     <>
       <div className="w-[390px] h-[70px] px-8 bg-orange-400 flex items-center justify-between  bottom-0 fixed">
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <img src={home} alt="" />
+          {/* <HomeIcon sx={{ color: "orange", fontSize: 40 }}/> */}
+          <HomeOutlinedIcon sx={{ color: "white", fontSize: 50 }} />
         </div>
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <img src={chat} alt="" />
+          <MessageOutlinedIcon sx={{ color: "white", fontSize: 40 }} />
         </div>
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <img src={warn} alt="" />
+          <NotificationsActiveOutlinedIcon
+            sx={{ color: "white", fontSize: 45 }}
+          />
         </div>
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <img src={profile} alt="" />
+          <AccountBoxOutlinedIcon sx={{ color: "white", fontSize: 45 }} />
         </div>
       </div>
     </>
