@@ -1,4 +1,4 @@
-import ShopLoginForm from "../components/register/ShopLoginForm";
+import ShopLoginForm from "../components/shop/ShopLoginForm";
 import Logo from "../images/logo.png";
 
 export default function ShopLoginPage() {

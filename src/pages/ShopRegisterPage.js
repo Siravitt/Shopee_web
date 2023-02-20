@@ -1,4 +1,4 @@
-import ShopRegisterForm from "../components/register/ShopRegisterForm";
+import ShopRegisterForm from "../components/shop/ShopRegisterForm";
 import Logo from "../images/logo.png";
 
 export default function ShopRegisterPage() {

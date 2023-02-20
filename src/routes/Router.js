@@ -7,7 +7,8 @@ import UserRegisterPage from "../pages/UserRegisterPage";
 import ChatPage from "../pages/ChatPage";
 import Home from "../pages/Home";
 import Product from "../pages/Product";
-import ShopHome from "../Shop/shop home";
+import ShopHome from "../pages/shop home";
+import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
 
 const router = createBrowserRouter([
@@ -46,8 +47,8 @@ const router = createBrowserRouter([
     element: <ShopLoginPage />,
   },
   {
-    path: "shop-home",
-    element: <ShopHome />,
+    element: <MobileLayoutForShop />,
+    children: [{ path: "/shop-home", element: <ShopHome /> }],
   },
 ]);
 
