@@ -7,6 +7,7 @@ import UserRegisterPage from "../pages/UserRegisterPage";
 import ChatPage from "../pages/ChatPage";
 import Home from "../pages/Home";
 import Product from "../pages/Product";
+import Mycart from "../pages/Mycart";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +40,13 @@ const router = createBrowserRouter([
       {
         path: "/Home",
         element: <Home />,
-      },
+      }
     ],
   },
+  {
+    path: "/my-cart",
+    element: <Mycart />
+  }
 ]);
 
 export default function Router() {
