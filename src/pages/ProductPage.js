@@ -1,4 +1,5 @@
-import HeaderSearch from "../components/HeaderSearch.js";
+import HeaderSearch from "../components/header/HeaderSearch.js";
+import Footer from "../components/Footer.js";
 import Review from "../components/Review.js";
 import PriceProduct from "../components/PriceProduct.js";
 import SmallLine from "../components/SmallLine.js";
@@ -15,7 +16,7 @@ export default function ProductPage() {
         <HeaderSearch />
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
         {/* +++++++++++++++++++++++++++++ image movie +++++++++++++++++++++++++++++ */}
-        <div className="w-[377px] h-[355px] rounded-full flex items-center justify-center">
+        <div className="w-[377px] h-[355px] rounded-full flex items-center justify-center mt-[70px]">
           <img src={movie} alt="" />
         </div>
 
