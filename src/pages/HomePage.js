@@ -4,19 +4,19 @@ import HeaderSearch from "../components/header/HeaderSearch.js";
 // import SmallLine from "../components/SmallLine.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
-import Carousel from "../templates/Carousel";
+import Carousel from "../templates/carousel";
 
 export default function HomePage() {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border mt-4 ">
+      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border mt-[70px] ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
 
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-[390px] min-h-[181px]">
+        <div className="w-[390px] min-h-[181px] ">
           <Carousel />
         </div>
 

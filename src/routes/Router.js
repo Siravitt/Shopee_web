@@ -9,8 +9,11 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import CheckoutPage from "../pages/CheckoutPage";
 import MyOrderPage from "../pages/MyOrderPage";
+import PendingPage from "../pages/PendingPage";
+import ShippingPage from "../pages/ShippingPage";
+import OrderPage from "../pages/OrderPage";
 
-import ShopHome from "../pages/shop home";
+import ShopHome from "../pages/shopHomePage";
 import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
 
@@ -48,6 +51,18 @@ const router = createBrowserRouter([
       {
         path: "/category-products",
         element: <Category />,
+      },
+      {
+        path: "/PendingPage",
+        element: <PendingPage />,
+      },
+      {
+        path: "/ShippingPage",
+        element: <ShippingPage />,
+      },
+      {
+        path: "/OrderPage",
+        element: <OrderPage />,
       },
     ],
   },
