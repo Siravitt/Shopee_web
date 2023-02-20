@@ -4,7 +4,9 @@ import ShopLoginPage from "../pages/ShopLoginPage";
 import ShopRegisterPage from "../pages/ShopRegisterPage";
 import UserLoginPage from "../pages/UserLoginPage";
 import UserRegisterPage from "../pages/UserRegisterPage";
-import ChatPage from "../pages/ChatPage"
+import ChatPage from "../pages/ChatPage";
+import Home from "../pages/Home";
+import Product from "../pages/Product";
 
 const router = createBrowserRouter([
   {
@@ -28,12 +30,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/chat",
-        element: <ChatPage/>
-      }
+        element: <ChatPage />,
+      },
+      {
+        path: "/Product",
+        element: <Product />,
+      },
+      {
+        path: "/Home",
+        element: <Home />,
+      },
     ],
   },
 ]);
 
 export default function Router() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router}></RouterProvider>;
 }
