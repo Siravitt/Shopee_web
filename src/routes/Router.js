@@ -7,6 +7,8 @@ import UserRegisterPage from "../pages/UserRegisterPage";
 import ChatPage from "../pages/ChatPage";
 import Home from "../pages/Home";
 import Product from "../pages/Product";
+import ShopHome from "../Shop/shop home";
+// import RegisterShop from "../Shop/register Shop";
 
 const router = createBrowserRouter([
   {
@@ -20,14 +22,7 @@ const router = createBrowserRouter([
         path: "/user-login",
         element: <UserLoginPage />,
       },
-      {
-        path: "shop-register",
-        element: <ShopRegisterPage />,
-      },
-      {
-        path: "shop-login",
-        element: <ShopLoginPage />,
-      },
+
       {
         path: "/chat",
         element: <ChatPage />,
@@ -41,6 +36,18 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+  },
+  {
+    path: "shop-register",
+    element: <ShopRegisterPage />,
+  },
+  {
+    path: "shop-login",
+    element: <ShopLoginPage />,
+  },
+  {
+    path: "shop-home",
+    element: <ShopHome />,
   },
 ]);
 

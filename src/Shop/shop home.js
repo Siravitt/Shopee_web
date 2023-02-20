@@ -1,7 +1,7 @@
-import Logo from "./images/logo.png";
-import Card from "./register Shop/card";
+// import Logo from "./images/logo.png";
+import Card from "../components/Card";
 
-function App() {
+function ShopHome() {
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
       {/* header */}
@@ -42,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default ShopHome;
