@@ -9,6 +9,9 @@ import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import CheckoutPage from "../pages/CheckoutPage";
 import MyOrderPage from "../pages/MyOrderPage";
+import PendingPage from "../pages/PendingPage";
+import ShippingPage from "../pages/ShippingPage";
+import OrderPage from "../pages/OrderPage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +48,18 @@ const router = createBrowserRouter([
       {
         path: "/MyOrderPage",
         element: <MyOrderPage />,
+      },
+      {
+        path: "/PendingPage",
+        element: <PendingPage />,
+      },
+      {
+        path: "/ShippingPage",
+        element: <ShippingPage />,
+      },
+      {
+        path: "/OrderPage",
+        element: <OrderPage />,
       },
     ],
   },

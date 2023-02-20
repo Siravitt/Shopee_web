@@ -2,23 +2,30 @@ import Pending from "../../images/Pending.png";
 import ReadyToShip from "../../images/ReadyToShip.png";
 import Shipping from "../../images/Shipping.png";
 
-export default function OrderNavbar() {
+export default function OrderNavbar(props) {
   return (
     <>
-      <div className="h-[100px] w-[390px] flex justify-between items-center px-10 bg-slate-2git 00">
-        <div className="flex flex-col justify-center items-center">
-          <img src={Pending} alt="" />
+      <div className="h-[100px] w-[390px] flex px-[10px]  px-10">
+        <div
+          className={` flex flex-col justify-center w-[150px]  items-center ${props.shipping} ${props.order}`}
+        >
+          <img className=" w-[40px] " src={Pending} alt="" />
 
-          <h1>Pending</h1>
+          <h1 className="\ ">Pending</h1>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <img className=" w-[40px]" src={ReadyToShip} alt="" />
+        <div
+          className={` flex flex-col justify-center w-[150px]  items-center ${props.pending} ${props.order}`}
+        >
+          <img className=" w-[40px] " src={Shipping} alt="" />
 
-          <h1>Reading To ship</h1>
+          <h1 className="">Shipping</h1>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <img src={Shipping} alt="" />
-          <h1>Shipping</h1>
+        <div
+          className={` flex flex-col justify-center w-[150px]  items-center ${props.pending}  ${props.shipping}`}
+        >
+          <img className=" w-[40px] " src={ReadyToShip} alt="" />
+
+          <h1 className="">Order Success</h1>
         </div>
       </div>
     </>
