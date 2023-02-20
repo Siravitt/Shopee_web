@@ -1,5 +1,5 @@
-import HeaderSearch from "../components/HeaderSearch.js";
-import Footer from "../components/Footer.js";
+import HeaderSearch from "../components/header/HeaderSearch.js";
+
 // import BigLine from "../components/BigLine.js";
 // import SmallLine from "../components/SmallLine.js";
 import ProductType from "../components/ProductType.js";
@@ -15,7 +15,7 @@ function Home() {
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-[390px] min-h-[181px] bg-pink-300 mt-[69px]"></div>
+        <div className="w-[390px] min-h-[181px] bg-pink-300 mt-[70px]"></div>
 
         <div className="px-4 ">
           <div>

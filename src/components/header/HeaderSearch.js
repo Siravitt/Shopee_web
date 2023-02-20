@@ -1,4 +1,4 @@
-import Vectorbasket from "../images/Vectorbasket.png";
+import Vectorbasket from "../../images/Vectorbasket.png";
 
 function HeaderSearch() {
   return (
