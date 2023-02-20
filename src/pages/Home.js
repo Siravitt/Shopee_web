@@ -16,7 +16,7 @@ function Home() {
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-[390px] min-h-[181px] bg-pink-300">
+        <div className="w-[390px] min-h-[181px]">
           <Carousel />
         </div>
 
