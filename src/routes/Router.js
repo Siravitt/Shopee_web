@@ -7,7 +7,7 @@ import UserRegisterPage from "../pages/UserRegisterPage";
 import ChatPage from "../pages/ChatPage";
 import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
-import OrderPage from "../pages/OrderPage";
+import CheckoutPage from "../pages/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/checkout",
-    element: <OrderPage />,
+    element: <CheckoutPage />,
   },
 ]);
 

@@ -1,7 +1,7 @@
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function OrderPage() {
+export default function CheckoutPage() {
   return (
     <div className="w-[390px] min-h-[845px] mx-auto bg-white border">
       <div className="w-full h-[70px] bg-orange-400 flex items-center justify-center relative">
