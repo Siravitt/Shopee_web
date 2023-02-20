@@ -1,5 +1,5 @@
 import HeaderSearch from "../components/header/HeaderSearch.js";
-import Footer from "../components/Footer.js";
+// import Footer from "../components/Footer.js";
 import Review from "../components/Review.js";
 import PriceProduct from "../components/PriceProduct.js";
 import SmallLine from "../components/SmallLine.js";

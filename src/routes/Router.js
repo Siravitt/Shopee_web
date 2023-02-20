@@ -8,6 +8,7 @@ import ChatPage from "../pages/ChatPage";
 import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import CheckoutPage from "../pages/CheckoutPage";
+import MyOrderPage from "../pages/MyOrderPage";
 
 const router = createBrowserRouter([
   {
