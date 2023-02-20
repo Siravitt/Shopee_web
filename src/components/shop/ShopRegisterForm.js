@@ -1,18 +1,16 @@
 import { useState } from "react";
-import { userRegister } from "../../apis/auth-user-api";
+import { shopRegister } from "../../apis/auth-shop-api";
 import Input from "../Input";
 
 const initialInput = {
-  userName: "",
+  shopName: "",
   email: "",
-  firstName: "",
-  lastName: "",
   phone: "",
   password: "",
   confirmPassword: "",
 };
 
-export default function UserRegisterForm() {
+export default function ShopRegisterForm() {
   const [input, setInput] = useState(initialInput);
 
   const handleChangeInput = e => {
@@ -22,7 +20,7 @@ export default function UserRegisterForm() {
   const handleSubmitForm = async e => {
     try {
       e.preventDefault();
-      await userRegister(input);
+      await shopRegister(input);
       setInput(initialInput);
     } catch (err) {
       console.log(err.data?.response);
@@ -31,9 +29,9 @@ export default function UserRegisterForm() {
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmitForm}>
       <Input
-        name="userName"
-        label="Username"
-        value={input.userName}
+        name="shopName"
+        label="shop-Name"
+        value={input.shopName}
         onChange={handleChangeInput}
       />
       <Input
@@ -43,15 +41,9 @@ export default function UserRegisterForm() {
         onChange={handleChangeInput}
       />
       <Input
-        name="firstName"
-        label="First name"
-        value={input.firstName}
-        onChange={handleChangeInput}
-      />
-      <Input
-        name="lastName"
-        label="Last name"
-        value={input.lastName}
+        name="phone"
+        label="phone"
+        value={input.phone}
         onChange={handleChangeInput}
       />
       <Input

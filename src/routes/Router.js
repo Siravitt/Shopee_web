@@ -10,6 +10,10 @@ import ProductPage from "../pages/ProductPage";
 import CheckoutPage from "../pages/CheckoutPage";
 import MyOrderPage from "../pages/MyOrderPage";
 
+import ShopHome from "../pages/shop home";
+import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
+// import RegisterShop from "../Shop/register Shop";
+
 const router = createBrowserRouter([
   {
     element: <MobileLayout />,
@@ -22,14 +26,7 @@ const router = createBrowserRouter([
         path: "/user-login",
         element: <UserLoginPage />,
       },
-      {
-        path: "shop-register",
-        element: <ShopRegisterPage />,
-      },
-      {
-        path: "shop-login",
-        element: <ShopLoginPage />,
-      },
+
       {
         path: "/chat",
         element: <ChatPage />,
@@ -51,6 +48,18 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <CheckoutPage />,
+  },
+  {
+    path: "shop-register",
+    element: <ShopRegisterPage />,
+  },
+  {
+    path: "shop-login",
+    element: <ShopLoginPage />,
+  },
+  {
+    element: <MobileLayoutForShop />,
+    children: [{ path: "/shop-home", element: <ShopHome /> }],
   },
 ]);
 
