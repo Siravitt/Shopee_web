@@ -14,7 +14,7 @@ export default function Card() {
             <img
               className="p-auto rounded-t-lg w-auto h-auto "
               src="https://res.cloudinary.com/dyhm0zdxq/image/upload/v1676367101/food/download_p8ydoo.jpg"
-              alt="product image"
+              alt="product"
             />
           </div>
 
