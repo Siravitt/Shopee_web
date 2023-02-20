@@ -1,5 +1,4 @@
 import HeaderSearch from "../components/HeaderSearch.js";
-import Footer from "../components/Footer.js";
 import Review from "../components/Review.js";
 import PriceProduct from "../components/PriceProduct.js";
 import SmallLine from "../components/SmallLine.js";
@@ -8,7 +7,7 @@ import BigLine from "../components/BigLine.js";
 import movie from "../images/movie.png";
 import logomovie from "../images/logomovie.png";
 
-function Product() {
+export default function ProductPage() {
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-white mx-auto border">
@@ -133,5 +132,3 @@ function Product() {
     </>
   );
 }
-
-export default Product;

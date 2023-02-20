@@ -5,8 +5,9 @@ import ShopRegisterPage from "../pages/ShopRegisterPage";
 import UserLoginPage from "../pages/UserLoginPage";
 import UserRegisterPage from "../pages/UserRegisterPage";
 import ChatPage from "../pages/ChatPage";
-import Home from "../pages/Home";
-import Product from "../pages/Product";
+import HomePage from "../pages/HomePage";
+import ProductPage from "../pages/ProductPage";
+import CheckoutPage from "../pages/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -33,14 +34,18 @@ const router = createBrowserRouter([
         element: <ChatPage />,
       },
       {
-        path: "/Product",
-        element: <Product />,
+        path: "/product",
+        element: <ProductPage />,
       },
       {
-        path: "/Home",
-        element: <Home />,
+        path: "/home",
+        element: <HomePage />,
       },
     ],
+  },
+  {
+    path: "/checkout",
+    element: <CheckoutPage />,
   },
 ]);
 

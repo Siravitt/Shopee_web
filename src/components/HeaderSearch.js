@@ -1,4 +1,4 @@
-import Vectorbasket from "../images/Vectorbasket.png";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 function HeaderSearch() {
   return (
@@ -6,16 +6,16 @@ function HeaderSearch() {
       <div className="w-[390px] h-[70px] px-4 bg-orange-400 flex items-center  top-0 fixed ">
         <form>
           <label
-            for="search"
-            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            htmlFor="search"
+            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
           >
             Search
           </label>
-          <div class="relative">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
-                class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -32,20 +32,14 @@ function HeaderSearch() {
             <input
               type="search"
               id="search"
-              class="block w-72 h-10 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-72 h-10 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search"
               required
             />
-            {/* <button
-                type="submit"
-                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Search
-              </button> */}
           </div>
         </form>
-        <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
-          <img src={Vectorbasket} alt="" />
+        <div className="w-[100px] h-[100px] pl-4 rounded-full flex items-center justify-center">
+          <ShoppingCartOutlinedIcon sx={{ fontSize: 30, color: "white" }} />
         </div>
       </div>
     </>

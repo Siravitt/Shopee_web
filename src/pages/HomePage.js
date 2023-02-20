@@ -1,11 +1,10 @@
 import HeaderSearch from "../components/HeaderSearch.js";
-import Footer from "../components/Footer.js";
 // import BigLine from "../components/BigLine.js";
 // import SmallLine from "../components/SmallLine.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
 
-function Home() {
+export default function HomePage() {
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
@@ -51,4 +50,3 @@ function Home() {
   );
 }
 
-export default Home;
