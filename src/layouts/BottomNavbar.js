@@ -12,7 +12,8 @@ export default function BottomNavbar() {
       <div className="w-[390px] h-[70px] px-8 bg-orange-400 flex items-center justify-between  bottom-0 fixed">
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
           {/* <HomeIcon sx={{ color: "orange", fontSize: 40 }}/> */}
-          <Link to="/Home">
+
+          <Link to="/home">
             <HomeOutlinedIcon sx={{ color: "white", fontSize: 50 }} />
           </Link>
         </div>

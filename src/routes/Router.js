@@ -5,6 +5,7 @@ import ShopRegisterPage from "../pages/ShopRegisterPage";
 import UserLoginPage from "../pages/UserLoginPage";
 import UserRegisterPage from "../pages/UserRegisterPage";
 import ChatPage from "../pages/ChatPage";
+import ChatPageForShop from "../pages/ChatPageForShop";
 import HomePage from "../pages/HomePage";
 import ProductPage from "../pages/ProductPage";
 import CheckoutPage from "../pages/CheckoutPage";
@@ -19,6 +20,10 @@ import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
 
 import Category from "../pages/Category";
+import MyShopPage from "../pages/MyShopPage";
+import PendingForShop from "../pages/PendingForShop";
+import ShipingForShop from "../pages/ShipingForShop";
+import OrderSuccessForShop from "../pages/OrderSuccessForShop";
 
 import Mycart from "../pages/Mycart";
 import Authenticate from "../pages/Authenticate";
@@ -97,7 +102,14 @@ const router = createBrowserRouter([
   },
   {
     element: <MobileLayoutForShop />,
-    children: [{ path: "/shop-home", element: <ShopHome /> }],
+    children: [
+      { path: "/shop-home", element: <ShopHome /> },
+      { path: "/MyShopPage", element: <MyShopPage /> },
+      { path: "/PendingForShop", element: <PendingForShop /> },
+      { path: "/OrderSuccessForShop", element: <OrderSuccessForShop /> },
+      { path: "/ShipingForShop", element: <ShipingForShop /> },
+      { path: "/ChatPageForShop", element: <ChatPageForShop /> },
+    ],
   },
   {
     path: "/my-cart",
