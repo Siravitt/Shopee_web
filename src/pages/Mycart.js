@@ -31,6 +31,15 @@ export default function Mycart() {
       <div className=" mt-10">
       <BigLine />
       </div>
+      <div className="h-[50px] w-[390px] bg-white flex gap-4 border-t fixed bottom-0">
+        <div className="w-1/2 h-full flex flex-col items-end">
+          <div className="text-[14px]">All</div>
+          
+        </div>
+        <button className="w-1/2 h-full bg-orange-400 flex items-center justify-center text-white font-bold">
+          Checkout
+        </button>
+      </div>
      
     </div>
   );
