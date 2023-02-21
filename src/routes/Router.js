@@ -21,6 +21,8 @@ import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 import Category from "../pages/Category";
 
 import Mycart from "../pages/Mycart";
+import Authenticate from "../pages/Authenticate";
+import UserEditProfile from "../pages/UserEditProfile";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
         path: "/OrderPage",
         element: <OrderPage />,
       },
+      {
+        path: "/Authenticate",
+        element: <Authenticate/>,
+      },
+      {
+        path: "/UserEditProfile",
+        element: <UserEditProfile />
+      }
     ],
   },
   {
