@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import profile2 from "../../images/profile2.png";
 
 export default function HeaderProfile() {
@@ -12,8 +14,11 @@ export default function HeaderProfile() {
           <div className="text-white text-[20px]">
             <h1>Username</h1>
           </div>
+
           <div className="h-[24px] w-[82px] text-orange-400 bg-gray-200 flex justify-center items-center  text-[12px] my-1">
-            <p>Edit Profile</p>
+            <Link to="/UserEditProfile">
+              <button>Edit Profile</button>
+            </Link>
           </div>
         </div>
       </div>

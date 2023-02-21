@@ -1,6 +1,7 @@
 // import Logo from "./images/logo.png";
 import Card from "../components/Card";
 import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
+import { Link } from "react-router-dom";
 
 function ShopHome() {
   return (
@@ -21,9 +22,11 @@ function ShopHome() {
       {/* header */}
       <div className="flex items-center justify-between h-[64px] bg-white mt-[182px]  fixed w-[390px]">
         <h2 className="ml-6 font-bold text-red-400">Products</h2>
-        <button className="text-[16px] p-[4px] bg-red-400 bg-red-400 text-white mr-6 font-bold">
-          Add Product
-        </button>
+        <Link to="/addProduct">
+          <button className="text-[16px] p-[4px] bg-red-400 bg-red-400 text-white mr-6 font-bold">
+            Add Product
+          </button>
+        </Link>
       </div>
       <div className="grid grid-cols-2 gap-2 p-2 mt-[240px] ">
         <Card />

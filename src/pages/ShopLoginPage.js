@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ShopLoginForm from "../components/shop/ShopLoginForm";
 import Logo from "../images/logo.png";
 
@@ -13,7 +15,16 @@ export default function ShopLoginPage() {
         </div>
       </div>
       <div className="w-full px-14">
-        <ShopLoginForm />
+        <Link to="/shop-home">
+          <ShopLoginForm />
+        </Link>
+      </div>
+      <div className="flex justify-center py-4">
+        <Link to="/shop-register">
+          <button className="w-[200px]  border-2 bg-lime-200 py-1 rounded-xl text-gray font-bold hover:text-blue duration-200">
+            Register?
+          </button>
+        </Link>
       </div>
     </div>
   );
