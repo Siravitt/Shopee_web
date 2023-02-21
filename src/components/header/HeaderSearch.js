@@ -1,4 +1,5 @@
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+// import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 
 function HeaderSearch() {
   return (
@@ -39,7 +40,10 @@ function HeaderSearch() {
           </div>
         </form>
         <div className="w-[100px] h-[100px] pl-4 rounded-full flex items-center justify-center">
-          <ShoppingCartOutlinedIcon sx={{ fontSize: 30, color: "white" }} />
+          {/* <ShoppingCartOutlinedIcon sx={{ fontSize: 30, color: "white" }} /> */}
+          <NotificationsActiveOutlinedIcon
+            sx={{ fontSize: 30, color: "white" }}
+          />
         </div>
       </div>
     </>

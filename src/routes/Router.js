@@ -12,6 +12,7 @@ import MyOrderPage from "../pages/MyOrderPage";
 import PendingPage from "../pages/PendingPage";
 import ShippingPage from "../pages/ShippingPage";
 import OrderPage from "../pages/OrderPage";
+import ChatBox from "../pages/ChatBox";
 
 import ShopHome from "../pages/shopHomePage";
 import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/chat",
         element: <ChatPage />,
+      },
+      {
+        path: "/chatBox",
+        element: <ChatBox />,
       },
       {
         path: "/product",

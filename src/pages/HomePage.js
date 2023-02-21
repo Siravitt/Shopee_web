@@ -9,14 +9,14 @@ import Carousel from "../templates/carousel";
 export default function HomePage() {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border mt-[70px] ">
+      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
 
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-[390px] min-h-[181px] ">
+        <div className="w-[390px] min-h-[181px]  relative">
           <Carousel />
         </div>
 
