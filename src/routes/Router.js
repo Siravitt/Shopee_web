@@ -15,6 +15,7 @@ import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
 
 import Category from "../pages/Category";
+import MyShopPage from "../pages/MyShopPage";
 
 const router = createBrowserRouter([
   {
@@ -65,7 +66,10 @@ const router = createBrowserRouter([
   },
   {
     element: <MobileLayoutForShop />,
-    children: [{ path: "/shop-home", element: <ShopHome /> }],
+    children: [
+      { path: "/shop-home", element: <ShopHome /> },
+      { path: "/MyShopPage", element: <MyShopPage /> },
+    ],
   },
 ]);
 
