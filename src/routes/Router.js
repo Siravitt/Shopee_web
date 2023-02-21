@@ -20,6 +20,8 @@ import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 
 import Category from "../pages/Category";
 
+import Mycart from "../pages/Mycart";
+
 const router = createBrowserRouter([
   {
     element: <MobileLayout />,
@@ -87,6 +89,10 @@ const router = createBrowserRouter([
     element: <MobileLayoutForShop />,
     children: [{ path: "/shop-home", element: <ShopHome /> }],
   },
+  {
+    path: "/my-cart",
+    element: <Mycart />
+  }
 ]);
 
 export default function Router() {
