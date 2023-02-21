@@ -30,7 +30,7 @@ export default function BottomNavbar() {
           <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 45 }} />
         </div>
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <Link to="/myorderpage">
+          <Link to="/OrderPage">
             <AccountBoxOutlinedIcon sx={{ color: "white", fontSize: 45 }} />
           </Link>
         </div>

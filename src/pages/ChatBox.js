@@ -19,14 +19,19 @@ export default function ChatBox() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-evenly">
+      {/* <br />
+      <br />
+      <br />
+      <br />
+      <br /> */}
+      <div className="flex  pt-[400px] pl-[20px] fixed ">
         <form className="gap-4 ">
           <div className="flex flex-row gap-2 ">
             <input
               placeholder="พิมพ์ข้อความของคุณ"
-              className="w-full rounded-xl border px-4 py-1 bg-gray-200 mx-auto rounded-3xl text-black"
+              className="w-[300px] rounded-xl border px-4  bg-gray-200 mx-auto rounded-3xl text-black "
             />
-            <button>Click</button>
+            <button className="">SEND</button>
           </div>
         </form>
       </div>
