@@ -26,11 +26,12 @@ export default function BottomNavbar() {
           {/* <NotificationsActiveOutlinedIcon
             sx={{ color: "white", fontSize: 45 }}
           /> */}
-
-          <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 45 }} />
+          <Link to="/my-cart ">
+            <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 45 }} />
+          </Link>
         </div>
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <Link to="/OrderPage">
+          <Link to="/Authenticate">
             <AccountBoxOutlinedIcon sx={{ color: "white", fontSize: 45 }} />
           </Link>
         </div>

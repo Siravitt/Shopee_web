@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import UserRegisterForm from "../components/user/UserRegisterForm";
 import Logo from "../images/logo.png";
 
@@ -13,7 +15,9 @@ export default function RegisterPage() {
         </div>
       </div>
       <div className="w-full px-14 mb-[70px]">
-        <UserRegisterForm />
+        <Link to="/user-login">
+          <UserRegisterForm />
+        </Link>
       </div>
     </>
   );

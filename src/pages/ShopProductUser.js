@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../components/Card";
+import BottomNavbar from "../layouts/BottomNavbar";
 
 export default function ShopProductUser() {
   return (
@@ -16,13 +17,9 @@ export default function ShopProductUser() {
         </div>
       </div>
 
-      <div className="mx-4 text-xl font-bold m-2 mb-4 mt-[183px] pt-4">
-        <h1>Products</h1>
-      </div>
-      <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2 "></div>
       {/* +++++++++++++++++++++ END logoProduct shop ++++++++++++++++++ */}
 
-      <div className="mx-4 text-xl font-bold">
+      <div className="mx-4 text-xl font-bold m-2 mb-4 mt-[183px] pt-4">
         <h1>Products</h1>
       </div>
       <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
@@ -33,6 +30,8 @@ export default function ShopProductUser() {
         <Card />
         <Card />
       </div>
+
+      <BottomNavbar />
     </div>
   );
 }

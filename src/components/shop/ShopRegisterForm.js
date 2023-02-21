@@ -13,11 +13,11 @@ const initialInput = {
 export default function ShopRegisterForm() {
   const [input, setInput] = useState(initialInput);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handleSubmitForm = async e => {
+  const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
       await shopRegister(input);
@@ -61,7 +61,7 @@ export default function ShopRegisterForm() {
         onChange={handleChangeInput}
       />
       <div className="flex justify-center py-4">
-        <button className="w-[200px] bg-orange-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
+        <button className="w-[200px] bg-red-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
           Create account
         </button>
       </div>

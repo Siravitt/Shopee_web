@@ -19,7 +19,7 @@ export default function BottomNavbarForShop() {
           </Link>
         </div>
         <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <Link to="/shop-home">
+          <Link to="/PendingForShop">
             <img src={warn} alt="" />
           </Link>
         </div>

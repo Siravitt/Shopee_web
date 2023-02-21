@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import HeaderSearch from "../components/header/HeaderSearch.js";
 // import Footer from "../components/Footer.js";
 import Review from "../components/Review.js";
@@ -55,7 +57,9 @@ export default function ProductPage() {
             </div>
           </div>
           <div className="h-[39px] w-[80px] text-orange-400 border-2 border-orange-400 flex justify-center items-center mr-[17px]">
-            <h1>ดูร้านค้า</h1>
+            <Link to="/shop-products">
+              <button>ดูร้านค้า</button>
+            </Link>
           </div>
         </div>
         {/* +++++++++++++++++++++++++++++ END logoProduct shop +++++++++++++++++++++++++++++ */}

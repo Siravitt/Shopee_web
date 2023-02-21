@@ -29,6 +29,7 @@ import Mycart from "../pages/Mycart";
 import Authenticate from "../pages/Authenticate";
 import UserEditProfile from "../pages/UserEditProfile";
 import ShopProductUser from "../pages/ShopProductUser";
+import AddProduct from "../pages/addProduct";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,7 @@ const router = createBrowserRouter([
       { path: "/OrderSuccessForShop", element: <OrderSuccessForShop /> },
       { path: "/ShipingForShop", element: <ShipingForShop /> },
       { path: "/ChatPageForShop", element: <ChatPageForShop /> },
+      { path: "/addProduct", element: <AddProduct /> },
     ],
   },
   {

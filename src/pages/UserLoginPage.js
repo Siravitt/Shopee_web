@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import UserLoginForm from "../components/user/UserLoginForm";
 import Logo from "../images/logo.png";
 
@@ -13,7 +15,9 @@ export default function UserLoginPage() {
         </div>
       </div>
       <div className="w-full px-14">
-        <UserLoginForm />
+        <Link to="/MyOrderPage">
+          <UserLoginForm />
+        </Link>
       </div>
     </>
   );

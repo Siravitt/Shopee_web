@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ShopRegisterForm from "../components/shop/ShopRegisterForm";
 import Logo from "../images/logo.png";
 
@@ -16,7 +18,9 @@ export default function ShopRegisterPage() {
           </div>
         </div>
         <div className="w-full px-14">
-          <ShopRegisterForm />
+          <Link to="/shop-login">
+            <ShopRegisterForm />
+          </Link>
         </div>
       </div>
     </div>
