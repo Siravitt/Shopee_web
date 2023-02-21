@@ -5,7 +5,9 @@ import OrderListForShop from "./OrderListForShop";
 import Pending from "../images/Pending.png";
 import ReadyToShip from "../images/ReadyToShip.png";
 import Shipping from "../images/Shipping.png";
-export default function MyShopPage() {
+import { Link } from "react-router-dom";
+
+export default function PendingForShop() {
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
@@ -22,16 +24,18 @@ export default function MyShopPage() {
           <div
             className={` flex flex-col justify-center w-[150px]  items-center `}
           >
-            <img className=" w-[40px] " src={Shipping} alt="" />
-
-            <h1 className="">Shipping</h1>
+            <Link to="/ShipingForShop">
+              <img className=" w-[40px] opacity-40 " src={Shipping} alt="" />
+            </Link>
+            <h1 className="opacity-40">Shipping</h1>
           </div>
           <div
             className={` flex flex-col justify-center w-[150px]  items-center `}
           >
-            <img className=" w-[40px] " src={ReadyToShip} alt="" />
-
-            <h1 className="">Order Success</h1>
+            <Link to="/OrderSuccessForShop">
+              <img className=" w-[40px] opacity-40" src={ReadyToShip} alt="" />
+            </Link>
+            <h1 className="opacity-40">Order Success</h1>
           </div>
         </div>
         {/* <OrderNavbar /> */}
