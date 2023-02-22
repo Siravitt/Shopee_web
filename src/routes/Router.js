@@ -30,6 +30,7 @@ import Authenticate from "../pages/Authenticate";
 import UserEditProfile from "../pages/UserEditProfile";
 import ShopProductUser from "../pages/ShopProductUser";
 import AddProduct from "../pages/addProduct";
+import OrderDetail from "../pages/OrderDetail";
 
 const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
   {
     path: "/shop-products",
     element: <ShopProductUser />,
+  },
+  {
+    path: "/OrderDetail",
+    element: <OrderDetail />,
   },
 ]);
 
