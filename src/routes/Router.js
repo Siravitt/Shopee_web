@@ -15,7 +15,7 @@ import ShippingPage from "../pages/ShippingPage";
 import OrderPage from "../pages/OrderPage";
 import ChatBox from "../pages/ChatBox";
 
-import ShopHome from "../pages/ShopHomePage";
+import ShopHome from "../pages/shopHomePage";
 import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
 
