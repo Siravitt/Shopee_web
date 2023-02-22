@@ -31,6 +31,7 @@ import UserEditProfile from "../pages/UserEditProfile";
 import ShopProductUser from "../pages/ShopProductUser";
 import AddProduct from "../pages/addProduct";
 import OrderDetail from "../pages/OrderDetail";
+import OrderDetailForShop from "../pages/OrderDetailForShop";
 
 const router = createBrowserRouter([
   {
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
   {
     path: "/OrderDetail",
     element: <OrderDetail />,
+  },
+  {
+    path: "/OrderDetailForShop",
+    element: <OrderDetailForShop />,
   },
 ]);
 
