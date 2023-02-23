@@ -20,22 +20,22 @@ export default function UserEditProfile() {
 
       <div className="flex space-x-48">
         <div className="ml-10 mt-5 font-bold">Name</div>
-        <div className=" mt-5 ">Set Now</div>
+        <div className=" mt-5 text-orange-400"><button>Set Now</button></div>
       </div>
        <div className=" mt-5">< SmallLine /></div>
        <div className="flex space-x-48">
         <div className="mr-5 ml-10 mt-5 font-bold">Bio</div>
-        <div className=" mt-5 ">Set Now</div>
+        <div className=" mt-5 text-orange-400"><button>Set Now</button></div>
       </div>
-      <div className="mt-5"> <BigLine/></div>
-      <div className="flex space-x-48">
-        <div className="ml-10 mt-5 font-bold">Gender</div>
-        <div className=" mt-5 ">Set Now</div>
+      <div className=" mt-5">< BigLine /></div>
+        <div className="flex space-x-44">
+        <div className="ml-10 mt-5 font-bold">Gender </div>
+        <div className=" mt-5 pl-1 text-orange-400"><button>Set Now</button></div>
       </div>
        <div className=" mt-5">< SmallLine /></div>
-       <div className="flex space-x-44">
-        <div className="ml-10 mt-5 font-bold">Birthday</div>
-        <div className="mt-5 ">Set Now</div>
+       <div className="flex space-x-28">
+        <div className="mr-5 ml-10 mt-5 font-bold">Date of Birth</div>
+        <div className=" mt-5 pl-2 text-orange-400"><button>Set Now</button></div>
       </div>
     </>
   );

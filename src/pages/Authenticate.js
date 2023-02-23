@@ -22,8 +22,8 @@ export default function Authenticate() {
       
         </div>
         <div className="flex space-x-4 bg-orange-100 ">
-          <div className="ml-5"><img src={Shop} alt=""/></div>
-          <div className="text-orange-400 mt-2">Start Selling</div>
+          <div className="ml-5 mt-2"><img src={Shop} alt=""/></div>
+          <div className="text-orange-400 mt-2 p-3">Go to shop</div>
           </div>
 
           <SmallLine />

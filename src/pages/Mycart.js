@@ -21,7 +21,7 @@ export default function Mycart() {
       <div>
         <Cart />
       </div>
-      <div className=" mt-10">
+      <div className=" mt-10 pb-6 ">
         <SmallLine />
       </div>
       <div>
@@ -31,8 +31,11 @@ export default function Mycart() {
         <BigLine />
       </div>
       <div className="h-[50px] w-[390px] bg-white flex gap-4 border-t fixed bottom-0">
-        <div className="w-1/2 h-full flex flex-col items-end">
-          <div className="text-[14px]">All</div>
+      <div className=""><input type="checkbox" className="checkbox ml-5 mt-2" /></div>
+
+        <div className="w-1/2 h-full flex flex-col items-end ">
+          <div className="text-[20px]">All</div>
+          
         </div>
         <button className="w-1/2 h-full bg-orange-400 flex items-center justify-center text-white font-bold">
           Checkout

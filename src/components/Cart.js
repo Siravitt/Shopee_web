@@ -20,11 +20,11 @@ export default function Cart() {
           </div>
           <div>
             <div className="btn-group ">
-              <button className="btn btn-active border w-[25px] h-[25px]">
+              <button className="btn border w-[25px] h-[25px] bg-white text-black hover:bg-orange-400">
                 -
               </button>
-              <button className="btn border  w-[25px] h-[25px]">1</button>
-              <button className="btn border  w-[25px] h-[25px]">+</button>
+              <button className="btn border bg-white text-black  w-[25px] h-[25px] hover:bg-orange-400">1</button>
+              <button className="btn border bg-white text-black w-[25px] h-[25px] hover:bg-orange-400">+</button>
             </div>
           </div>
         </div>
