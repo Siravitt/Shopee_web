@@ -12,7 +12,7 @@ export default function OrderDetail() {
             <ArrowBackIcon sx={{ fontSize: 35, color: "white" }} />
           </Link>
         </button>
-        <div className="text-white text-[20px] font-bold">Checkout</div>
+        <div className="text-white text-[20px] font-bold">Order Detail</div>
       </div>
       <button className="w-full h-[auto] px-4 pt-4 flex gap-8">
         <LocationOnIcon sx={{ color: "orange", fontSize: 40 }} />

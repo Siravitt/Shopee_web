@@ -120,6 +120,7 @@ const router = createBrowserRouter([
     path: "/my-cart",
     element: <Mycart />,
   },
+  // อันนี้คืออะไรนะครับ น่าจะซ้ำกับ shop-home
   {
     path: "/shop-products",
     element: <ShopProductUser />,

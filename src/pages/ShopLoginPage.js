@@ -2,12 +2,20 @@ import { Link } from "react-router-dom";
 
 import ShopLoginForm from "../components/shop/ShopLoginForm";
 import Logo from "../images/logo.png";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function ShopLoginPage() {
   return (
-    <div>
-      <div className="w-full h-[70px] px-4 bg-red-400 flex items-center">
-        <div className="text-[25px] text-white font-bold">Login for Shop</div>
+    <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
+      <div className="w-full h-[70px] px-4 bg-red-400 flex items-center relative">
+        <button className="absolute top-4 left-2">
+          <Link to="/Authenticate">
+            <ArrowBackIcon sx={{ fontSize: 35, color: "white" }} />
+          </Link>
+        </button>
+        <div className="text-[25px] text-white pl-[100px] font-bold">
+          Login for Shop
+        </div>
       </div>
       <div className="flex items-center justify-center py-10">
         <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
@@ -15,9 +23,7 @@ export default function ShopLoginPage() {
         </div>
       </div>
       <div className="w-full px-14">
-        <Link to="/shop-home">
-          <ShopLoginForm />
-        </Link>
+        <ShopLoginForm />
       </div>
       <div className="flex justify-center py-4">
         <Link to="/shop-register">

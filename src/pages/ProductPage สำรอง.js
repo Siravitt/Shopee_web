@@ -9,7 +9,6 @@ import BigLine from "../components/BigLine.js";
 
 import movie from "../images/movie.png";
 import logomovie from "../images/logomovie.png";
-import ImageSlider from "../components/imgProduct/ImageSlider.js";
 
 export default function ProductPage() {
   return (
@@ -19,8 +18,8 @@ export default function ProductPage() {
         <HeaderSearch />
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
         {/* +++++++++++++++++++++++++++++ image movie +++++++++++++++++++++++++++++ */}
-        <div className="w-[377=px] h-[355px] rounded-full flex items-center justify-center mt-[70px]">
-          <ImageSlider />
+        <div className="w-[377px] h-[355px] rounded-full flex items-center justify-center mt-[70px]">
+          <img src={movie} alt="" />
         </div>
 
         {/* +++++++++++++++++++++++++++++ END movie +++++++++++++++++++++++++++++ */}

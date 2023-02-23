@@ -37,3 +37,46 @@
     transform: rotate(360deg);
   }
 }
+
+.image {
+  width: 350px;
+  height: 350px;
+  /* border-radius: 10px; */
+}
+
+.slider {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .leftArrow {
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  font-size: 5rem;
+  z-index: 50;
+  cursor: pointer;
+}
+
+.rightArrow {
+  position: absolute;
+  top: 50%;
+  right: 150px;
+  font-size: 5rem;
+  z-index: 50;
+  cursor: pointer;
+} */
+
+.slide {
+  opacity: 0;
+  transition: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1.08);
+  transition-duration: 1s;
+}
