@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 
 export default function CheckoutPage() {
   return (
-    <div className="w-[390px] min-h-[845px] mx-auto bg-white border">
-      <div className="w-full h-[70px] bg-orange-400 flex items-center justify-center relative">
+    <div className="w-[390px] min-h-[845px] mx-auto bg-white">
+      <div className="w-full h-[60px] bg-orange-400 flex items-center justify-center relative">
         <button className="absolute top-4 left-2">
           <Link to="/my-cart">
-            <ArrowBackIcon sx={{ fontSize: 35, color: "white" }} />
+            <ArrowBackIosIcon sx={{ fontSize: 25, color: "white" }} />
           </Link>
         </button>
         <div className="text-white text-[20px] font-bold">Checkout</div>
@@ -51,8 +52,8 @@ export default function CheckoutPage() {
           <div className="text-[14px]">Total payment</div>
           <div className="text-[14px] text-orange-400 font-bold">$623</div>
         </div>
-        <Link to="/PendingPage">
-          <button className="w-[157px] h-[49px] bg-orange-400 flex items-center justify-center text-white font-bold">
+        <Link to="/PendingPage" className="w-1/2 h-full">
+          <button className="w-full h-full bg-orange-400 flex items-center justify-center text-white font-bold">
             Checkout
           </button>
         </Link>

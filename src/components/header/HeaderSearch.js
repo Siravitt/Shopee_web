@@ -4,7 +4,7 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 function HeaderSearch() {
   return (
     <>
-      <div className="w-[390px] h-[70px] px-4 bg-orange-400 flex items-center  top-0 fixed z-10  ">
+      <div className="w-full h-[60px] px-4 bg-orange-400 flex items-center top-0 sticky z-10">
         <form>
           <label
             htmlFor="search"
@@ -33,18 +33,18 @@ function HeaderSearch() {
             <input
               type="search"
               id="search"
-              className="block w-72 h-10 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-72 h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
               placeholder="Search"
               required
             />
           </div>
         </form>
-        <div className="w-[100px] h-[100px] pl-4 rounded-full flex items-center justify-center">
+        <button className="w-[50px] h-[50px] ml-4 flex items-center justify-center">
           {/* <ShoppingCartOutlinedIcon sx={{ fontSize: 30, color: "white" }} /> */}
           <NotificationsActiveOutlinedIcon
             sx={{ fontSize: 30, color: "white" }}
           />
-        </div>
+        </button>
       </div>
     </>
   );

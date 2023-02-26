@@ -4,27 +4,25 @@ import HeaderSearch from "../components/header/HeaderSearch.js";
 // import SmallLine from "../components/SmallLine.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
-import Carousel from "../templates/carousel";
+import Carousel from "../templates/Carousel";
 
 export default function HomePage() {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
+      <div className="w-full h-full">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
 
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-[390px] min-h-[181px]  relative">
+        <div className="w-full h-[350px] relative">
           <Carousel />
         </div>
 
-        <div className="mx-4 text-xl font-bold mt-2">
-          <div>
-            <h1>Catagory</h1>
-          </div>
-          <div className="flex justify-between my-2 ">
+        <div className="mx-4 mt-2 text-xl font-bold">
+          <div>Catagory</div>
+          <div className="w-full h-[100px] flex justify-between gap-3 my-4">
             <ProductType />
             <ProductType />
             <ProductType />

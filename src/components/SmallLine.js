@@ -1,7 +1,7 @@
 export default function SmallLine() {
   return (
     <>
-      <div className="w-[380px] h-[1px] bg-slate-200"></div>
+      <div className="w-[375px] h-[1px] mx-auto bg-slate-200"></div>
     </>
   );
 }

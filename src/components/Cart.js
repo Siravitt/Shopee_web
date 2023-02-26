@@ -1,30 +1,28 @@
 export default function Cart() {
   return (
     <>
-      <div className="flex space-x-6 ">
-        <input type="checkbox" className="checkbox ml-5 " />
+      <div className="mx-4 flex items-center gap-4">
+        <input type="checkbox" className="default:bg-orange-400" />
         <img
-          className="w-[100px] h-[100px] ml-20 mt-5"
+          className="w-[125px] h-[100px] object-cover"
           src="https://res.cloudinary.com/dyhm0zdxq/image/upload/v1676367101/food/download_p8ydoo.jpg"
           alt="product"
         />
-        <div>
-          <div className="text-[15px] text-black font-bold mt-5">
+        <div className="flex flex-col gap-1">
+          <div className="text-[15px] text-black font-bold">
             Product Name
           </div>
           <div className="text-[15px] text-black font-light ">
             Product Description
           </div>
-          <div className="text-[15px] text-orange font-light mt-8 text-orange-500	">
+          <div className="text-[15px] text-orange font-light text-orange-500	">
             Price
           </div>
           <div>
-            <div className="btn-group ">
-              <button className="btn btn-active border w-[25px] h-[25px]">
-                -
-              </button>
-              <button className="btn border  w-[25px] h-[25px]">1</button>
-              <button className="btn border  w-[25px] h-[25px]">+</button>
+            <div className="flex">
+              <button className="w-[25px] h-[25px] border-y border-l flex items-center justify-center pb-1 hover:bg-gray-200">-</button>
+              <button className="w-[25px] h-[25px] border flex items-center justify-center">1</button>
+              <button className="w-[25px] h-[25px] border-y border-r flex items-center justify-center pb-1 hover:bg-gray-200">+</button>
             </div>
           </div>
         </div>

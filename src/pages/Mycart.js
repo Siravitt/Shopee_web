@@ -1,20 +1,22 @@
 import { Link } from "react-router-dom";
 import Cart from "../components/Cart";
-import Vectorbasket from "../images/Vectorbasket.png";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SmallLine from "../components/SmallLine";
 import BigLine from "../components/BigLine";
 
 export default function Mycart() {
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto">
-      <div className="w-full h-[70px] px-4 bg-orange-400 flex flex-row justify-between items-center">
+      <div className="w-full h-[60px] px-4 bg-orange-400 flex flex-row justify-between items-center">
+        <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }}/>
         <div className="text-[25px] text-white font-bold ">My Cart</div>
-        <img src={Vectorbasket} alt="" />
+        <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 30 }}/>
       </div>
 
-      <div className=" flex space-x-6">
-        <input type="checkbox" className="checkbox ml-5 mt-2" />
-        <div className="text-[25px] text-black font-bold ml-20 mt-2 ">
+      <div className="mx-4 my-4 flex items-center gap-4">
+        <input type="checkbox" className="" />
+        <div className="text-[25px] text-black font-bold">
           Shop Name
         </div>
       </div>
