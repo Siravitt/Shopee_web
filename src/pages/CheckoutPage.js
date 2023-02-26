@@ -8,7 +8,7 @@ export default function CheckoutPage() {
   return (
     <div className="w-[390px] min-h-[845px] mx-auto bg-white">
       <div className="w-full h-[60px] bg-orange-400 flex items-center justify-center relative">
-        <button className="absolute top-4 left-2">
+        <button className="absolute top-4 left-4">
           <Link to="/my-cart">
             <ArrowBackIosIcon sx={{ fontSize: 25, color: "white" }} />
           </Link>
