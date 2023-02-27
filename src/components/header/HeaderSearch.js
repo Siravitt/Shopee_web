@@ -4,7 +4,7 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 function HeaderSearch() {
   return (
     <>
-      <div className="w-full h-[60px] px-4 bg-orange-400 flex items-center top-0 sticky z-10">
+      <div className="w-full h-[60px] px-4  bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400  flex items-center top-0 sticky z-10">
         <form>
           <label
             htmlFor="search"
