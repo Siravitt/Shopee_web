@@ -32,6 +32,7 @@ import ShopProductUser from "../pages/ShopProductUser";
 import AddProduct from "../pages/addProduct";
 import OrderDetail from "../pages/OrderDetail";
 import OrderDetailForShop from "../pages/OrderDetailForShop";
+import AddressPage from "../pages/AddressPage";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +133,10 @@ const router = createBrowserRouter([
     path: "/OrderDetailForShop",
     element: <OrderDetailForShop />,
   },
+  {
+    path: "/Address",
+    element: <AddressPage/>,
+  }
 ]);
 
 export default function Router() {
