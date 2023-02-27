@@ -14,12 +14,12 @@ import ImageSlider from "../components/imgProduct/ImageSlider.js";
 export default function ProductPage() {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-white mx-auto border">
+      <div className="w-[390px] min-h-[844px] bg-white mx-auto border  overflow-y-scroll ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
         {/* +++++++++++++++++++++++++++++ image movie +++++++++++++++++++++++++++++ */}
-        <div className="w-[377=px] h-[355px] rounded-full flex items-center justify-center mt-[70px]">
+        <div className="w-[377=px] h-[355px] rounded-full flex items-center justify-center mt-[70px] ">
           <ImageSlider />
         </div>
 

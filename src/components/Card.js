@@ -1,18 +1,18 @@
 export default function Card() {
   return (
     <>
-      <div>
+      <div className="">
         <div
-          className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s"
+          className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
           // key={}
           // onClick={() => {
 
           // }}
         >
-          <div>
+          <div className=" ">
             <img
-              className="p-auto rounded-t-lg w-auto h-auto "
+              className="p-auto rounded-t-lg  "
               src="https://res.cloudinary.com/dyhm0zdxq/image/upload/v1676367101/food/download_p8ydoo.jpg"
               alt="product"
             />

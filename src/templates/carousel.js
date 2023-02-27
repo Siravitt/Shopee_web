@@ -24,7 +24,10 @@ export default function Carousel() {
           <a href="#slide1" className="btn btn-circle bg-orange-200 text-white">
             ❮
           </a>
-          <a href="#slide3" className="btn btn-circle bg-orange-200 text-white ">
+          <a
+            href="#slide3"
+            className="btn btn-circle bg-orange-200 text-white "
+          >
             ❯
           </a>
         </div>
