@@ -9,7 +9,9 @@ export default function Mycart() {
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto">
       <div className="w-full h-[60px] px-4 bg-orange-400 flex flex-row justify-between items-center">
-        <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
+        <Link to="/home">
+          <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
+        </Link>
         <div className="text-[25px] text-white font-bold ">My Cart</div>
         <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 30 }} />
       </div>
