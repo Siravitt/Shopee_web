@@ -14,6 +14,15 @@ export default function UserLoginPage() {
         </div>
       </div>
 
+      <div className="w-[260px] ml-16 mb-8 bg-white hover:bg-gray-100 text-gray-800 font-semibold border border-gray-400 rounded shadow flex  space-x-0 flex ">
+        <div className="px-4">
+          <img src={gg} alt="" />
+        </div>
+        <div className="flex justify-items-center ">
+          <button> Continue with Google</button>
+        </div>
+      </div>
+
       <div className=" flex justify-center mb-4 ">
         <UserLoginGoogleFrom />
       </div>

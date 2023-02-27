@@ -4,6 +4,7 @@ import UserLoginGoogleFrom from "../components/user/UserLoginGoogleFrom";
 
 import UserRegisterForm from "../components/user/UserRegisterForm";
 import Logo from "../images/logo.png";
+import gg from "../images/gg.png";
 
 export default function RegisterPage() {
   return (

@@ -135,8 +135,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/Address",
-    element: <AddressPage/>,
-  }
+    element: <AddressPage />,
+  },
+  {
+    path: "/address",
+    element: <AddressPage />,
+  },
 ]);
 
 export default function Router() {
