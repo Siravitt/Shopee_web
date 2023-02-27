@@ -5,8 +5,19 @@ import HeaderSearch from "../components/header/HeaderSearch.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
 import Carousel from "../templates/carousel";
+import Home from "../images/Home.jpg";
+import Electronic from "../images/Electronic.jpg";
+import Beauty from "../images/Beauty.jpg";
+import Lifestyle from "../images/Lifestyle.jpg";
 
 export default function HomePage() {
+  const displayImages = [
+    { image: Home, title: "Home" },
+    { image: Electronic, title: "Electronic" },
+    { image: Beauty, title: "Beauty" },
+    { image: Lifestyle, title: "Lifestyle" },
+    { image: Lifestyle, title: "Lifestyle" },
+  ];
   return (
     <>
       <div className="w-full h-full">
@@ -22,12 +33,15 @@ export default function HomePage() {
 
         <div className="mx-4 mt-2 text-xl font-bold">
           <div>Catagory</div>
-          <div className="w-full h-[100px] flex justify-between gap-3 my-4">
-            <ProductType />
-            <ProductType />
-            <ProductType />
-            <ProductType />
-            <ProductType />
+          <div className="w-full h-[100px] flex  justify-between gap-3 my-4">
+            {displayImages.map((el, idx) => (
+              <ProductType key={idx} image={el.image} title={el.title} />
+            ))}
+
+            {/* <ProductType Home={Home} />
+            <ProductType Electronic={Electronic} />
+            <ProductType Beauty={Beauty} />
+            <ProductType Lifestyle={Lifestyle} /> */}
           </div>
         </div>
         <hr className="bg-gray mx-4 my-4 border-2" />
