@@ -28,6 +28,7 @@ import OrderSuccessForShop from "../pages/OrderSuccessForShop";
 import Mycart from "../pages/Mycart";
 import Authenticate from "../pages/Authenticate";
 import UserEditProfile from "../pages/UserEditProfile";
+import AddressPage from "../pages/AddressPage";
 
 const router = createBrowserRouter([
   {
@@ -80,12 +81,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/Authenticate",
-        element: <Authenticate/>,
+        element: <Authenticate />,
       },
       {
         path: "/UserEditProfile",
-        element: <UserEditProfile />
-      }
+        element: <UserEditProfile />,
+      },
     ],
   },
   {
@@ -113,8 +114,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/my-cart",
-    element: <Mycart />
-  }
+    element: <Mycart />,
+  },
+  {
+    path: "/address",
+    element: <AddressPage />,
+  },
 ]);
 
 export default function Router() {
