@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <div className="mx-4 mt-2 text-xl font-bold">
           <div>Catagory</div>
-          <div className="w-full h-[100px] flex  justify-between gap-3 my-4">
+          <div className="w-full h-[100px] flex justify-evenly my-4">
             {displayImages.map((el, idx) => (
               <ProductType key={idx} image={el.image} title={el.title} />
             ))}
