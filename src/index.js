@@ -1,14 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import { store } from "./reduxStore/store";
+import { getAccessToken } from "./utils/local-storage";
+import { thunkFetchUser } from "./reduxStore/AuthSlice";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+if (getAccessToken()) {
+  console.log("yoooooo");
+  store.dispatch(thunkFetchUser());
+  console.log("yoooooo  22222 ");
+}
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

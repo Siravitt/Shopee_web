@@ -2,6 +2,8 @@ import { useState } from "react";
 import { userLogin } from "../../apis/auth-user-api";
 import Input from "../Input";
 import { Link } from "react-router-dom";
+import { thunkLogin } from "../../reduxStore/AuthSlice";
+import { useDispatch } from "react-redux";
 
 // import UserLoginGoogleFrom from "./UserLoginGoogleFrom";
 
@@ -14,14 +16,16 @@ const initialInput = {
 
 export default function UserLoginForm() {
   const [input, setInput] = useState(initialInput);
-  const handleChangeInput = (e) => {
+  const handleChangeInput = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
-  const handleSubmitForm = async (e) => {
+  const dispatch = useDispatch();
+  const handleSubmitForm = e => {
     try {
       e.preventDefault();
-      await userLogin(input);
+      dispatch(thunkLogin(input));
       setInput(initialInput);
+      console.log("rkam ", initialInput);
     } catch (err) {
       console.log(err.data?.response);
     }
@@ -42,11 +46,11 @@ export default function UserLoginForm() {
         onChange={handleChangeInput}
       />
       <div className="flex justify-center py-4">
-        <Link to="/MyOrderPage">
-          <button className="w-[200px] bg-orange-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
-            Log in
-          </button>
-        </Link>
+        {/* <Link to="/MyOrderPage"> */}
+        <button className="w-[200px] bg-orange-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
+          Log in
+        </button>
+        {/* </Link> */}
       </div>
     </form>
   );

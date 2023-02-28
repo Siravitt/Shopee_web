@@ -5,8 +5,11 @@ import HeaderSearch from "../components/header/HeaderSearch.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
 import Carousel from "../templates/carousel";
+import { useSelector } from "react-redux";
 
 export default function HomePage() {
+  const auth = useSelector(state => state.auth.auth);
+  console.log("kram เอง", auth);
   return (
     <>
       <div className="w-full h-full">
