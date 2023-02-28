@@ -29,9 +29,9 @@ export default function RegisterPage() {
       </div>
 
       <div className="w-full px-14 mb-[70px]">
-        <Link to="/user-login">
-          <UserRegisterForm />
-        </Link>
+        {/* <Link to="/user-login"> */}
+        <UserRegisterForm />
+        {/* </Link> */}
       </div>
     </>
   );

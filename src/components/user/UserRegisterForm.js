@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { userRegister } from "../../apis/auth-user-api";
 import Input from "../Input";
 
@@ -13,6 +14,8 @@ const initialInput = {
 };
 
 export default function UserRegisterForm() {
+  const navigate = useNavigate();
+
   const [input, setInput] = useState(initialInput);
 
   const handleChangeInput = e => {
@@ -22,10 +25,13 @@ export default function UserRegisterForm() {
   const handleSubmitForm = async e => {
     try {
       e.preventDefault();
+      console.log(input);
       await userRegister(input);
       setInput(initialInput);
+      navigate("/user-login");
+      console.log("handleSubmitForm");
     } catch (err) {
-      console.log(err.data?.response);
+      console.log(err.response?.data);
     }
   };
   return (
@@ -52,6 +58,12 @@ export default function UserRegisterForm() {
         name="lastName"
         label="Last name"
         value={input.lastName}
+        onChange={handleChangeInput}
+      />
+      <Input
+        name="phone"
+        label="phone number"
+        value={input.phone}
         onChange={handleChangeInput}
       />
       <Input

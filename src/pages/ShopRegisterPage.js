@@ -18,9 +18,7 @@ export default function ShopRegisterPage() {
           </div>
         </div>
         <div className="w-full px-14">
-          <Link to="/shop-login">
-            <ShopRegisterForm />
-          </Link>
+          <ShopRegisterForm />
         </div>
       </div>
     </div>

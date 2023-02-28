@@ -9,6 +9,7 @@ import Home from "../images/Home.jpg";
 import Electronic from "../images/Electronic.jpg";
 import Beauty from "../images/Beauty.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
+import { useSelector } from "react-redux";
 
 export default function HomePage() {
   const displayImages = [
@@ -18,6 +19,8 @@ export default function HomePage() {
     { image: Lifestyle, title: "Lifestyle" },
     { image: Lifestyle, title: "Lifestyle" },
   ];
+  // const auth = useSelector(state => state.auth.auth);
+  // console.log("kram เอง", auth);
   return (
     <>
       <div className="w-full h-full">
