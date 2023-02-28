@@ -17,7 +17,9 @@ export default function UserEditProfile() {
       <div className="flex space-x-48">
         <div className="ml-10 mt-5 font-bold">Name</div>
         <div className=" mt-5 text-orange-400">
-          <button>Set Now</button>
+          {/* ................. */}
+
+          {/* .............. */}
         </div>
       </div>
       <div className=" mt-5">
