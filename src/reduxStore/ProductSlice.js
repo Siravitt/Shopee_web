@@ -18,7 +18,7 @@ const productSlice = createSlice({
 export const thunkFetchAllProduct = catID => async dispatch => {
   try {
     // console.log("mu dfsadf");
-    alert("555");
+    // alert("555");
     const res = await productService.getAllproduct(catID);
     console.log(res.data, "thunkFproductServiceetchUser");
     dispatch(setProduct(res.data.products));

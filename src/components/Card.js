@@ -10,6 +10,7 @@ export default function Card() {
 
   useEffect(() => {
     dispatch(thunkFetchAllProduct());
+    console.log("มามั้ย");
   }, [dispatch]);
   return (
     <>
