@@ -10,13 +10,13 @@ import Beauty from "../images/Beauty.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
 
-export default function CategoryProductPage() {
+export default function ProductElectronic() {
   const displayImages = [
-    { image: Home, title: "Home" },
-    { image: Electronic, title: "Electronic" },
-    { image: Beauty, title: "Beauty" },
-    { image: Lifestyle, title: "Lifestyle" },
-    { image: Kid, title: "Kid" },
+    { image: Home, title: "Home", slash: "ProductHome" },
+    { image: Electronic, title: "Electronic", slash: "ProductElectronic" },
+    { image: Beauty, title: "Beauty", slash: "ProductBeauty" },
+    { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
+    { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
 
   return (
@@ -25,14 +25,16 @@ export default function CategoryProductPage() {
         <Link to="/">
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
-        <div className="text-[25px] text-white font-bold ">Home</div>
+        <div className="text-[25px] text-white font-bold ">Electronic</div>
         <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 30 }} />
       </div>
       <div className="mx-4 mt-2 text-xl font-bold ">
         <div>Catagory</div>
-        <div className=" h-[100px] flex   my-4 ">
+        <div className="w-full h-[100px] flex justify-evenly my-4">
           {displayImages.map((el, idx) => (
-            <ProductType key={idx} image={el.image} title={el.title} />
+            <Link to={`/${el.slash}`}>
+              <ProductType key={idx} image={el.image} title={el.title} />
+            </Link>
           ))}
 
           {/* <ProductType Home={Home} />
