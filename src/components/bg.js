@@ -1,5 +1,4 @@
 import bg1 from "../images/bg1.jpg";
-import logo from "../images/logo.png";
 
 export default function Bg() {
   return (

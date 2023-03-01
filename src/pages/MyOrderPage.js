@@ -4,7 +4,7 @@ import OrderNavbar from "../components/navbar/OrderNavbar";
 export default function MyOrderPage() {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
+      <div className="w-full min-h-[844px] bg-white mx-auto border  ">
         <HeaderProfile />
         <OrderNavbar />
       </div>

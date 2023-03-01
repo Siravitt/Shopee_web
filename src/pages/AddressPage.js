@@ -5,7 +5,7 @@ export default function AddressPage() {
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
-        <div className="w-[390px] h-[70px] bg-orange-400  flex  items-center ">
+        <div className="w-[390px] h-[70px] bg-red-400  flex  items-center ">
           <ArrowBackIcon sx={{ fontSize: 35, color: "white" }} />
           <div className="text-[25px] text-white font-bold ml-5">
             My Address
@@ -27,7 +27,7 @@ export default function AddressPage() {
           <div className="text-[15px] text-gray-400 py-2 ml-5">
             123/45 Mint tower Bantadthong,Rd Bantadthong Bangkok 12345
           </div>
-          <button class="bg-transparent hover:bg-orange-400 text-orange-400 font-semibold hover:text-white py-0.5 ml-5 px-2 border border-orange-400 hover:border-transparent rounded">
+          <button class="bg-transparent hover:bg-red-400 text-red-400 font-semibold hover:text-white py-0.5 ml-5 px-2 border border-red-400 hover:border-transparent rounded">
             Default
           </button>
         </div>
@@ -47,7 +47,7 @@ export default function AddressPage() {
         </div>
         <SmallLine />
         <div>
-          <button class="w-[390px] h-[60px] bg-white hover:bg-blue-500 text-orange-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
+          <button class="w-[390px] h-[60px] bg-white hover:bg-blue-500 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
             ⊕ Add New Address
           </button>
         </div>

@@ -27,8 +27,15 @@ export default function ShopLoginPage() {
       </div>
       <div className="flex justify-center py-4">
         <Link to="/shop-register">
-          <button className="w-[200px]  border-2 bg-lime-200 py-1 rounded-xl text-gray font-bold hover:text-blue duration-200">
+          <button className="w-[200px]  border-2 bg-orange-700 py-1 rounded-xl text-white font-bold hover:bg-orange-600">
             Register?
+          </button>
+        </Link>
+      </div>
+      <div className="text-[14px] text-red-600 text-center hover:text-red-900">
+        <Link to="/shop-register">
+          <button className="underline">
+            Don't have an account? Register here!
           </button>
         </Link>
       </div>

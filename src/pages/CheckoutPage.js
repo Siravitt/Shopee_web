@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 export default function CheckoutPage() {
   return (
     <div className="w-[390px] min-h-[845px] mx-auto bg-white">
-      <div className="w-full h-[60px] bg-orange-400 flex items-center justify-center relative">
+      <div className="w-full h-[60px] bg-red-400 flex items-center justify-center relative">
         <button className="absolute top-4 left-4">
           <Link to="/my-cart">
             <ArrowBackIosIcon sx={{ fontSize: 25, color: "white" }} />
@@ -16,7 +15,7 @@ export default function CheckoutPage() {
         <div className="text-white text-[20px] font-bold">Checkout</div>
       </div>
       <button className="w-full h-[auto] px-4 pt-4 flex gap-8">
-        <LocationOnIcon sx={{ color: "orange", fontSize: 40 }} />
+        <LocationOnIcon sx={{ color: "red", fontSize: 40 }} />
         <div className="text-start flex flex-col gap-1">
           <div className="text-[18px]">Delivery Address</div>
           <div className="text-[12px]">John Doe | (+66) 12 123 1212</div>
@@ -33,9 +32,7 @@ export default function CheckoutPage() {
           <div className="flex flex-col gap-2">
             <div className="text-[14px] font-bold">Product name</div>
             <div className="text-[12px]">Product description</div>
-            <div className="text-[14px] text-orange-400 font-bold">
-              Price 199$
-            </div>
+            <div className="text-[14px] text-red-500 font-bold">Price 199$</div>
           </div>
         </div>
       </div>
@@ -45,15 +42,15 @@ export default function CheckoutPage() {
       </div>
       <div className="w-[390px] h-[70px] py-2 px-4 flex justify-between fixed bottom-[50px] border-t">
         <div className="text-[14px] font-bold">Order Total (Items)</div>
-        <div className="text-[14px] text-orange-400 font-bold">$623</div>
+        <div className="text-[14px] text-red-500 font-bold">$623</div>
       </div>
       <div className="h-[50px] w-[390px] bg-white flex gap-4 border-t fixed bottom-0">
         <div className="w-1/2 h-full flex flex-col items-end">
           <div className="text-[14px]">Total payment</div>
-          <div className="text-[14px] text-orange-400 font-bold">$623</div>
+          <div className="text-[14px] text-red-500 font-bold">$623</div>
         </div>
         <Link to="/PendingPage" className="w-1/2 h-full">
-          <button className="w-full h-full bg-orange-400 flex items-center justify-center text-white font-bold">
+          <button className="w-full h-full bg-red-500 flex items-center justify-center text-white font-bold">
             Checkout
           </button>
         </Link>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { shopRegister } from "../../apis/auth-shop-api";
 import Input from "../Input";
+import { Link } from "react-router-dom";
 
 const initialInput = {
   shopName: "",
@@ -61,9 +62,16 @@ export default function ShopRegisterForm() {
         onChange={handleChangeInput}
       />
       <div className="flex justify-center py-4">
-        <button className="w-[200px] bg-red-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
+        <button className="w-[200px] bg-orange-700 py-1 rounded-xl text-white font-bold hover:bg-orange-600 duration-200">
           Create account
         </button>
+      </div>
+      <div className="text-[14px] text-red-600 text-center hover:text-red-900">
+        <Link to="/shop-login">
+          <button className="underline">
+            Already have an account? Login here!
+          </button>
+        </Link>
       </div>
     </form>
   );
