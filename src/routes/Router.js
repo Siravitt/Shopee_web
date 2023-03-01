@@ -33,6 +33,7 @@ import AddProduct from "../pages/addProduct";
 import OrderDetail from "../pages/OrderDetail";
 import OrderDetailForShop from "../pages/OrderDetailForShop";
 import AddressPage from "../pages/AddressPage";
+import ShopEditProfile from "../pages/ShopEditProfile";
 
 const router = createBrowserRouter([
   {
@@ -136,6 +137,10 @@ const router = createBrowserRouter([
   {
     path: "/address",
     element: <AddressPage />,
+  },
+  {
+    path: "/shopEditProfile",
+    element: <ShopEditProfile />,
   },
 ]);
 

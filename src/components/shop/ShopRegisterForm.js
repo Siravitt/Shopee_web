@@ -34,16 +34,16 @@ export default function ShopRegisterForm() {
         value={input.shopName}
         onChange={handleChangeInput}
       />
-      <Input
+      {/* <Input
         name="address"
         label="Address"
         value={input.address}
         onChange={handleChangeInput}
-      />
+      /> */}
 
       <div className="flex justify-center py-8">
         <button className="w-[200px] bg-white py-2 rounded-xl text-red-300 font-bold text-2xl hover:bg-red-300 duration-200 cursor-pointe2">
-          Create Shop
+          Register Shop
         </button>
       </div>
     </form>
