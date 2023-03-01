@@ -24,13 +24,11 @@ const authSlice = createSlice({
 
 export const thunkFetchUser = data => async dispatch => {
   try {
-    // console.log("mu dfsadf");
     const res = await authService.getMe();
     console.log(res.data, "thunkFetchUser");
     dispatch(login(res.data.user));
   } catch (err) {
     // removeAccessToken();
-    console.log("heloooooooo");
     console.log(err.response?.data);
   }
 };

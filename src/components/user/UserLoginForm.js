@@ -26,10 +26,9 @@ export default function UserLoginForm() {
       e.preventDefault();
       dispatch(thunkLogin(input));
       setInput(initialInput);
-      console.log("rkam ", initialInput);
       navigate("/");
     } catch (err) {
-      console.log(err.data?.response);
+      console.log(err.response?.data);
     }
   };
 

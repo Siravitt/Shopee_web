@@ -38,12 +38,10 @@ export default function HomePage() {
 
         <div className="mx-4 mt-2 text-xl font-bold">
           <div>Catagory</div>
-          <div className="w-[390px] h-[100px] flex flex-row  my-4">
+          <div className="w-full h-[100px] flex justify-evenly my-4">
             {displayImages.map((el, idx) => (
-              <Link to={`/categoryProduct/${el.title}`}>
-                <div>
-                  <ProductType key={idx} image={el.image} title={el.title} />
-                </div>
+              <Link to={`/categoryProduct`}>
+                <ProductType key={idx} image={el.image} title={el.title} />
               </Link>
             ))}
 
