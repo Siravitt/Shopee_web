@@ -9,6 +9,7 @@ import Electronic from "../images/Electronic.jpg";
 import Beauty from "../images/Beauty.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
+import CardCat from "../components/CardCat";
 
 export default function ProductLifestyle() {
   const displayImages = [
@@ -52,7 +53,7 @@ export default function ProductLifestyle() {
       {/* +++++++++++++++++++++++++++++ END body +++++++++++++++++++++++++++++ */}
 
       <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2 ">
-        <Card />
+        <CardCat catId="4" />
       </div>
     </div>
   );
