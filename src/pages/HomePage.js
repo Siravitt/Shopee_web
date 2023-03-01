@@ -25,13 +25,12 @@ export default function HomePage() {
   // console.log("kram เอง", auth);
   return (
     <>
-      <div className="w-full h-full pb-[1px]">
+      <div className="w-full min-h-[844px] bg-white mx-auto border  ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
 
-        {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
-
-        {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
+        {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ *}
+          {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
         <div className="w-full h-[350px] relative">
           <Carousel />
         </div>

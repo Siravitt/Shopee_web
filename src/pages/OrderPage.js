@@ -5,7 +5,7 @@ import Logo2 from "../images/logo2.png";
 export default function OrderPage(order) {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
+      <div className="w-[390px] min-h-[844px] bg-white mx-auto border  ">
         <HeaderProfile />
         <OrderNavbar order="opacity-40" />
 

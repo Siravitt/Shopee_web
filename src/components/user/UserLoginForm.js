@@ -17,11 +17,11 @@ const initialInput = {
 export default function UserLoginForm() {
   const navigate = useNavigate();
   const [input, setInput] = useState(initialInput);
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   const dispatch = useDispatch();
-  const handleSubmitForm = e => {
+  const handleSubmitForm = (e) => {
     try {
       e.preventDefault();
       dispatch(thunkLogin(input));
@@ -48,11 +48,11 @@ export default function UserLoginForm() {
         onChange={handleChangeInput}
       />
       <div className="flex justify-center py-4">
-        {/* <Link to="/MyOrderPage"> */}
-        <button className="w-[200px] bg-orange-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
-          Log in
-        </button>
-        {/* </Link> */}
+        <Link to="/MyOrderPage">
+          <button className="w-[200px] bg-red-400 py-1 rounded-xl text-white font-bold hover:bg-red-300 duration-200">
+            Log in
+          </button>
+        </Link>
       </div>
     </form>
   );

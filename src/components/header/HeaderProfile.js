@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 
 import profile2 from "../../images/profile2.png";
+import Bgprofile1 from "../../images/bgprofile1.jpg";
 import { removeAccessToken } from "../../utils/local-storage";
 const refresh = () => window.location.reload(true);
 
@@ -14,19 +15,22 @@ export default function HeaderProfile() {
 
   return (
     <>
-      <div className="w-[390px] min-h-[188px] bg-orange-400  flex  items-center ">
-        <div className="w-[89px] min-h-[105px] mx-[28px]">
-          <img src={profile2} alt="" />
+      <div className="flex flex-col justify-center items-center max-w-sm mx-auto ">
+        <div className="h-70 w-full rounded-lg shadow-md bg-cover bg-center bg-blend-multiply">
+          <img src={Bgprofile1} alt="" />
         </div>
-
-        <div className="">
-          <div className="text-white text-[20px]">
-            <h1>Username</h1>
+        <div className="w-56 md:w-64  -mt-16  rounded-lg overflow-hidden">
+          <div className="flex justify-center items-center">
+            <img src={profile2} alt="" />
           </div>
-
-          <div className="h-[24px] w-[82px] text-orange-400 bg-gray-200 flex justify-center items-center  text-[12px] my-1">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+            Username
+          </div>
+          <div className="flex items-center justify-center">
             <Link to="/UserEditProfile">
-              <button>Edit Profile</button>
+              <button className=" bg-red-400 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
+                Edit profile
+              </button>
             </Link>
           </div>
 

@@ -1,6 +1,6 @@
 // import HeaderProfile from "../components/header/HeaderProfile";
-import HeaderProfileForShop from "../components/header/HeaderProfileForShop";
-import OrderNavbar from "../components/navbar/OrderNavbar";
+// import HeaderProfileForShop from "../components/header/HeaderProfileForShop";
+// import OrderNavbar from "../components/navbar/OrderNavbar";
 
 export default function OrderListForShop() {
   return (

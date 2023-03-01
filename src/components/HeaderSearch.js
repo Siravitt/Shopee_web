@@ -3,7 +3,7 @@ import Vectorbasket from "../images/Vectorbasket.png";
 function HeaderSearch() {
   return (
     <>
-      <div className="w-[390px] h-[70px] px-4 bg-orange-400 flex items-center top-0 fixed z-10">
+      <div className="w-[390px] h-[70px] px-4 bg-red-400 flex items-center top-0 fixed z-10">
         <form>
           <label
             for="search"

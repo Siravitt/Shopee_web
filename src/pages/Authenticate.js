@@ -4,15 +4,20 @@ import profile2 from "../images/profile2.png";
 import logowithword from "../images/logowithword.png";
 import SmallLine from "../components/SmallLine";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import Shop from "../images/shop.png";
+import Bgprofile1 from "../images/bgprofile1.jpg";
+// import Shop from "../images/shop.png";
 
 export default function Authenticate() {
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto">
-        <div className="w-[390px] min-h-[188px] bg-orange-400 flex items-center">
-          <div className="w-full h-full flex gap-4 items-center mx-8">
-            <div className="shrink-0 w-[75px] h-[75px] rounded-full bg-white flex items-center mr-10">
+      <div className="w-full min-h-[844px] bg-white   ">
+        <div className="w-[390px] min-h-[10px] bg-red-300 mx-auto"></div>
+        <div className="w-[390px] min-h-[844px] bg-white mx-auto border">
+          <div className="w-[390px] h-[180px] flex gap-4 items-center border bg-red-100">
+            {/* <div className="h-70 w-full rounded-lg shadow-md bg-cover bg-center bg-blend-multiply">
+            <img src={Bgprofile1} alt="" />
+          </div> */}
+            <div className="shrink-0 w-[75px] h-[75px] rounded-full bg-white flex items-center mr-10 mt-5 ml-8 ">
               <img
                 src={profile2}
                 alt=""
@@ -20,29 +25,30 @@ export default function Authenticate() {
               />
             </div>
             <Link to="/user-login" className="shrink-0">
-              <button className="bg-white text-orange-400 border-2 border-white font-bold px-4 py-1 rounded-lg hover:bg-gray-200 duration-200">
+              <button className="bg-red-400 text-white border-2 border-gray-200 font-bold px-4 py-1 rounded-lg hover:bg-gray-200 duration-200 mt-5">
                 Log In
               </button>
             </Link>
             <Link to="/user-register" className="shrink-0">
-              <button className="bg-orange-400 text-white border-2 font-bold px-4 py-1 rounded-lg hover:bg-orange-300 duration-200">
+              <button className="bg-red-500 text-white border-2 font-bold px-4 py-1 rounded-lg hover:bg-red-300 duration-200 mt-5">
                 Register
               </button>
             </Link>
           </div>
-        </div>
-        <div className="w-full h-[50px] px-4 flex items-center gap-4 bg-orange-100">
-          <LocalMallIcon sx={{ color: "orange" }} />
 
-          <Link to="/shop-login">
-            <div className="text-orange-400 text-sm">Go to shop</div>
-          </Link>
-        </div>
+          <div className="w-full h-[50px] px-4 flex items-center gap-4 bg-red-300">
+            <LocalMallIcon sx={{ color: "white" }} />
 
-        <SmallLine />
+            <Link to="/shop-login">
+              <div className="text-white text-sm">Go to shop</div>
+            </Link>
+          </div>
 
-        <div className="opacity-50 flex justify-center mt-20">
-          <img src={logowithword} alt="" />
+          <SmallLine />
+
+          <div className="opacity-50 flex justify-center mt-20">
+            <img src={logowithword} alt="" />
+          </div>
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@ import BigLine from "../components/BigLine";
 export default function Mycart() {
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto">
-      <div className="w-full h-[60px] px-4 bg-orange-400 flex flex-row justify-between items-center">
+      <div className="w-full h-[60px] px-4 bg-red-400 flex flex-row justify-between items-center">
         <Link to="/">
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
@@ -42,7 +42,7 @@ export default function Mycart() {
           <div className="text-[20px]">All</div>
         </div>
         <Link to="/checkout">
-          <button className="w-[157px] h-[49px] bg-orange-400 flex items-center justify-center text-white font-bold">
+          <button className="w-[157px] h-[49px] bg-red-500 flex items-center justify-center text-white font-bold">
             Checkout
           </button>
         </Link>

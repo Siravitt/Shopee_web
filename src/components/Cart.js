@@ -13,7 +13,7 @@ export default function Cart() {
           <div className="text-[15px] text-black font-light ">
             Product Description
           </div>
-          <div className="text-[15px] text-orange font-light text-orange-500	">
+          <div className="text-[15px] text-red font-light text-red-500	">
             Price
           </div>
           <div>
