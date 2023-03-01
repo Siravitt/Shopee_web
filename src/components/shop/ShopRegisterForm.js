@@ -4,10 +4,7 @@ import Input from "../Input";
 
 const initialInput = {
   shopName: "",
-  email: "",
-  phone: "",
-  password: "",
-  confirmPassword: "",
+  address: "",
 };
 
 export default function ShopRegisterForm() {
@@ -27,42 +24,26 @@ export default function ShopRegisterForm() {
     }
   };
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmitForm}>
+    <form
+      className="flex flex-col gap-4 text-white text-xl font-bold mx-8 pt-20"
+      onSubmit={handleSubmitForm}
+    >
       <Input
         name="shopName"
-        label="shop-Name"
+        label="Shop-Name"
         value={input.shopName}
         onChange={handleChangeInput}
       />
       <Input
-        name="email"
-        label="E-mail"
-        value={input.email}
+        name="address"
+        label="Address"
+        value={input.address}
         onChange={handleChangeInput}
       />
-      <Input
-        name="phone"
-        label="phone"
-        value={input.phone}
-        onChange={handleChangeInput}
-      />
-      <Input
-        type="password"
-        name="password"
-        label="Password"
-        value={input.password}
-        onChange={handleChangeInput}
-      />
-      <Input
-        type="password"
-        name="confirmPassword"
-        label="Confirm-password"
-        value={input.confirmPassword}
-        onChange={handleChangeInput}
-      />
-      <div className="flex justify-center py-4">
-        <button className="w-[200px] bg-red-400 py-1 rounded-xl text-white font-bold hover:bg-orange-300 duration-200">
-          Create account
+
+      <div className="flex justify-center py-8">
+        <button className="w-[200px] bg-white py-2 rounded-xl text-red-300 font-bold text-2xl hover:bg-orange-300 duration-200 cursor-pointe2">
+          Create Shop
         </button>
       </div>
     </form>
