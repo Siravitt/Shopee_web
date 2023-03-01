@@ -53,11 +53,6 @@ export default function ProductElectronic() {
 
       <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2 ">
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
       </div>
     </div>
   );
