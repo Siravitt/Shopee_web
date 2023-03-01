@@ -2,15 +2,15 @@ import { thunkFetchAllProduct } from "../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-export default function Card() {
+export default function Card(props) {
   const dispatch = useDispatch();
 
   const state = useSelector(state => state.allProduct);
   // console.log(product);
 
   useEffect(() => {
-    dispatch(thunkFetchAllProduct());
-    console.log("มามั้ย");
+    dispatch(thunkFetchAllProduct(props.catId));
+    // console.log("มามั้ย");
   }, [dispatch]);
   return (
     <>

@@ -9,9 +9,9 @@ const productSlice = createSlice({
     setProduct: (state, action) => {
       state.cardList = action.payload;
     },
-    setProductBycat: (state, action) => {
-      state.productFilter.categoryId = action.payload;
-    },
+    // setProductBycat: (state, action) => {
+    //   state.productFilter.categoryId = action.payload;
+    // },
   },
 });
 
