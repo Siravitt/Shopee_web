@@ -33,7 +33,11 @@ import AddProduct from "../pages/addProduct";
 import OrderDetail from "../pages/OrderDetail";
 import OrderDetailForShop from "../pages/OrderDetailForShop";
 import AddressPage from "../pages/AddressPage";
-import CategoryProductPage from "../pages/CategoryProductPage";
+import ProductHomePage from "../pages/ProductHomePage";
+import ProductElectronicPage from "../pages/ProductElectronicPage";
+import ProductBeautyPage from "../pages/ProductBeautyPage";
+import ProductLifestylePage from "../pages/ProductLifestylePage";
+import ProductKidPage from "../pages/ProductKidPage";
 
 const router = createBrowserRouter([
   {
@@ -92,8 +96,24 @@ const router = createBrowserRouter([
         element: <UserEditProfile />,
       },
       {
-        path: "/CategoryProduct",
-        element: <CategoryProductPage />,
+        path: "/ProductHome",
+        element: <ProductHomePage />,
+      },
+      {
+        path: "/ProductElectronic",
+        element: <ProductElectronicPage />,
+      },
+      {
+        path: "/ProductBeauty",
+        element: <ProductBeautyPage />,
+      },
+      {
+        path: "/ProductLifestyle",
+        element: <ProductLifestylePage />,
+      },
+      {
+        path: "/ProductKid",
+        element: <ProductKidPage />,
       },
     ],
   },

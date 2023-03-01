@@ -15,11 +15,11 @@ import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const displayImages = [
-    { image: Home, title: "Home" },
-    { image: Electronic, title: "Electronic" },
-    { image: Beauty, title: "Beauty" },
-    { image: Lifestyle, title: "Lifestyle" },
-    { image: Kid, title: "Kid" },
+    { image: Home, title: "Home", slash: "ProductHome" },
+    { image: Electronic, title: "Electronic", slash: "ProductElectronic" },
+    { image: Beauty, title: "Beauty", slash: "ProductBeauty" },
+    { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
+    { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
   // const auth = useSelector(state => state.auth.auth);
   // console.log("kram เอง", auth);
@@ -41,7 +41,7 @@ export default function HomePage() {
           <div className="w-full h-[100px] flex justify-evenly my-4">
             {/* <div className="w-full h-[100px] flex  justify-between my-4"> */}
             {displayImages.map((el, idx) => (
-              <Link to={`/categoryProduct`}>
+              <Link to={`/${el.slash}`}>
                 <ProductType key={idx} image={el.image} title={el.title} />
               </Link>
             ))}
