@@ -36,15 +36,10 @@ export default function HomePage() {
 
         <div className="mx-4 mt-2 text-xl font-bold">
           <div>Catagory</div>
-          <div className="w-full h-[100px] flex  justify-between gap-3 my-4">
+          <div className="w-full h-[100px] flex  justify-between my-4">
             {displayImages.map((el, idx) => (
               <ProductType key={idx} image={el.image} title={el.title} />
             ))}
-
-            {/* <ProductType Home={Home} />
-            <ProductType Electronic={Electronic} />
-            <ProductType Beauty={Beauty} />
-            <ProductType Lifestyle={Lifestyle} /> */}
           </div>
         </div>
         <hr className="bg-gray mx-4 my-4 border-2" />
@@ -59,11 +54,6 @@ export default function HomePage() {
           <h1>Product</h1>
         </div>
         <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
           <Card />
         </div>
         {/* +++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++ */}
