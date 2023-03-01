@@ -6,9 +6,16 @@ import Logo from "../images/logo.png";
 
 export default function ShopRegisterPage() {
   return (
-    <div className="relative w-[390px] min-h-[845px] mx-auto border bg-[#fdcacc] ">
-      <div className="absolute inset-0 h-full w-full object-cover">
-        <video controls autoPlay muted loop id="myVideo">
+    <div className="relative w-[390px] min-h-[845px] mx-auto border">
+      <div className="absolute inset-0 h-[full] w-full ">
+        <video
+          className="h-[845px] object-cover"
+          controls
+          autoPlay
+          muted
+          loop
+          id="myVideo"
+        >
           <source src={openShop} type="video/mp4" />
         </video>
       </div>

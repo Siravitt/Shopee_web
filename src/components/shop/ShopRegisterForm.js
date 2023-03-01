@@ -25,7 +25,7 @@ export default function ShopRegisterForm() {
   };
   return (
     <form
-      className="flex flex-col gap-4 text-white text-xl font-bold mx-8 pt-20"
+      className="flex flex-col gap-4 text-white text-2xl font-bold mx-8 pt-32"
       onSubmit={handleSubmitForm}
     >
       <Input
@@ -42,7 +42,7 @@ export default function ShopRegisterForm() {
       />
 
       <div className="flex justify-center py-8">
-        <button className="w-[200px] bg-white py-2 rounded-xl text-red-300 font-bold text-2xl hover:bg-orange-300 duration-200 cursor-pointe2">
+        <button className="w-[200px] bg-white py-2 rounded-xl text-red-300 font-bold text-2xl hover:bg-red-300 duration-200 cursor-pointe2">
           Create Shop
         </button>
       </div>
