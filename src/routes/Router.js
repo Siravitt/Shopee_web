@@ -33,6 +33,7 @@ import AddProduct from "../pages/addProduct";
 import OrderDetail from "../pages/OrderDetail";
 import OrderDetailForShop from "../pages/OrderDetailForShop";
 import AddressPage from "../pages/AddressPage";
+import CategoryProductPage from "../pages/CategoryProductPage";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "/UserEditProfile",
         element: <UserEditProfile />,
+      },
+      {
+        path: "/CategoryProduct",
+        element: <CategoryProductPage />,
       },
     ],
   },

@@ -9,7 +9,9 @@ import Home from "../images/Home.jpg";
 import Electronic from "../images/Electronic.jpg";
 import Beauty from "../images/Beauty.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
-import { useSelector } from "react-redux";
+import Kid from "../images/kid.jpg";
+import { Link } from "react-router-dom";
+// import { useSelector } from "react-redux";
 
 export default function HomePage() {
   const displayImages = [
@@ -17,13 +19,13 @@ export default function HomePage() {
     { image: Electronic, title: "Electronic" },
     { image: Beauty, title: "Beauty" },
     { image: Lifestyle, title: "Lifestyle" },
-    { image: Lifestyle, title: "Lifestyle" },
+    { image: Kid, title: "Kid" },
   ];
   // const auth = useSelector(state => state.auth.auth);
   // console.log("kram เอง", auth);
   return (
     <>
-      <div className="w-full h-full">
+      <div className="w-full h-full pb-[1px]">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
 
@@ -36,9 +38,13 @@ export default function HomePage() {
 
         <div className="mx-4 mt-2 text-xl font-bold">
           <div>Catagory</div>
-          <div className="w-full h-[100px] flex  justify-between gap-3 my-4">
+          <div className="w-[390px] h-[100px] flex flex-row  my-4">
             {displayImages.map((el, idx) => (
-              <ProductType key={idx} image={el.image} title={el.title} />
+              <Link to={`/categoryProduct/${el.title}`}>
+                <div>
+                  <ProductType key={idx} image={el.image} title={el.title} />
+                </div>
+              </Link>
             ))}
 
             {/* <ProductType Home={Home} />
@@ -58,7 +64,7 @@ export default function HomePage() {
         <div className="mx-4 text-xl font-bold">
           <h1>Product</h1>
         </div>
-        <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
+        <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2 ">
           <Card />
           <Card />
           <Card />
