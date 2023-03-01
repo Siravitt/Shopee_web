@@ -19,7 +19,7 @@ export default function ProductPage() {
         <HeaderSearch />
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
         {/* +++++++++++++++++++++++++++++ image movie +++++++++++++++++++++++++++++ */}
-        <div className="w-[377=px] h-[355px] rounded-full flex items-center justify-center mt-[70px] ">
+        <div className="w-[377=px] h-[355px] rounded-full flex items-center justify-center ">
           <ImageSlider />
         </div>
 
