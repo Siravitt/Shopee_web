@@ -17,12 +17,15 @@ const authSlice = createSlice({
     login: (state, action) => {
       state.auth = action.payload;
     },
+    googleLogin: (state, action) => {
+      state.auth = action.payload;
+    },
   },
 });
 
 // const {} = authSlice.actions;
 
-export const thunkFetchUser = data => async dispatch => {
+export const thunkFetchUser = (data) => async (dispatch) => {
   try {
     const res = await authService.getMe();
     console.log(res.data, "thunkFetchUser");
@@ -33,7 +36,7 @@ export const thunkFetchUser = data => async dispatch => {
   }
 };
 
-export const thunkLogin = data => async dispatch => {
+export const thunkLogin = (data) => async (dispatch) => {
   try {
     //   dispatch(loading(true));
     const res = await authService.userLogin(data);
@@ -51,6 +54,17 @@ export const thunkLogin = data => async dispatch => {
   }
 };
 
+export const thunkGoogleLogin = (token) => async (dispatch) => {
+  try {
+    const res = await authService.googleLogin(token);
+    console.log(res.data.accessToken, "accss");
+    setAccessToken(res.data.accessToken);
+    dispatch(googleLogin(jwtDecode(res.data.accessToken)));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default authSlice.reducer;
 
-export const { login } = authSlice.actions;
+export const { login, googleLogin } = authSlice.actions;
