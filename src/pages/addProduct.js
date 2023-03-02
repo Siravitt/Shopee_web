@@ -1,4 +1,5 @@
 import React from "react";
+// import Input from "../Input";
 
 export default function AddProduct() {
   return (
@@ -44,19 +45,6 @@ export default function AddProduct() {
               <input id="dropzone-file" type="file" className="hidden" />
             </label>
           </div>
-
-          <input
-            placeholder="Product Name"
-            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
-          />
-          <input
-            placeholder="Description"
-            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
-          />
-          <input
-            placeholder="Price"
-            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
-          />
           <select className="select w-full max-w-md bg-blue-50 mx-auto my-2">
             <option disabled selected>
               Category
@@ -67,12 +55,37 @@ export default function AddProduct() {
             <option>Lifestyle</option>
             <option>Technology</option>
           </select>
+          <input
+            type="text"
+            placeholder="Product Name"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
+          />
+          <input
+            type="text"
+            placeholder="Description"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
+          />
+          <input
+            type="number"
+            placeholder="Price"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
+          />
+          <input
+            type="number"
+            placeholder="Quantity"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
+          />
+          <input
+            type="number"
+            placeholder="Weight"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
+          />
         </form>
       </div>
       <div className="flex justify-center">
         <button
           type="submit"
-          className="bg-blue-400 py-2 px-8 rounded-md text-white font-bold"
+          className="bg-blue-400 py-2 px-8 rounded-md text-white font-bold mb-24"
         >
           Submit
         </button>
