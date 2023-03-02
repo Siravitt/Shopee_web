@@ -8,15 +8,16 @@ import { useEffect } from "react";
 export default function CardCat(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct);
+  const state = useSelector(state => state.allProduct.productFilter);
   // console.log(product);
   useEffect(() => {
     dispatch(thunkFetchAllProductByCatId(props.catId));
   }, [dispatch, props.catId]);
-
+  console.log("state.productFilter", state);
   return (
     <>
-      {state.productFilter.map(item => {
+      {JSON.stringify(state.products)}
+      {/* { state.products.map(item => {
         return (
           <div className="1">
             <div
@@ -56,7 +57,7 @@ export default function CardCat(props) {
             </div>
           </div>
         );
-      })}
+      })} */}
     </>
   );
 }
