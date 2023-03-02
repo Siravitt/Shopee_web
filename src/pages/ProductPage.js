@@ -5,13 +5,30 @@ import HeaderSearch from "../components/header/HeaderSearch.js";
 import Review from "../components/Review.js";
 import PriceProduct from "../components/PriceProduct.js";
 import SmallLine from "../components/SmallLine.js";
+import { useEffect } from "react";
 import BigLine from "../components/BigLine.js";
+import { useDispatch, useSelector } from "react-redux";
 
 import movie from "../images/movie.png";
 import logomovie from "../images/logomovie.png";
 import ImageSlider from "../components/imgProduct/ImageSlider.js";
+import { thunkFetchGetProduct } from "../reduxStore/ProductSlice.js";
+import { useNavigate, useParams } from "react-router-dom";
+
+// import { useDispatch } from "react-redux";
 
 export default function ProductPage() {
+  let { productId } = useParams();
+
+  const dispatch = useDispatch();
+  const state = useSelector(state => state.allProduct.product);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    dispatch(thunkFetchGetProduct(productId));
+    console.log("kram", state);
+  }, [dispatch]);
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-white mx-auto border  overflow-y-scroll ">
@@ -31,7 +48,7 @@ export default function ProductPage() {
 
         {/* +++++++++++++++++++++++++++++ detail name price amount +++++++++++++++++++++++++++++ */}
 
-        <PriceProduct />
+        <PriceProduct name={state.name} price={state.price} />
 
         {/* +++++++++++++++++++++++++++++ END detail name price amount +++++++++++++++++++++++++++++ */}
         {/* +++++++++++++++++++++++++++++ line +++++++++++++++++++++++++++++ */}
@@ -50,7 +67,7 @@ export default function ProductPage() {
             </div>
             <div className=" flex justify-between">
               <div className=" text-orange-400 ">
-                <p>123</p>
+                <p>{state.name}</p>
               </div>
               <div className=" pl-2">
                 <p>รายการสินค้า</p>
@@ -78,14 +95,7 @@ export default function ProductPage() {
           <div className="px-4 py-2">
             <h1>รายละเอียด</h1>
 
-            <p>
-              ***หากสินค้ามีปัญหา ติดต่อทางร้านก่อนนะคะ <br />
-              ***หากพึงพอใจในสินค้าให้ 5 ดาวทีนะคะ <br />
-              เพื่อเป็นกำลังใจให้กับทางร้านค้า *** <br />
-              ***รับประกันสินค้าภายใน 7 วัน กรณีสินค้าเกิดความเสียหาย <br />
-              ไม่สามารถใช้งานได้ <br />
-              รบกวนถ่ายวิดีโอก่อนแกะสินค้าทุกครั้งนะคะ***
-            </p>
+            <p>{state.description}</p>
           </div>
           {/* +++++++++++++++++++++++++++++ line small+++++++++++++++++++++++++++++ */}
           <SmallLine />

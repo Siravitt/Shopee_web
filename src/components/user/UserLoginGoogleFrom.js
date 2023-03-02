@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { thunkGoogleLogin } from "../../reduxStore/AuthSlice";
 import { useDispatch } from "react-redux";
+import { getAccessToken } from "../../utils/local-storage";
+import { useNavigate } from "react-router-dom";
 
 export default function UserLoginGoogleFrom() {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   // const handleSubmitForm = e => {
   //   try{
@@ -21,6 +25,7 @@ export default function UserLoginGoogleFrom() {
     // console.log("Encoded JWT ID token:" + response.credential);
     // var userObject = jwt_decode(response.credential);
     // console.log(userObject);
+    navigate("/");
   }
 
   useEffect(() => {
@@ -36,7 +41,7 @@ export default function UserLoginGoogleFrom() {
       {
         theme: "outline",
         size: "large",
-      }
+      },
     );
   }, []);
 

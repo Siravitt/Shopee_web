@@ -10,7 +10,7 @@ export default function HeaderProfile() {
   const logOut = () => {
     removeAccessToken();
     navigate("/");
-    refresh();
+    // refresh();
   };
 
   return (

@@ -4,7 +4,8 @@ import Input from "../Input";
 import { Link, useNavigate } from "react-router-dom";
 import { thunkLogin } from "../../reduxStore/AuthSlice";
 import { useDispatch } from "react-redux";
-
+import { getAccessToken } from "../../utils/local-storage";
+import { useEffect } from "react";
 // import UserLoginGoogleFrom from "./UserLoginGoogleFrom";
 
 // <UserLoginGoogleFrom />
@@ -15,7 +16,13 @@ const initialInput = {
 };
 
 export default function UserLoginForm() {
+  // const refresh = () => window.location.reload(true);
   const navigate = useNavigate();
+  useEffect(() => {
+    if (getAccessToken()) {
+      navigate("/");
+    }
+  }, []);
   const [input, setInput] = useState(initialInput);
   const handleChangeInput = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -26,7 +33,11 @@ export default function UserLoginForm() {
       e.preventDefault();
       dispatch(thunkLogin(input));
       setInput(initialInput);
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+
+      // navigate("/");
     } catch (err) {
       console.log(err.response?.data);
     }

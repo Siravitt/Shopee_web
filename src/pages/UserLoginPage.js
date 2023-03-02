@@ -1,9 +1,18 @@
 import UserLoginForm from "../components/user/UserLoginForm";
 import UserLoginGoogleFrom from "../components/user/UserLoginGoogleFrom";
 import Bg from "../components/bg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { getAccessToken } from "../utils/local-storage";
 
 export default function UserLoginPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (getAccessToken()) {
+      navigate("/");
+    }
+  }, [getAccessToken]);
   return (
     <>
       <div className="bg-red-200 h-[845px]">
