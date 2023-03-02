@@ -41,7 +41,7 @@ export const thunkFetchAllProduct = () => async dispatch => {
 export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   try {
     const res = await productService.getAllProductByCatId(categoryId);
-    dispatch(setProductByCat(res.data.products));
+    dispatch(setProductByCat(res.data));
   } catch (err) {
     console.log(err);
   }
@@ -49,7 +49,6 @@ export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
 
 export const thunkFetchGetProduct = productId => async dispatch => {
   try {
-
     const res = await productService.getProduct(productId);
     dispatch(setProductId(res.data.product));
   } catch (err) {
