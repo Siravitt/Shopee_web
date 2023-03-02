@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { shopRegister } from "../../apis/auth-shop-api";
 import Input from "../Input";
 
 const initialInput = {
   shopName: "",
-  address: "",
+  // address: "",
 };
 
 export default function ShopRegisterForm() {
@@ -24,28 +25,39 @@ export default function ShopRegisterForm() {
     }
   };
   return (
-    <form
-      className="flex flex-col gap-4 text-white text-2xl font-bold mx-8 pt-32"
-      onSubmit={handleSubmitForm}
+    <div
+      className="flex flex-col bg-white mx-8 rounded-xl mt-32
+    "
     >
-      <Input
-        name="shopName"
-        label="Shop-Name"
-        value={input.shopName}
-        onChange={handleChangeInput}
-      />
-      {/* <Input
+      <form
+        className="gap-4 text-blue-400 text-2xl font-bold mx-8 pt-8"
+        onSubmit={handleSubmitForm}
+      >
+        <p className="flex justify-center text-2xl">Register Shop Name</p>
+        <Input
+          className=""
+          type="text"
+          name="shopName"
+          // label="Shop Name"
+          value={input.shopName}
+          onChange={handleChangeInput}
+        />
+        {/* <Input
         name="address"
         label="Address"
         value={input.address}
         onChange={handleChangeInput}
       /> */}
 
-      <div className="flex justify-center py-8">
-        <button className="w-[200px] bg-white py-2 rounded-xl text-red-300 font-bold text-2xl hover:bg-red-300 duration-200 cursor-pointe2">
-          Register Shop
-        </button>
-      </div>
-    </form>
+        <div className="flex justify-center pt-8">
+          <button className="w-full bg-blue-400 py-2 rounded-xl text-white font-bold text-2xl hover:bg-blue-200 duration-200 cursor-pointe2">
+            Submit
+          </button>
+        </div>
+        <div className="text-sm pt-4 pb-16 flex justify-center">
+          <Link to="/myOrderPage">Go back to user profile</Link>
+        </div>
+      </form>
+    </div>
   );
 }

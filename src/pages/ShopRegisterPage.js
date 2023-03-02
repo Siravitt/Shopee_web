@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import openShop from "../images/openShop.mp4";
+import openShop from "../images/signupShop.mp4";
 
 import ShopRegisterForm from "../components/shop/ShopRegisterForm";
 import Logo from "../images/logo.png";

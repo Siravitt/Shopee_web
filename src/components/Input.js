@@ -8,7 +8,7 @@ export default function Input({ type, name, label, value, onChange }) {
         placeholder={label}
         value={value}
         onChange={onChange}
-        className="w-full rounded-xl border px-4 py-1"
+        className="w-full rounded-xl border px-4 py-2 mt-4 bg-blue-100 "
       />
     </div>
   );

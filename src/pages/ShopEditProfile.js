@@ -1,14 +1,14 @@
 import React from "react";
-import editShop from "../images/Editshop-removebg.png";
+import editShop from "../images/editShop.png";
 
 export default function ShopEditProfile() {
   return (
-    <div className="w-[390px] min-h-[845px] bg-red-200 mx-auto border">
+    <div className="w-[390px] min-h-[845px] bg- mx-auto border bg-blue-400">
       <div className="m-8 flex justify-center">
         <img src={editShop} />
       </div>
       <div className="mx-8">
-        <form className="gap-4 ">
+        <form className="">
           <div className="flex items-center justify-center w-full">
             <label
               for="dropzone-file"
@@ -51,7 +51,7 @@ export default function ShopEditProfile() {
       <div className="flex justify-center my-8">
         <button
           type="submit"
-          className="bg-red-400 p-2 rounded-md text-white font-bold"
+          className="bg-white p-2 rounded-md text-blue-400 font-bold px-8 text-2xl"
         >
           Submit
         </button>
