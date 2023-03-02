@@ -4,13 +4,16 @@ import * as productService from "../apis/product-api";
 
 const productSlice = createSlice({
   name: "product",
-  initialState: { cardList: [], productFilter: [] },
+  initialState: { cardList: [], productFilter: [], product: {} },
   reducers: {
     setProduct: (state, action) => {
       state.cardList = action.payload;
     },
     setProductBycat: (state, action) => {
       state.productFilter = action.payload;
+    },
+    setProductId: (state, action) => {
+      state.product = action.payload;
     },
   },
 });
@@ -43,7 +46,21 @@ export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   }
 };
 
+export const thunkFetchGetProduct = productId => async dispatch => {
+  try {
+    // console.log("mu dfsadf");
+    // alert("555");
+    const res = await productService.getProduct(productId);
+    console.log(res.data, "getProduct");
+    dispatch(setProductId(res.data.product));
+  } catch (err) {
+    // removeAccessToken();
+    console.log("product-error");
+    console.log(err.response?.data);
+  }
+};
+
 export default productSlice.reducer;
 
-const { setProduct, setProductBycat } = productSlice.actions;
-export { setProduct, setProductBycat };
+const { setProduct, setProductBycat, setProductId } = productSlice.actions;
+export { setProduct, setProductBycat, setProductId };

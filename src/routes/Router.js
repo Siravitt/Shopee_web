@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: <ChatBox />,
       },
       {
-        path: "/product",
+        path: "/product/:productId",
         element: <ProductPage />,
       },
       {

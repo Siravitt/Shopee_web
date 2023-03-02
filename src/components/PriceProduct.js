@@ -1,11 +1,11 @@
 import star from "../images/star.png";
 
-export default function PriceProduct() {
+export default function PriceProduct(props) {
   return (
     <>
       <div className="w-[377px] h-[109px] px-4 ">
-        <h1 className="py-2 ">Mr. Bean dvd boxset</h1>
-        <h1 className="">฿ 100</h1>
+        <h1 className="py-2 ">{props.name}</h1>
+        <h1 className="">฿ {props.price}</h1>
         <div className="flex  justify-between py-2">
           <div className="flex ">
             <img src={star} alt="" />
