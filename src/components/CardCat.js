@@ -12,13 +12,8 @@ export default function CardCat(props) {
   // console.log(product);
   useEffect(() => {
     dispatch(thunkFetchAllProductByCatId(props.catId));
-    // console.log("มามั้ย");
-  }, [dispatch]);
+  }, [dispatch, props.catId]);
 
-  // useEffect(() => {
-  //   dispatch(thunkFetchAllProduct());
-  //   // console.log("มามั้ย");
-  // }, [dispatch]);
   return (
     <>
       {state.productFilter.map(item => {

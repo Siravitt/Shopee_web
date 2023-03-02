@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MessageOutlinedIcon from "@mui/icons-material/MessageOutlined";
-// import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
-// import { useSelector } from "react-redux";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { getAccessToken } from "../../src/utils/local-storage";
 
 export default function BottomNavbar() {
   // const auth = useSelector(state => state.auth.auth);

@@ -1,7 +1,4 @@
-import {
-  thunkFetchAllProduct,
-  thunkFetchAllProductByCatId,
-} from "../reduxStore/ProductSlice";
+import { thunkFetchAllProduct } from "../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -9,20 +6,14 @@ import { Link } from "react-router-dom";
 export default function Card(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct);
-  // console.log(product);
-  // useEffect(() => {
-  //   dispatch(thunkFetchAllProductByCatId(props.catId));
-  //   // console.log("มามั้ย");
-  // }, [dispatch]);
+  const state = useSelector((state) => state.allProduct);
 
   useEffect(() => {
     dispatch(thunkFetchAllProduct());
-    // console.log("มามั้ย");
   }, [dispatch]);
   return (
     <>
-      {state.cardList.map(item => {
+      {state.cardList.map((item) => {
         return (
           <div className="">
             <Link to={`/product/${item.id}`}>
@@ -35,7 +26,7 @@ export default function Card(props) {
                 // }}
               >
                 <div className=" ">
-                  {item.ProductImages.map(data => {
+                  {item.ProductImages.map((data) => {
                     return (
                       <img
                         className="p-auto rounded-t-lg  "

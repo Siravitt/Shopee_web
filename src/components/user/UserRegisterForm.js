@@ -25,11 +25,9 @@ export default function UserRegisterForm() {
   const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
-      console.log(input);
       await userRegister(input);
       setInput(initialInput);
       navigate("/user-login");
-      console.log("handleSubmitForm");
     } catch (err) {
       console.log(err.response?.data);
     }

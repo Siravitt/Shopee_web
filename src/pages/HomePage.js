@@ -1,10 +1,6 @@
 import HeaderSearch from "../components/header/HeaderSearch.js";
-
-// import BigLine from "../components/BigLine.js";
-// import SmallLine from "../components/SmallLine.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
-import Carousel from "../templates/carousel";
 import Home from "../images/Home.jpg";
 import Electronic from "../images/Electronic.jpg";
 import Beauty from "../images/Beauty.jpg";
@@ -12,7 +8,6 @@ import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
 import { Link } from "react-router-dom";
 import Welcome from "../images/Welcome.mp4";
-// import { useSelector } from "react-redux";
 
 export default function HomePage() {
   const displayImages = [
@@ -22,8 +17,6 @@ export default function HomePage() {
     { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
     { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
-  // const auth = useSelector(state => state.auth.auth);
-  // console.log("kram เอง", auth);
   return (
     <>
       <div className="w-full min-h-[844px] bg-gray-50 mx-auto border  ">
@@ -51,7 +44,7 @@ export default function HomePage() {
           <div className="w-full h-[100px] flex justify-evenly my-4">
             {/* <div className="w-full h-[100px] flex  justify-between my-4"> */}
             {displayImages.map((el, idx) => (
-              <Link to={`/${el.slash}`}>
+              <Link to={`/${el.slash}`} key={idx}>
                 <ProductType key={idx} image={el.image} title={el.title} />
               </Link>
             ))}
