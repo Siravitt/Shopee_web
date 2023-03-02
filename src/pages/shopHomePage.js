@@ -30,9 +30,6 @@ function ShopHome() {
       </div>
       <div className="grid grid-cols-2 gap-2 p-2 mt-[240px] ">
         <Card />
-        <Card />
-        <Card />
-        <Card />
       </div>
       <div className="w-full h-[54px] mb-[-5px]  bg-white "></div>
       {/* <MobileLayoutForShop /> */}

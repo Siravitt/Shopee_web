@@ -1,27 +1,24 @@
 import {
   // thunkFetchAllProduct,
-  thunkFetchAllProductByCatId,
+  thunkFetchAllProductByShopId,
 } from "../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-export default function CardCat(props) {
+export default function CardShop(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.allProduct);
-  // console.log(product);
+  const state = useSelector((state) => state.allProduct.productFilterShop);
+
   useEffect(() => {
-    dispatch(thunkFetchAllProductByCatId(props.catId));
-    // console.log("มามั้ย");
+    dispatch(thunkFetchAllProductByShopId(props.shopId));
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(thunkFetchAllProduct());
-  //   // console.log("มามั้ย");
-  // }, [dispatch]);
+  console.log("มามั้ย555", state.productShopId);
+
   return (
     <>
-      {state.productFilter.map((item) => {
+      {state?.productShopId?.map((item) => {
         return (
           <div className="">
             <div
