@@ -9,9 +9,7 @@ import { getAccessToken } from "./utils/local-storage";
 import { thunkFetchUser } from "./reduxStore/AuthSlice";
 
 if (getAccessToken()) {
-  console.log("yoooooo");
   store.dispatch(thunkFetchUser());
-  console.log("yoooooo  22222 ");
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

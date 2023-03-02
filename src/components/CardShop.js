@@ -1,7 +1,7 @@
-import {
-  // thunkFetchAllProduct,
-  thunkFetchAllProductByShopId,
-} from "../reduxStore/ProductSlice";
+// import {
+//   // thunkFetchAllProduct,
+//   thunkFetchAllProductByShopId,
+// } from "../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
@@ -10,11 +10,10 @@ export default function CardShop(props) {
 
   const state = useSelector((state) => state.allProduct.productFilterShop);
 
-  useEffect(() => {
-    dispatch(thunkFetchAllProductByShopId(props.shopId));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(thunkFetchAllProductByShopId(props.shopId));
+  // }, [dispatch]);
 
-  console.log("มามั้ย555", state.productShopId);
 
   return (
     <>
