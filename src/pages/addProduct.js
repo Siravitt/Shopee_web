@@ -3,8 +3,8 @@ import React from "react";
 export default function AddProduct() {
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
-      <div className="w-full h-[70px] px-4 bg-red-400 flex flex-col items-center">
-        <div className="text-[25px] text-white font-bold">Product Page</div>
+      <div className="w-full h-[70px] px-4 bg-blue-500 flex flex-col items-center">
+        <div className="text-[25px] text-white font-bold">Add Product</div>
       </div>
       {/* <div className="flex flex-row justify-evenly m-4">
         <button className="bg-orange-400 p-2 rounded-md text-white font-bold">
@@ -19,7 +19,7 @@ export default function AddProduct() {
           <div className="flex items-center justify-center w-full">
             <label
               for="dropzone-file"
-              className="flex flex-col items-center justify-center w-full h-64 my-2 border-2 rounded-lg cursor-pointer bg-gray-200 "
+              className="flex flex-col items-center justify-center w-full h-64 my-2 border-2 rounded-lg cursor-pointer bg-blue-50 "
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
                 <svg
@@ -46,23 +46,23 @@ export default function AddProduct() {
           </div>
 
           <input
-            placeholder="ชื่อสินค้า"
-            className="w-full rounded-md border px-4 py-3 bg-gray-200 mx-auto text-black my-2"
+            placeholder="Product Name"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
           />
           <input
-            placeholder="รายละเอียดสินค้า"
-            className="w-full rounded-md border px-4 py-3 bg-gray-200 mx-auto text-black my-2"
+            placeholder="Description"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
           />
           <input
-            placeholder="ราคา"
-            className="w-full rounded-md border px-4 py-3 bg-gray-200 mx-auto text-black my-2"
+            placeholder="Price"
+            className="w-full rounded-md border px-4 py-3 bg-blue-50 mx-auto text-black my-2"
           />
-          <select className="select w-full max-w-md bg-gray-200 mx-auto my-2">
+          <select className="select w-full max-w-md bg-blue-50 mx-auto my-2">
             <option disabled selected>
               Category
             </option>
             <option>Beauty</option>
-            <option>Food</option>
+            <option>Kids</option>
             <option>Home</option>
             <option>Lifestyle</option>
             <option>Technology</option>
@@ -72,7 +72,7 @@ export default function AddProduct() {
       <div className="flex justify-center">
         <button
           type="submit"
-          className="bg-red-400 p-2 rounded-md text-white font-bold"
+          className="bg-blue-400 py-2 px-8 rounded-md text-white font-bold"
         >
           Submit
         </button>
