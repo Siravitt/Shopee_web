@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import jwt_decode from "jwt-decode";
 import { thunkGoogleLogin } from "../../reduxStore/AuthSlice";
 import { useDispatch } from "react-redux";
-import { getAccessToken } from "../../utils/local-storage";
 import { useNavigate } from "react-router-dom";
 
 export default function UserLoginGoogleFrom() {
@@ -29,7 +27,6 @@ export default function UserLoginGoogleFrom() {
   }
 
   useEffect(() => {
-    /* global google */
     window?.google.accounts.id.initialize({
       client_id:
         "290992676461-dvnikrasslpdfokfa79bvlc35g1km8k9.apps.googleusercontent.com",
@@ -41,7 +38,7 @@ export default function UserLoginGoogleFrom() {
       {
         theme: "outline",
         size: "large",
-      },
+      }
     );
   }, []);
 

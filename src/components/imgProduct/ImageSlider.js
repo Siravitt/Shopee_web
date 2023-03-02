@@ -1,22 +1,15 @@
-import ImageData from "./ImageData";
-// import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-// import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-// import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const ImageSlider = props => {
+const ImageSlider = (props) => {
   const [current, setCurrent] = useState(0);
   const [image, setImage] = useState([]);
   const length = image.length;
-  // let { ProductId } = useParams();
 
   const getImage = async () => {
     const res = await axios.get(
-      "http://localhost:8000/image/" + props.ProductId,
+      "http://localhost:8000/image/" + props.ProductId
     );
-    console.log("res.data", res.data);
     setImage(res.data.image);
   };
   useEffect(() => {
@@ -31,8 +24,6 @@ const ImageSlider = props => {
     current === length - 1 ? setCurrent(0) : setCurrent(current + 1);
   };
 
-  // 0 1 2
-  // 0
   return (
     <section className="slider">
       {image.map((data, index) => {

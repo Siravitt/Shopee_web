@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-
 import profile2 from "../images/profile2.png";
 import logowithword from "../images/logowithword.png";
 import SmallLine from "../components/SmallLine";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import Bgprofile1 from "../images/bgprofile1.jpg";
-// import Shop from "../images/shop.png";
 
 export default function Authenticate() {
   return (

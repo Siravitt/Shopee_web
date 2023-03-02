@@ -17,7 +17,7 @@ const productSlice = createSlice({
     setProduct: (state, action) => {
       state.cardList = action.payload;
     },
-    setProductBycat: (state, action) => {
+    setProductByCat: (state, action) => {
       state.productFilter = action.payload;
     },
     setProductId: (state, action) => {
@@ -31,40 +31,44 @@ const productSlice = createSlice({
 
 export const thunkFetchAllProduct = () => async dispatch => {
   try {
+<<<<<<< HEAD
     // console.log("mu dfsadf");
     // alert("555");
     const res = await productService.getAllproduct();
     // console.log(res.data, "thunkFproductServiceetchUser");
+=======
+    const res = await productService.getAllProduct();
+>>>>>>> test5
     dispatch(setProduct(res.data.products));
   } catch (err) {
-    // removeAccessToken();
-    console.log("product-error");
-    console.log(err.response?.data);
+    console.log(err);
   }
 };
 
 export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   try {
+<<<<<<< HEAD
     // console.log("mu dfsadf");
     // alert("555");
     const res = await productService.getAllproductByCatId(categoryId);
     // console.log(res.data, "thunkFetchAllProductByCatId");
     dispatch(setProductBycat(res?.data?.products));
+=======
+    const res = await productService.getAllProductByCatId(categoryId);
+    dispatch(setProductByCat(res.data.products));
+>>>>>>> test5
   } catch (err) {
-    // removeAccessToken();
-    console.log("product-error");
-    console.log(err.response?.data);
+    console.log(err);
   }
 };
 
 export const thunkFetchGetProduct = productId => async dispatch => {
   try {
-    // console.log("mu dfsadf");
-    // alert("555");
+
     const res = await productService.getProduct(productId);
-    console.log(res.data, "getProduct");
     dispatch(setProductId(res.data.product));
   } catch (err) {
+<<<<<<< HEAD
     // removeAccessToken();
     console.log("product-error");
   }
@@ -82,12 +86,20 @@ export const thunkFetchAllProductByShopId = shopId => async dispatch => {
     // removeAccessToken();
     console.log("productShop-error");
     console.log(err.response?.data);
+=======
+    console.log(err);
+>>>>>>> test5
   }
 };
 
 export default productSlice.reducer;
 
+<<<<<<< HEAD
 const { setProduct, setProductBycat, setProductId, setProductByshop } =
   productSlice.actions;
 export { setProduct, setProductBycat, setProductId, setProductByshop };
 //========================== end ProductByShopId======================
+=======
+const { setProduct, setProductByCat, setProductId } = productSlice.actions;
+export { setProduct, setProductByCat, setProductId };
+>>>>>>> test5

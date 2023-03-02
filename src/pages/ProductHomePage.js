@@ -33,7 +33,7 @@ export default function ProductHome() {
         <div>Catagory</div>
         <div className="w-full h-[100px] flex justify-evenly my-4">
           {displayImages.map((el, idx) => (
-            <Link to={`/${el.slash}`}>
+            <Link to={`/${el.slash}`} key={idx}>
               <ProductType key={idx} image={el.image} title={el.title} />
             </Link>
           ))}

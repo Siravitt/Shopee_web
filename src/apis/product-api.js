@@ -1,10 +1,10 @@
 import axios from "../configs/axios";
 
-export const getAllproduct = () => {
+export const getAllProduct = () => {
   return axios.get(`/product`);
 };
 
-export const getAllproductByCatId = categoryId => {
+export const getAllProductByCatId = categoryId => {
   // const queryString = new URLSearchParams().toString();
 
   return axios.get(`/product/category/${categoryId}`);
@@ -13,8 +13,4 @@ export const getAllproductByCatId = categoryId => {
 export const getProduct = productId => {
   return axios.get(`/product/${productId}`);
 };
-// export const getAllproduct = (query = null) => {
-//   const queryString = new URLSearchParams(query).toString();
 
-//   return axios.get(`/product?${queryString}`);
-// };

@@ -1,6 +1,4 @@
-// import HeaderProfile from "../components/header/HeaderProfile";
 import HeaderProfileForShop from "../components/header/HeaderProfileForShop";
-// import OrderNavbar from "../components/navbar/OrderNavbar";
 import OrderListForShop from "./OrderListForShop";
 import Pending from "../images/Pending.png";
 import ReadyToShip from "../images/ReadyToShip.png";
@@ -12,7 +10,7 @@ export default function MyShopPage() {
       <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
         <HeaderProfileForShop />
         {/* <OrderNavbar /> */}
-        <div className="h-[100px] w-[390px] flex px-[10px]  px-10">
+        <div className="h-[100px] w-[390px] flex px-[10px]">
           <div
             className={` flex flex-col justify-center w-[150px]  items-center `}
           >
