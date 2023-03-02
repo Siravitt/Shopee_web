@@ -4,7 +4,7 @@ export const getAllproduct = () => {
   return axios.get(`/product`);
 };
 
-export const getAllproductByCatId = (categoryId) => {
+export const getAllproductByCatId = categoryId => {
   // const queryString = new URLSearchParams().toString();
 
   return axios.get(`/product/category/${categoryId}`);

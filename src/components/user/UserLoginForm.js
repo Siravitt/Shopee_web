@@ -16,7 +16,7 @@ const initialInput = {
 };
 
 export default function UserLoginForm() {
-  // const refresh = () => window.location.reload(true);
+  const refresh = () => window.location.reload(true);
   const navigate = useNavigate();
   useEffect(() => {
     if (getAccessToken()) {
@@ -34,7 +34,7 @@ export default function UserLoginForm() {
       dispatch(thunkLogin(input));
       setInput(initialInput);
       setTimeout(() => {
-        navigate("/");
+        refresh();
       }, 1000);
 
       // navigate("/");

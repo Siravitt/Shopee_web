@@ -29,7 +29,7 @@ const productSlice = createSlice({
   },
 });
 
-export const thunkFetchAllProduct = () => async (dispatch) => {
+export const thunkFetchAllProduct = () => async dispatch => {
   try {
     // console.log("mu dfsadf");
     // alert("555");
@@ -43,13 +43,13 @@ export const thunkFetchAllProduct = () => async (dispatch) => {
   }
 };
 
-export const thunkFetchAllProductByCatId = (categoryId) => async (dispatch) => {
+export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   try {
     // console.log("mu dfsadf");
     // alert("555");
     const res = await productService.getAllproductByCatId(categoryId);
     // console.log(res.data, "thunkFetchAllProductByCatId");
-    dispatch(setProductBycat(res.data.products));
+    dispatch(setProductBycat(res?.data?.products));
   } catch (err) {
     // removeAccessToken();
     console.log("product-error");
@@ -57,7 +57,7 @@ export const thunkFetchAllProductByCatId = (categoryId) => async (dispatch) => {
   }
 };
 
-export const thunkFetchGetProduct = (productId) => async (dispatch) => {
+export const thunkFetchGetProduct = productId => async dispatch => {
   try {
     // console.log("mu dfsadf");
     // alert("555");
@@ -71,7 +71,7 @@ export const thunkFetchGetProduct = (productId) => async (dispatch) => {
 };
 
 //==========================ProductByShopId======================
-export const thunkFetchAllProductByShopId = (shopId) => async (dispatch) => {
+export const thunkFetchAllProductByShopId = shopId => async dispatch => {
   try {
     // console.log("mu dfsadf");
     // alert("555");
