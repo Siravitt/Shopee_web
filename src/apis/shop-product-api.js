@@ -1,13 +1,13 @@
 import axios from "../configs/axios";
 
-export const getAllproduct = () => {
-  return axios.get(`/product`);
-};
+// export const getAllproductShop = () => {
+//   return axios.get(`/product`);
+// };
 
-export const getAllproductByCatId = (categoryId) => {
+export const getAllproductShopByShopId = (shopId) => {
   // const queryString = new URLSearchParams().toString();
 
-  return axios.get(`/product/category/${categoryId}`);
+  return axios.get(`/Shopproduct/${shopId}`);
 };
 // export const getAllproduct = (query = null) => {
 //   const queryString = new URLSearchParams(query).toString();

@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function Card(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct);
+  const state = useSelector((state) => state.allProduct);
   // console.log(product);
   // useEffect(() => {
   //   dispatch(thunkFetchAllProductByCatId(props.catId));
@@ -21,7 +21,7 @@ export default function Card(props) {
   }, [dispatch]);
   return (
     <>
-      {state.cardList.map(item => {
+      {state.cardList.map((item) => {
         return (
           <div className="">
             <div
@@ -33,7 +33,7 @@ export default function Card(props) {
               // }}
             >
               <div className=" ">
-                {item.ProductImages.map(data => {
+                {item.ProductImages.map((data) => {
                   return (
                     <img
                       className="p-auto rounded-t-lg  "

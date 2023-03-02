@@ -1,8 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import Card from "../components/Card";
+import CardShop from "../components/CardShop";
 import BottomNavbar from "../layouts/BottomNavbar";
 
 export default function ShopProductUser() {
+  let { shopId } = useParams();
+  // console.log("kram1", shopId);
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
       {/* header */}
@@ -23,12 +27,7 @@ export default function ShopProductUser() {
         <h1>Products</h1>
       </div>
       <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <CardShop shopId={shopId} />
       </div>
 
       <BottomNavbar />

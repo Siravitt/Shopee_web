@@ -151,7 +151,7 @@ const router = createBrowserRouter([
   },
   // อันนี้คืออะไรนะครับ น่าจะซ้ำกับ shop-home
   {
-    path: "/shop-products",
+    path: "/shopProducts/:shopId",
     element: <ShopProductUser />,
   },
   {
