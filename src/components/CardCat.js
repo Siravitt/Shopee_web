@@ -8,28 +8,31 @@ import { useEffect } from "react";
 export default function CardCat(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct.productFilter);
-  // console.log(product);
+  const state = useSelector(state => state.allProduct.productFilter.products);
+  console.log(state);
   useEffect(() => {
     dispatch(thunkFetchAllProductByCatId(props.catId));
-  }, [dispatch, props.catId]);
-  console.log("state.productFilter", state);
+    // console.log("มามั้ย");
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(thunkFetchAllProduct());
+  //   // console.log("มามั้ย");
+  // }, [dispatch]);
   return (
     <>
-      {JSON.stringify(state.products)}
-      {/* { state.products.map(item => {
+      {state?.map(item => {
         return (
-          <div className="1">
+          <div className="" key={item.id + "hello"}>
             <div
               className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
-              // key={}
               // onClick={() => {
 
               // }}
             >
               <div className=" ">
-                {item.ProductImages.map(data => {
+                {item?.ProductImages?.map(data => {
                   return (
                     <img
                       className="p-auto rounded-t-lg  "
@@ -57,7 +60,7 @@ export default function CardCat(props) {
             </div>
           </div>
         );
-      })} */}
+      })}
     </>
   );
 }

@@ -15,7 +15,7 @@ export default function CardShop(props) {
     <>
       {state?.productShopId?.map(item => {
         return (
-          <div className="">
+          <div className="" key={item.id + "cardShop"}>
             <div
               className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
@@ -31,6 +31,7 @@ export default function CardShop(props) {
                       className="p-auto rounded-t-lg  "
                       src={data.image}
                       alt="product"
+                      key={item.id + "cardShopMap"}
                     />
                   );
                 })}

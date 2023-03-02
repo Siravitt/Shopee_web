@@ -30,7 +30,7 @@ const ImageSlider = props => {
         return (
           <div
             className={index === current ? "slide active" : "slide"}
-            key={index}
+            key={data.id + "ImgSlide"}
           >
             {index === current && (
               <div>

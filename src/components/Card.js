@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 export default function Card(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.allProduct);
+  const state = useSelector(state => state.allProduct);
 
   useEffect(() => {
     dispatch(thunkFetchAllProduct());
   }, [dispatch]);
   return (
     <>
-      {state.cardList.map((item) => {
+      {state.cardList.map(item => {
         return (
-          <div className="">
+          <div className="" key={item.id + "card"}>
             <Link to={`/product/${item.id}`}>
               <div
                 className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
@@ -26,12 +26,13 @@ export default function Card(props) {
                 // }}
               >
                 <div className=" ">
-                  {item.ProductImages.map((data) => {
+                  {item.ProductImages.map(data => {
                     return (
                       <img
                         className="p-auto rounded-t-lg  "
                         src={data.image}
                         alt="product"
+                        key={item.id + "cardImage"}
                       />
                     );
                   })}
