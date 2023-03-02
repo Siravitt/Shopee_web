@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import openShop from "../images/signupShop.mp4";
+import signupShop from "../images/signupShop.mp4";
 
 import ShopRegisterForm from "../components/shop/ShopRegisterForm";
 import Logo from "../images/logo.png";
@@ -10,16 +10,15 @@ export default function ShopRegisterPage() {
       <div className="absolute inset-0 h-[full] w-full ">
         <video
           className="h-[845px] object-cover"
-          controls
           autoPlay
           muted
           loop
           id="myVideo"
         >
-          <source src={openShop} type="video/mp4" />
+          <source src={signupShop} type="video/mp4" />
         </video>
       </div>
-      <div className="relative z-10 top-80">
+      <div className="relative z-10 top-40">
         <ShopRegisterForm />
       </div>
     </div>

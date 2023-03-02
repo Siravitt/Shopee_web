@@ -4,7 +4,7 @@ import ChatSearchForm from "../components/chat/ChatSearchForm";
 export default function ChatPageForShop() {
   return (
     <>
-      <div className="w-full h-[70px] bg-red-400 flex items-center justify-center">
+      <div className="w-full h-[70px] bg-blue-500 flex items-center justify-center">
         <div className="text-[25px] text-white font-bold">Chat</div>
       </div>
       <ChatSearchForm />

@@ -5,7 +5,11 @@ import Input from "../Input";
 
 const initialInput = {
   shopName: "",
-  // address: "",
+  address: "",
+  subDistrict: "",
+  district: "",
+  province: "",
+  postalCode: "",
 };
 
 export default function ShopRegisterForm() {
@@ -26,35 +30,56 @@ export default function ShopRegisterForm() {
   };
   return (
     <div
-      className="flex flex-col bg-white mx-8 rounded-xl mt-32
+      className="flex flex-col bg-white mx-8 rounded-xl mt-36
     "
     >
       <form
-        className="gap-4 text-blue-400 text-2xl font-bold mx-8 pt-8"
+        className="gap-4 text-blue-400 text-sm font-bold mx-8 pt-2"
         onSubmit={handleSubmitForm}
       >
-        <p className="flex justify-center text-2xl">Register Shop Name</p>
         <Input
-          className=""
           type="text"
           name="shopName"
           // label="Shop Name"
           value={input.shopName}
           onChange={handleChangeInput}
         />
-        {/* <Input
-        name="address"
-        label="Address"
-        value={input.address}
-        onChange={handleChangeInput}
-      /> */}
-
-        <div className="flex justify-center pt-8">
+        <Input
+          type="text"
+          name="address"
+          value={input.address}
+          onChange={handleChangeInput}
+        />
+        <Input
+          type="text"
+          name="subDistrict"
+          value={input.subdistrict}
+          onChange={handleChangeInput}
+        />
+        <Input
+          type="text"
+          name="district"
+          value={input.district}
+          onChange={handleChangeInput}
+        />
+        <Input
+          type="text"
+          name="province"
+          value={input.province}
+          onChange={handleChangeInput}
+        />
+        <Input
+          type="number"
+          name="postalCode"
+          value={input.postalCode}
+          onChange={handleChangeInput}
+        />
+        <div className="flex justify-center pt-6">
           <button className="w-full bg-blue-400 py-2 rounded-xl text-white font-bold text-2xl hover:bg-blue-200 duration-200 cursor-pointe2">
             Submit
           </button>
         </div>
-        <div className="text-sm pt-4 pb-16 flex justify-center">
+        <div className="text-sm py-4 flex justify-center">
           <Link to="/myOrderPage">Go back to user profile</Link>
         </div>
       </form>
