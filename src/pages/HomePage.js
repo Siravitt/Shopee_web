@@ -11,6 +11,7 @@ import Beauty from "../images/Beauty.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
 import { Link } from "react-router-dom";
+import Welcome from "../images/Welcome.mp4";
 // import { useSelector } from "react-redux";
 
 export default function HomePage() {
@@ -25,14 +26,24 @@ export default function HomePage() {
   // console.log("kram เอง", auth);
   return (
     <>
-      <div className="w-full min-h-[844px] bg-white mx-auto border  ">
+      <div className="w-full min-h-[844px] bg-gray-50 mx-auto border  ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch />
 
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ *}
           {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-full h-[350px] relative">
-          <Carousel />
+        <div className="w-full relative pt-1">
+          <video
+            // className="h-[845px] object-cover"
+            autoPlay
+            muted
+            loop
+            id="myVideo"
+          >
+            <source src={Welcome} type="video/mp4" />
+          </video>
+
+          {/* <Carousel /> */}
         </div>
 
         <div className="mx-4 mt-2 text-xl font-bold">
