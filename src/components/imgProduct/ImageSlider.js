@@ -2,12 +2,26 @@ import ImageData from "./ImageData";
 // import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 // import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-const ImageSlider = () => {
+const ImageSlider = props => {
   const [current, setCurrent] = useState(0);
-  const length = ImageData.length;
+  const [image, setImage] = useState([]);
+  const length = image.length;
+  // let { ProductId } = useParams();
 
+  const getImage = async () => {
+    const res = await axios.get(
+      "http://localhost:8000/image/" + props.ProductId,
+    );
+    console.log("res.data", res.data);
+    setImage(res.data.image);
+  };
+  useEffect(() => {
+    getImage();
+  }, []);
   console.log(length);
 
   const prevSlide = () => {
@@ -21,7 +35,7 @@ const ImageSlider = () => {
   // 0
   return (
     <section className="slider">
-      {ImageData.map((data, index) => {
+      {image.map((data, index) => {
         return (
           <div
             className={index === current ? "slide active" : "slide"}
@@ -40,7 +54,7 @@ const ImageSlider = () => {
                   onClick={nextSlide}
                 />
                 <p className="flex justify-center">
-                  {index + 1}/{ImageData.length}
+                  {index + 1}/{image.length}
                 </p>
               </div>
             )}
