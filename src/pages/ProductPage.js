@@ -37,7 +37,7 @@ export default function ProductPage() {
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ */}
         {/* +++++++++++++++++++++++++++++ image movie +++++++++++++++++++++++++++++ */}
         <div className="w-[377=px] h-[355px] rounded-full flex items-center justify-center ">
-          <ImageSlider />
+          <ImageSlider ProductId={productId} />
         </div>
 
         {/* +++++++++++++++++++++++++++++ END movie +++++++++++++++++++++++++++++ */}
