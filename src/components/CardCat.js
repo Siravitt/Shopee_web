@@ -8,7 +8,7 @@ import { useEffect } from "react";
 export default function CardCat(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.allProduct);
+  const state = useSelector(state => state.allProduct);
   // console.log(product);
   useEffect(() => {
     dispatch(thunkFetchAllProductByCatId(props.catId));
@@ -21,9 +21,9 @@ export default function CardCat(props) {
   // }, [dispatch]);
   return (
     <>
-      {state.productFilter.map((item) => {
+      {state.productFilter.map(item => {
         return (
-          <div className="">
+          <div className="1">
             <div
               className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
@@ -33,7 +33,7 @@ export default function CardCat(props) {
               // }}
             >
               <div className=" ">
-                {item.ProductImages.map((data) => {
+                {item.ProductImages.map(data => {
                   return (
                     <img
                       className="p-auto rounded-t-lg  "
