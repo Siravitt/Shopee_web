@@ -15,7 +15,7 @@ import ShippingPage from "../pages/ShippingPage";
 import OrderPage from "../pages/OrderPage";
 import ChatBox from "../pages/ChatBox";
 
-import ShopHome from "../pages/shopHomePage";
+import ShopHome from "../pages/ShopHomePage";
 import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
 
@@ -40,6 +40,7 @@ import ProductElectronicPage from "../pages/ProductElectronicPage";
 import ProductBeautyPage from "../pages/ProductBeautyPage";
 import ProductLifestylePage from "../pages/ProductLifestylePage";
 import ProductKidPage from "../pages/ProductKidPage";
+import ShopEditProfile from "../pages/ShopEditProfile";
 
 const router = createBrowserRouter([
   {
@@ -165,6 +166,10 @@ const router = createBrowserRouter([
   {
     path: "/address",
     element: <AddressPage />,
+  },
+  {
+    path: "/shopEditProfile",
+    element: <ShopEditProfile />,
   },
 ]);
 

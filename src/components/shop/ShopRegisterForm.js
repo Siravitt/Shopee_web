@@ -1,14 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { shopRegister } from "../../apis/auth-shop-api";
 import Input from "../Input";
-import { Link } from "react-router-dom";
 
 const initialInput = {
   shopName: "",
-  email: "",
-  phone: "",
-  password: "",
-  confirmPassword: "",
+  // address: "",
 };
 
 export default function ShopRegisterForm() {
@@ -28,51 +25,39 @@ export default function ShopRegisterForm() {
     }
   };
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmitForm}>
-      <Input
-        name="shopName"
-        label="shop-Name"
-        value={input.shopName}
+    <div
+      className="flex flex-col bg-white mx-8 rounded-xl mt-32
+    "
+    >
+      <form
+        className="gap-4 text-blue-400 text-2xl font-bold mx-8 pt-8"
+        onSubmit={handleSubmitForm}
+      >
+        <p className="flex justify-center text-2xl">Register Shop Name</p>
+        <Input
+          className=""
+          type="text"
+          name="shopName"
+          // label="Shop Name"
+          value={input.shopName}
+          onChange={handleChangeInput}
+        />
+        {/* <Input
+        name="address"
+        label="Address"
+        value={input.address}
         onChange={handleChangeInput}
-      />
-      <Input
-        name="email"
-        label="E-mail"
-        value={input.email}
-        onChange={handleChangeInput}
-      />
-      <Input
-        name="phone"
-        label="phone"
-        value={input.phone}
-        onChange={handleChangeInput}
-      />
-      <Input
-        type="password"
-        name="password"
-        label="Password"
-        value={input.password}
-        onChange={handleChangeInput}
-      />
-      <Input
-        type="password"
-        name="confirmPassword"
-        label="Confirm-password"
-        value={input.confirmPassword}
-        onChange={handleChangeInput}
-      />
-      <div className="flex justify-center py-4">
-        <button className="w-[200px] bg-orange-700 py-1 rounded-xl text-white font-bold hover:bg-orange-600 duration-200">
-          Create account
-        </button>
-      </div>
-      <div className="text-[14px] text-red-600 text-center hover:text-red-900">
-        <Link to="/shop-login">
-          <button className="underline">
-            Already have an account? Login here!
+      /> */}
+
+        <div className="flex justify-center pt-8">
+          <button className="w-full bg-blue-400 py-2 rounded-xl text-white font-bold text-2xl hover:bg-blue-200 duration-200 cursor-pointe2">
+            Submit
           </button>
-        </Link>
-      </div>
-    </form>
+        </div>
+        <div className="text-sm pt-4 pb-16 flex justify-center">
+          <Link to="/myOrderPage">Go back to user profile</Link>
+        </div>
+      </form>
+    </div>
   );
 }
