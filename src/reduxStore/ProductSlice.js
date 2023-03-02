@@ -41,7 +41,7 @@ export const thunkFetchAllProduct = () => async dispatch => {
 export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   try {
     const res = await productService.getAllProductByCatId(categoryId);
-    dispatch(setProductByCat(res.data.products));
+    dispatch(setProductByCat(res.data));
   } catch (err) {
     console.log(err);
   }
@@ -49,15 +49,27 @@ export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
 
 export const thunkFetchGetProduct = productId => async dispatch => {
   try {
-
     const res = await productService.getProduct(productId);
     dispatch(setProductId(res.data.product));
   } catch (err) {
     console.log(err);
   }
 };
+export const thunkFetchAllProductByShopId = shopId => async dispatch => {
+  try {
+    // console.log("mu dfsadf");
+    // alert("555");
+    const res = await productServiceShop.getAllproductShopByShopId(shopId);
+    // console.log(res.data.products, "kram id shop");
+    dispatch(setProductByshop(res.data));
+  } catch (err) {
+    // removeAccessToken();
+    console.log(err);
+  }
+};
 
 export default productSlice.reducer;
 
-const { setProduct, setProductByCat, setProductId } = productSlice.actions;
-export { setProduct, setProductByCat, setProductId };
+const { setProduct, setProductByCat, setProductId, setProductByshop } =
+  productSlice.actions;
+export { setProduct, setProductByCat, setProductId, setProductByshop };

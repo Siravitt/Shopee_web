@@ -1,25 +1,21 @@
-// import {
-//   // thunkFetchAllProduct,
-//   thunkFetchAllProductByShopId,
-// } from "../reduxStore/ProductSlice";
+import { thunkFetchAllProductByShopId } from "../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 export default function CardShop(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.allProduct.productFilterShop);
+  const state = useSelector(state => state.allProduct.productFilterShop);
 
-  // useEffect(() => {
-  //   dispatch(thunkFetchAllProductByShopId(props.shopId));
-  // }, [dispatch]);
-
+  useEffect(() => {
+    dispatch(thunkFetchAllProductByShopId(props.shopId));
+  }, [dispatch]);
 
   return (
     <>
-      {state?.productShopId?.map((item) => {
+      {state?.productShopId?.map(item => {
         return (
-          <div className="">
+          <div className="" key={item.id + "cardShop"}>
             <div
               className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
@@ -29,12 +25,13 @@ export default function CardShop(props) {
               // }}
             >
               <div className=" ">
-                {item.ProductImages.map((data) => {
+                {item.ProductImages.map(data => {
                   return (
                     <img
                       className="p-auto rounded-t-lg  "
                       src={data.image}
                       alt="product"
+                      key={item.id + "cardShopMap"}
                     />
                   );
                 })}
