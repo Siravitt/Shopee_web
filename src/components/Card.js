@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { formatNumber } from "../reduxStore/formatNumber";
 export default function Card(props) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const cardList = useSelector(state => state.allProduct.cardList);
 
