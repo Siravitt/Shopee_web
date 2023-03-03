@@ -1,17 +1,23 @@
 import BigLine from "../components/BigLine";
 import SmallLine from "../components/SmallLine";
 import profile2 from "../images/profile2.png";
-import Bgprofile1 from "../images/bgprofile1.jpg";
+import Red from "../images/Red.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function UserEditProfile() {
+  const [toggleEdit, setToggleEdit] = useState(false);
+  const [name, setName] = useState("");
+
+  const [phone, setPhone] = useState("");
+
   return (
     <>
       <div className="w-full min-h-[844px] bg-white mx-auto border  ">
         {/* <div className="w-[390px] min-h-[188px]grid justify-items-center"> */}
         <div className="flex flex-col justify-center items-center max-w-sm mx-auto ">
-          <div className="h-70 w-full rounded-lg shadow-md bg-cover bg-center bg-blend-multiply">
-            <img src={Bgprofile1} alt="" />
+          <div className="h-20 w-full rounded-lg shadow-md bg-cover bg-center bg-blend-multiply">
+            <img src={Red} alt="" />
           </div>
           <div className="w-56 md:w-64  -mt-16  rounded-lg overflow-hidden">
             <div className="flex justify-center items-center">
@@ -22,41 +28,81 @@ export default function UserEditProfile() {
             </div>
           </div>
         </div>
-
-        <div className="flex space-x-48 mt-10">
-          <div className="ml-10 mt-5 font-bold">Name</div>
-          <div className=" mt-5 text-red-400">
-            {/* ................. */}
-
-            {/* .............. */}
+        <div className=" mt-24">
+          <div className="flex space-x-12 ">
+            <div className="ml-10 mt-5 font-bold">Username</div>
+            <div className=" mt-5 text-red-400 ">
+              {toggleEdit ? (
+                <>
+                  <input
+                    className="border rounded "
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  <button
+                    onClick={(e) => {
+                      setToggleEdit(false);
+                    }}
+                  >
+                    OK
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="ml-30"
+                  onClick={(e) => {
+                    setToggleEdit(true);
+                  }}
+                >
+                  Set Now
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-        <div className=" mt-5">
-          <SmallLine />
-        </div>
-        <div className="flex space-x-48">
-          <div className="mr-5 ml-10 mt-5 font-bold">Bio</div>
-          <div className=" mt-5 text-red-400">
-            <button>Set Now</button>
+          {/* --------------------- */}
+          <div className=" mt-5">
+            <SmallLine />
           </div>
+          {/* --------------------- */}
         </div>
-        <div className=" mt-5">
-          <BigLine />
-        </div>
-        <div className="flex space-x-44">
-          <div className="ml-10 mt-5 font-bold">Gender </div>
-          <div className=" mt-5 pl-1 text-red-400">
-            <button>Set Now</button>
+        <div className=" ">
+          <div className="flex space-x-16 ">
+            <div className="ml-10 mt-5 font-bold">Phone</div>
+            <div className=" mt-5 text-red-400 ">
+              {toggleEdit ? (
+                <>
+                  <input
+                    className="border rounded"
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                  <button
+                    onClick={(e) => {
+                      setToggleEdit(false);
+                    }}
+                  >
+                    OK
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="ml-30"
+                  onClick={(e) => {
+                    setToggleEdit(true);
+                  }}
+                >
+                  Set Now
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-        <div className=" mt-5">
-          <SmallLine />
-        </div>
-        <div className="flex space-x-28">
-          <div className="mr-5 ml-10 mt-5 font-bold">Date of Birth</div>
-          <div className=" mt-5 pl-2 text-red-400">
-            <button>Set Now</button>
+          {/* --------------------- */}
+          <div className=" mt-5">
+            <BigLine />
           </div>
+          {/* --------------------- */}
         </div>
       </div>
     </>

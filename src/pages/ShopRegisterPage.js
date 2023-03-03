@@ -8,14 +8,7 @@ export default function ShopRegisterPage() {
   return (
     <div className="relative w-[390px] min-h-[845px] mx-auto border">
       <div className="absolute inset-0 h-[full] w-full ">
-        <video
-          className="h-[845px] object-cover"
-          controls
-          autoPlay
-          muted
-          loop
-          id="myVideo"
-        >
+        <video className="h-[845px] object-cover z-[-1]" autoPlay muted loop>
           <source src={openShop} type="video/mp4" />
         </video>
       </div>

@@ -39,7 +39,7 @@ export default function Authenticate() {
           <div className="w-full h-[50px] px-4 flex items-center gap-4 bg-red-300">
             <LocalMallIcon sx={{ color: "white" }} />
 
-            <Link to="/shop-login">
+            <Link to="/shop-register">
               <div className="text-white text-sm">Go to shop</div>
             </Link>
           </div>
