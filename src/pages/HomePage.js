@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HeaderSearch from "../components/header/HeaderSearch.js";
 import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
@@ -10,6 +11,8 @@ import { Link } from "react-router-dom";
 import Welcome from "../images/Welcome.mp4";
 
 export default function HomePage() {
+  const [searchItem, setSearchItem] = useState("");
+
   const displayImages = [
     { image: Home, title: "Home", slash: "ProductHome" },
     { image: Electronic, title: "Electronic", slash: "ProductElectronic" },
@@ -21,7 +24,7 @@ export default function HomePage() {
     <>
       <div className="w-full min-h-[844px] bg-gray-50 mx-auto border  ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
-        <HeaderSearch />
+        <HeaderSearch searchItem={searchItem} setSearchItem={setSearchItem} />
 
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ *}
           {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
