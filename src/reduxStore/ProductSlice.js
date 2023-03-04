@@ -68,6 +68,15 @@ export const thunkFetchAllProductByShopId = (shopId) => async (dispatch) => {
   }
 };
 
+export const thunkSearchProduct = (searchText) => async (dispatch) => {
+  try {
+    const res = await productService.searchProduct(searchText);
+    dispatch(setProduct(res.data));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export default productSlice.reducer;
 
 const { setProduct, setProductByCat, setProductId, setProductByshop } =
