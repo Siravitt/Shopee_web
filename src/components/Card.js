@@ -1,47 +1,37 @@
-import {
-  thunkSearchProduct,
-  thunkFetchAllProduct,
-} from "../reduxStore/ProductSlice";
-
+import { thunkFetchAllProduct } from "../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { formatNumber } from "../reduxStore/formatNumber";
 export default function Card(props) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect สำหรับ get ข้อมูล product
-  const cardList = useSelector(state => state.allProduct.cardList);
-  // useEffect(() => {
-  //   dispatch(thunkFetchAllProduct());
-  // }, [dispatch]);
-  // useEffect สำหรับ get ข้อมูล product
+  const state = useSelector(state => state.allProduct);
+
+  useEffect(() => {
+    dispatch(thunkFetchAllProduct());
+  }, [dispatch]);
   return (
     <>
-      {cardList?.length > 0 &&
-        cardList?.map(item => {
-          return (
-            <div className="" key={item.id + "card"}>
-              <Link to={`/product/${item.id}`}>
-                <div
-                  className="w-auto h-auto border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
+      {state.cardList.map(item => {
+        return (
+          <div className="" key={item.id + "card"}>
+            <Link to={`/product/${item.id}`}>
+              <div
+                className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
-                  // key={}
-                  // onClick={() => {
+                // key={}
+                // onClick={() => {
 
-                  // }}
-                >
-                  {item?.ProductImages?.map(data => {
-                    return (
-                      <img
-                        className="p-auto rounded-t-lg  "
-                        src={data?.image}
-                        alt="product"
-                        key={item.id + "cardImage"}
-                      />
-                    );
-                  })}
-                  ยืยื
+                // }}
+              >
+                <div className=" ">
+                  <img
+                    className="p-auto rounded-t-lg  "
+                    src={item.ProductImages.find(i => !!i.isMain)?.image}
+                    alt="product"
+                    key={item.id + "cardImage"}
+                  />
                 </div>
 
                 <div className="px-3 pb-1">
@@ -58,10 +48,11 @@ export default function Card(props) {
                     </div>
                   </div>
                 </div>
-              </Link>
-            </div>
-          );
-        })}
+              </div>
+            </Link>
+          </div>
+        );
+      })}
     </>
   );
 }
