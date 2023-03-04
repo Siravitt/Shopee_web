@@ -11,6 +11,7 @@ const productSlice = createSlice({
     productFilter: [],
     product: {},
     productFilterShop: [],
+    shopInfo: {},
   },
 
   reducers: {
@@ -26,10 +27,13 @@ const productSlice = createSlice({
     setProductByshop: (state, action) => {
       state.productFilterShop = action.payload;
     },
+    setShopInfo: (state, action) => {
+      state.shopInfo = action.payload;
+    },
   },
 });
 
-export const thunkFetchAllProduct = () => async (dispatch) => {
+export const thunkFetchAllProduct = () => async dispatch => {
   try {
     const res = await productService.getAllProduct();
     dispatch(setProduct(res.data.products));
@@ -38,7 +42,7 @@ export const thunkFetchAllProduct = () => async (dispatch) => {
   }
 };
 
-export const thunkFetchAllProductByCatId = (categoryId) => async (dispatch) => {
+export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   try {
     const res = await productService.getAllProductByCatId(categoryId);
     dispatch(setProductByCat(res.data));
@@ -47,7 +51,7 @@ export const thunkFetchAllProductByCatId = (categoryId) => async (dispatch) => {
   }
 };
 
-export const thunkFetchGetProduct = (productId) => async (dispatch) => {
+export const thunkFetchGetProduct = productId => async dispatch => {
   try {
     const res = await productService.getProduct(productId);
     dispatch(setProductId(res.data.product));
@@ -55,7 +59,7 @@ export const thunkFetchGetProduct = (productId) => async (dispatch) => {
     console.log(err);
   }
 };
-export const thunkFetchAllProductByShopId = (shopId) => async (dispatch) => {
+export const thunkFetchAllProductByShopId = shopId => async dispatch => {
   try {
     // console.log("mu dfsadf");
     // alert("555");
@@ -68,7 +72,7 @@ export const thunkFetchAllProductByShopId = (shopId) => async (dispatch) => {
   }
 };
 
-export const thunkSearchProduct = (searchText) => async (dispatch) => {
+export const thunkSearchProduct = searchText => async dispatch => {
   try {
     const res = await productService.searchProduct(searchText);
     dispatch(setProduct(res.data));
@@ -77,8 +81,29 @@ export const thunkSearchProduct = (searchText) => async (dispatch) => {
   }
 };
 
+export const thunkGetShopInfoPublic = shopId => async dispatch => {
+  try {
+    const res = await productServiceShop.getShopInfoPublic(shopId);
+    dispatch(setShopInfo(res.data.shop));
+  } catch (err) {
+    // removeAccessToken();
+    console.log(err);
+  }
+};
+
 export default productSlice.reducer;
 
-const { setProduct, setProductByCat, setProductId, setProductByshop } =
-  productSlice.actions;
-export { setProduct, setProductByCat, setProductId, setProductByshop };
+const {
+  setProduct,
+  setProductByCat,
+  setProductId,
+  setProductByshop,
+  setShopInfo,
+} = productSlice.actions;
+export {
+  setProduct,
+  setProductByCat,
+  setProductId,
+  setProductByshop,
+  setShopInfo,
+};

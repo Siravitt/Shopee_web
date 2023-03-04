@@ -34,15 +34,14 @@ export default function CardCat(props) {
                 // }}
               >
                 <div className=" ">
-                  {item?.ProductImages?.map(data => {
-                    return (
-                      <img
-                        className="p-auto rounded-t-lg  "
-                        src={data.image}
-                        alt="product"
-                      />
-                    );
-                  })}
+                  {
+                    <img
+                      className="p-auto rounded-t-lg  "
+                      src={item.ProductImages.find(i => !!i.isMain)?.image}
+                      alt="product"
+                      key={item.id + "cardImage"}
+                    />
+                  }
                 </div>
 
                 <div className="px-3 pb-1">

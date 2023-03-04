@@ -24,12 +24,12 @@ export default function ProductPage() {
   const dispatch = useDispatch();
   const state = useSelector(state => state.allProduct.product);
   useEffect(() => {
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
     dispatch(thunkFetchGetProduct(productId));
-    console.log("kram", state);
   }, [dispatch]);
+
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-white mx-auto border  overflow-y-scroll ">
