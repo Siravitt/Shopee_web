@@ -31,12 +31,17 @@ export default function Card(props) {
 
                   // }}
                 >
-                  <img
-                    className="p-auto rounded-t-lg  "
-                    src={item?.ProductImages?.find(i => !!i.isMain)?.image}
-                    alt="product"
-                    key={item.id + "cardImage"}
-                  />
+                  {item?.ProductImages?.map(data => {
+                    return (
+                      <img
+                        className="p-auto rounded-t-lg  "
+                        src={data?.image}
+                        alt="product"
+                        key={item.id + "cardImage"}
+                      />
+                    );
+                  })}
+                  ยืยื
                 </div>
 
                 <div className="px-3 pb-1">
