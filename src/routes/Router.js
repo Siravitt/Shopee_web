@@ -41,6 +41,7 @@ import ProductBeautyPage from "../pages/ProductBeautyPage";
 import ProductLifestylePage from "../pages/ProductLifestylePage";
 import ProductKidPage from "../pages/ProductKidPage";
 import ShopEditProfile from "../pages/ShopEditProfile";
+import EditProduct from "../pages/EditProduct";
 
 const router = createBrowserRouter([
   {
@@ -134,6 +135,7 @@ const router = createBrowserRouter([
       { path: "/ShipingForShop", element: <ShipingForShop /> },
       { path: "/ChatPageForShop", element: <ChatPageForShop /> },
       { path: "/addProduct", element: <AddProduct /> },
+      { path: "/editProduct", element: <EditProduct /> },
     ],
   },
   {

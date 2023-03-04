@@ -1,28 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Link } from "react-router-dom";
+// import { toast } from "react-toastify";
 
-export default function AddProduct() {
+// import Input from "../Input";
+
+export default function EditProduct() {
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [weight, setWeight] = useState("");
+  const [quantity, setQuantity] = useState("");
+  //   const [category, setCatagory] = useState("");
+  //   const [editImage, setEditImage] = useState(null);
+
+  const handleClickEdit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("weight", weight);
+    formData.append("quantity", quantity);
+    // formData.append("category", category);
+    // formData.append("image", editImage);
+
+    // const res = await userApi.updateProfile(formData); //??
+    // setAuthenticatedUser(res.data.newUser); //??
+    // onSuccess();
+    // toast.success("Product Successfully updated");
+  };
+
   return (
     <div className="w-[390px] min-h-[845px]  mx-auto border bg-blue-400 ">
-      <div className="w-full flex flex-row h-[70px] px-4 items-center justify-between">
+      <div className="w-full flex flex-row h-[70px] px-4 items-center">
         <Link to="/myShoppage">
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
-        <h4 className="text-2xl text-white font-bold ">Add Product</h4>
+        <h4 className="text-2xl text-white font-bold ">Edit Product</h4>
       </div>
 
-      {/* <div className="flex flex-row justify-evenly m-4">
-        <button className="bg-orange-400 p-2 rounded-md text-white font-bold">
-          Add Product
-        </button>
-        <button className="bg-orange-400 p-2 rounded-md text-white font-bold">
-          Edit Product
-        </button>
-      </div> */}
-
       <div className=" bg-blue-400 mx-4 ">
-        <form className="gap-4 p-8 bg-white mt-4 rounded-xl">
+        <form
+          onSubmit={handleClickEdit}
+          className="gap-4 p-8 bg-white mt-4 rounded-xl"
+        >
           <div className="flex items-center justify-center w-full border rounded-xl border-blue-400 ">
             <label
               htmlFor="dropzone-file"
@@ -59,7 +81,8 @@ export default function AddProduct() {
             <input
               type="text"
               name="name"
-              // value={name}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
               //   value={input.address}
               //   onChange={handleChangeInput}
@@ -73,7 +96,8 @@ export default function AddProduct() {
             <input
               type="text"
               name="price"
-              // value={price}
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -84,7 +108,8 @@ export default function AddProduct() {
             <input
               type="text"
               name="description"
-              // value={description}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -95,8 +120,8 @@ export default function AddProduct() {
             <input
               type="number"
               name="weight"
-              // value={weight}
-
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -107,8 +132,11 @@ export default function AddProduct() {
             <input
               type="number"
               name="quantityAvailable"
-              // value={quantity}
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
+              //   value={input.address}
+              //   onChange={handleChangeInput}
             />
           </div>
           <select className="select w-full max-w-md bg-white border-blue-400  mx-auto  text-blue-400">
