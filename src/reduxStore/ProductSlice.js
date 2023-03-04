@@ -29,7 +29,7 @@ const productSlice = createSlice({
   },
 });
 
-export const thunkFetchAllProduct = () => async dispatch => {
+export const thunkFetchAllProduct = () => async (dispatch) => {
   try {
     const res = await productService.getAllProduct();
     dispatch(setProduct(res.data.products));
@@ -38,7 +38,7 @@ export const thunkFetchAllProduct = () => async dispatch => {
   }
 };
 
-export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
+export const thunkFetchAllProductByCatId = (categoryId) => async (dispatch) => {
   try {
     const res = await productService.getAllProductByCatId(categoryId);
     dispatch(setProductByCat(res.data));
@@ -47,7 +47,7 @@ export const thunkFetchAllProductByCatId = categoryId => async dispatch => {
   }
 };
 
-export const thunkFetchGetProduct = productId => async dispatch => {
+export const thunkFetchGetProduct = (productId) => async (dispatch) => {
   try {
     const res = await productService.getProduct(productId);
     dispatch(setProductId(res.data.product));
@@ -55,7 +55,7 @@ export const thunkFetchGetProduct = productId => async dispatch => {
     console.log(err);
   }
 };
-export const thunkFetchAllProductByShopId = shopId => async dispatch => {
+export const thunkFetchAllProductByShopId = (shopId) => async (dispatch) => {
   try {
     // console.log("mu dfsadf");
     // alert("555");

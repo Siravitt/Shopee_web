@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function CardShop(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct.productFilterShop);
+  const state = useSelector((state) => state.allProduct.productFilterShop);
 
   useEffect(() => {
     dispatch(thunkFetchAllProductByShopId(props.shopId));
@@ -13,7 +13,7 @@ export default function CardShop(props) {
 
   return (
     <>
-      {state?.productShopId?.map(item => {
+      {state?.productShopId?.map((item) => {
         return (
           <div className="" key={item.id + "cardShop"}>
             <div
@@ -25,7 +25,7 @@ export default function CardShop(props) {
               // }}
             >
               <div className=" ">
-                {item.ProductImages.map(data => {
+                {item.ProductImages.map((data) => {
                   return (
                     <img
                       className="p-auto rounded-t-lg  "
