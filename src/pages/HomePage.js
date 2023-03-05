@@ -15,10 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function HomePage() {
   const [searchItem, setSearchItem] = useState("");
-  const state = useSelector(state => state.loading.loading);
-
-  // const dispatch = useDispatch();
-  // dispatch(getLoading());
+  const stateLoading = useSelector(state => state.allProduct.loading);
 
   const displayImages = [
     { image: Home, title: "Home", slash: "ProductHome" },
@@ -29,7 +26,7 @@ export default function HomePage() {
   ];
   return (
     <>
-      {state ? <Spinner /> : null}
+      {stateLoading ? <Spinner /> : null}
       <div className="w-full min-h-[844px] bg-gray-50 mx-auto border  ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch searchItem={searchItem} setSearchItem={setSearchItem} />

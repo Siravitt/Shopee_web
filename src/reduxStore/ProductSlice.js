@@ -12,9 +12,13 @@ const productSlice = createSlice({
     product: {},
     productFilterShop: [],
     shopInfo: {},
+    loading: false,
   },
 
   reducers: {
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
     setProduct: (state, action) => {
       state.cardList = action.payload;
     },
@@ -32,6 +36,10 @@ const productSlice = createSlice({
     },
   },
 });
+
+export const getLoading = () => async dispatch => {
+  dispatch(setLoading());
+};
 
 export const thunkFetchAllProduct = () => async dispatch => {
   try {
@@ -74,8 +82,14 @@ export const thunkFetchAllProductByShopId = shopId => async dispatch => {
 
 export const thunkSearchProduct = searchText => async dispatch => {
   try {
+    dispatch(setLoading(true));
+
     const res = await productService.searchProduct(searchText);
     dispatch(setProduct(res.data));
+
+    setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 500);
   } catch (err) {
     console.log(err);
   }
@@ -99,6 +113,7 @@ const {
   setProductId,
   setProductByshop,
   setShopInfo,
+  setLoading,
 } = productSlice.actions;
 export {
   setProduct,
@@ -106,4 +121,5 @@ export {
   setProductId,
   setProductByshop,
   setShopInfo,
+  setLoading,
 };
