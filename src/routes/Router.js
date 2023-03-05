@@ -42,6 +42,7 @@ import ProductLifestylePage from "../pages/ProductLifestylePage";
 import ProductKidPage from "../pages/ProductKidPage";
 import ShopEditProfile from "../pages/ShopEditProfile";
 import EditProduct from "../pages/EditProduct";
+import NewAddressPage from "../pages/NewAddress";
 
 const router = createBrowserRouter([
   {
@@ -172,6 +173,10 @@ const router = createBrowserRouter([
   {
     path: "/shopEditProfile",
     element: <ShopEditProfile />,
+  },
+  {
+    path: "/newaddress",
+    element: <NewAddressPage />,
   },
 ]);
 
