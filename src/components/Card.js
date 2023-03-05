@@ -8,13 +8,13 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { formatNumber } from "../reduxStore/formatNumber";
 export default function Card(props) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // useEffect สำหรับ get ข้อมูล product
   const cardList = useSelector(state => state.allProduct.cardList);
-  useEffect(() => {
-    dispatch(thunkFetchAllProduct());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(thunkFetchAllProduct());
+  // }, [dispatch]);
   // useEffect สำหรับ get ข้อมูล product
   return (
     <>
