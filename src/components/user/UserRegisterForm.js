@@ -62,19 +62,20 @@ export default function UserRegisterForm() {
       }
 
       if (input.lastName.length > 3) {
-        setPhone("");
+        setErrorLastName("");
+
         setLastColor("green");
       } else {
-        setPhone("นามสกุลไม่ถูกต้อง");
+        setErrorLastName("เบอร์ไม่ถูกต้อง");
         setLastColor("red");
         errorCheck = true;
       }
 
       if (input.phone.length > 8) {
-        setErrorLastName("");
+        setPhone("");
         setPhoneColor("green");
       } else {
-        setErrorLastName("เบอร์ไม่ถูกต้อง");
+        setPhone("test");
         setPhoneColor("red");
         errorCheck = true;
       }
