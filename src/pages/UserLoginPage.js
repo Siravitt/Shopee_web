@@ -19,11 +19,11 @@ export default function UserLoginPage() {
         <div className="">
           <Bg />
 
-          <div className="rounded-3xl border-t-2  bg-white ml-2 mr-2 py-4">
+          <div className="rounded-3xl border-t-2  bg-white ml-2 mr-2  py-4">
             <div className=" mt-5 ml-10 text-red-400 text-[22px] font-extrabold flex justify-items-center">
               LOGIN
             </div>
-            <div className=" flex justify-center mb-4 mt-5">
+            <div className=" flex justify-center mb-6 mt-5">
               <UserLoginGoogleFrom />
             </div>
             <div className="flex justify-between items-center mx-14">
