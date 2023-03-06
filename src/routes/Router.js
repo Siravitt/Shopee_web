@@ -43,6 +43,7 @@ import ProductKidPage from "../pages/ProductKidPage";
 import ShopEditProfile from "../pages/ShopEditProfile";
 import EditProduct from "../pages/EditProduct";
 import NewAddressPage from "../pages/NewAddress";
+import Payment from "../pages/Payment";
 
 const router = createBrowserRouter([
   {
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "/ProductKid",
         element: <ProductKidPage />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
   },

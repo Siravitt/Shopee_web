@@ -28,7 +28,8 @@ const authSlice = createSlice({
 export const thunkFetchUser = (data) => async (dispatch) => {
   try {
     const res = await authService.getMe();
-    dispatch(login(res.data.user));
+    console.log(res.data);
+    dispatch(login(res.data));
   } catch (err) {
     console.log(err.response?.data);
   }
@@ -53,6 +54,17 @@ export const thunkGoogleLogin = (token) => async (dispatch) => {
     console.log(error);
   }
 };
+
+//??
+// export const thunkUpdateUser = (FormData) => async (dispatch) => {
+//   try {
+//     const res = await authService.updateUserProfile(FormData);
+//     setAccessToken(res.data.accessToken);
+//     dispatch(updateUserProfile(jwtDecode(res.data.accessToken)));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 export default authSlice.reducer;
 

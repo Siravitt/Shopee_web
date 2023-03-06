@@ -22,7 +22,7 @@ export default function ShopEditProfile() {
         <h4 className="text-2xl text-white font-bold ">Edit Shop</h4>
       </div>
       <div className=" flex justify-center">
-        <img src={editShop} />
+        <img src={editShop} alt="" />
       </div>
       <form className="gap-4 p-8 bg-white mt-4 rounded-xl mx-4">
         <div className="flex items-center justify-center w-full border rounded-xl border-blue-400 ">
