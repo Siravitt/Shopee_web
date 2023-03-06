@@ -9,6 +9,11 @@ export const getcheckoutProductShop = (pendingShop) => {
 
   return axios.get(`shop/order/all-order?status=${pendingShop}`);
 };
+export const getcheckoutOrderShop = (pendingShop) => {
+  // const queryString = new URLSearchParams().toString();
+
+  return axios.get(`shop/order/all-orderShop?status=${pendingShop}`);
+};
 export const updateOderShop = (updateid, inputstatus) => {
   // const queryString = new URLSearchParams().toString();
 
