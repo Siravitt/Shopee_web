@@ -9,9 +9,13 @@ import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
 import { Link } from "react-router-dom";
 import Welcome from "../images/Welcome.mp4";
+import Spinner from "../components/Spinner.js";
+import { getLoading } from "../reduxStore/Loading";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function HomePage() {
   const [searchItem, setSearchItem] = useState("");
+  const stateLoading = useSelector(state => state.allProduct.loading);
 
   const displayImages = [
     { image: Home, title: "Home", slash: "ProductHome" },
@@ -22,6 +26,7 @@ export default function HomePage() {
   ];
   return (
     <>
+      {stateLoading ? <Spinner /> : null}
       <div className="w-full min-h-[844px] bg-gray-50 mx-auto border  ">
         {/* +++++++++++++++++++++++++++++ header search +++++++++++++++++++++++++++++ */}
         <HeaderSearch searchItem={searchItem} setSearchItem={setSearchItem} />

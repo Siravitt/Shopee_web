@@ -56,10 +56,7 @@ const router = createBrowserRouter([
         path: "/chatBox",
         element: <ChatBox />,
       },
-      {
-        path: "/product/:productId",
-        element: <ProductPage />,
-      },
+
       {
         path: "/",
         element: <HomePage />,
@@ -177,6 +174,10 @@ const router = createBrowserRouter([
   {
     path: "/newaddress",
     element: <NewAddressPage />,
+  },
+  {
+    path: "/product/:productId",
+    element: <ProductPage />,
   },
 ]);
 
