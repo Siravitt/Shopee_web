@@ -12,7 +12,6 @@ export default function CardCat(props) {
   console.log(state);
   useEffect(() => {
     dispatch(thunkFetchAllProductByCatId(props.catId));
-    // console.log("มามั้ย");
   }, [dispatch]);
 
   // useEffect(() => {

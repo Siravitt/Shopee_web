@@ -1,16 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
 import profile2 from "../../images/profile2.png";
 import Bgprofile1 from "../../images/bgprofile1.jpg";
 import { removeAccessToken } from "../../utils/local-storage";
-const refresh = () => window.location.reload(true);
+import { clearCart } from "../../reduxStore/CartSlice";
+import { logout } from "../../reduxStore/AuthSlice";
 
 export default function HeaderProfile() {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const logOut = () => {
+    dispatch(clearCart())
+    dispatch(logout())
     removeAccessToken();
     navigate("/");
-    // refresh();
   };
 
   return (

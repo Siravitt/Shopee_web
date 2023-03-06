@@ -4,29 +4,27 @@ import axios from "axios";
 const ImageSlider = props => {
   const [current, setCurrent] = useState(0);
   const [image, setImage] = useState([]);
-  const length = image.length;
 
   const getImage = async () => {
     const res = await axios.get(
       "http://localhost:8000/image/" + props.ProductId,
     );
-    setImage(res.data.image);
+    setImage(res.data.product);
   };
   useEffect(() => {
     getImage();
   }, []);
-  console.log(length);
 
   const prevSlide = () => {
-    current === 0 ? setCurrent(length - 1) : setCurrent(current - 1);
+    current === 0 ? setCurrent(image.length - 1) : setCurrent(current - 1);
   };
   const nextSlide = () => {
-    current === length - 1 ? setCurrent(0) : setCurrent(current + 1);
+    current === image.length - 1 ? setCurrent(0) : setCurrent(current + 1);
   };
 
   return (
-    <section className="slider">
-      {image.map((data, index) => {
+    <section className="slider w-full">
+      {image?.map((data, index) => {
         return (
           <div
             className={index === current ? "slide active" : "slide"}
@@ -41,12 +39,12 @@ const ImageSlider = props => {
                 <img
                   src={data.image}
                   alt={data.title}
-                  className="image"
+                  className="image h-[355px] w-full object-cover"
                   onClick={nextSlide}
                 />
-                <p className="flex justify-center">
+                <div className="flex justify-center text-[10px] font-bold">
                   {index + 1}/{image.length}
-                </p>
+                </div>
               </div>
             )}
           </div>

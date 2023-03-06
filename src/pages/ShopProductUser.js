@@ -5,8 +5,7 @@ import CardShop from "../components/CardShop";
 import BottomNavbar from "../layouts/BottomNavbar";
 
 export default function ShopProductUser() {
-  let { shopId } = useParams();
-  // console.log("kram1", shopId);
+  const { shopId } = useParams();
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
       {/* header */}
@@ -14,6 +13,7 @@ export default function ShopProductUser() {
         <img
           src="https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png"
           className="w-[89px] h-[89px] rounded-full"
+          alt=""
         ></img>
 
         <div className="text-3xl ml-8 my-4 text-white flex item-center font-bold ">

@@ -55,10 +55,6 @@ const router = createBrowserRouter([
         element: <ChatBox />,
       },
       {
-        path: "/product/:productId",
-        element: <ProductPage />,
-      },
-      {
         path: "/",
         element: <HomePage />,
       },
@@ -139,7 +135,14 @@ const router = createBrowserRouter([
   {
     element: <NormalLayout />,
     children: [
-      { path: "/user-login", element: <UserLoginPage /> },
+      {
+        path: "/product/:productId",
+        element: <ProductPage />,
+      },
+      {
+        path: "/user-login",
+        element: <UserLoginPage />,
+      },
       {
         path: "/user-register",
         element: <UserRegisterPage />,

@@ -20,6 +20,9 @@ const authSlice = createSlice({
     googleLogin: (state, action) => {
       state.auth = action.payload;
     },
+    logout: (state, action) => {
+      state.auth = null;
+    },
   },
 });
 
@@ -28,7 +31,7 @@ const authSlice = createSlice({
 export const thunkFetchUser = (data) => async (dispatch) => {
   try {
     const res = await authService.getMe();
-    dispatch(login(res.data.user));
+    dispatch(login(res.data));
   } catch (err) {
     console.log(err.response?.data);
   }
@@ -56,4 +59,4 @@ export const thunkGoogleLogin = (token) => async (dispatch) => {
 
 export default authSlice.reducer;
 
-export const { login, googleLogin } = authSlice.actions;
+export const { login, googleLogin, logout } = authSlice.actions;
