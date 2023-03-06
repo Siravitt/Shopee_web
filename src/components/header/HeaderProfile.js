@@ -4,6 +4,7 @@ import profile2 from "../../images/profile2.png";
 import Red from "../../images/Red.png";
 import { removeAccessToken } from "../../utils/local-storage";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+
 const refresh = () => window.location.reload(true);
 
 export default function HeaderProfile() {
