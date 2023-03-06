@@ -12,10 +12,10 @@ export default function ItemsOrder({ name, des, quantity, price, image }) {
         <div className="text-[12px] text-black font-light ">
           {quantity} {quantity > 1 ? "pieces" : "piece"}
         </div>
-        <div className="text-[12px] text-black font-light ">
+        <div className="text-[12px] text-black font-light">
           Price: ฿ {price}
         </div>
-        <div className="text-[12px] text-red font-light text-red-500">
+        <div className="text-[12px] font-bold text-red text-red-500">
           Total price ฿ {quantity * price}
         </div>
       </div>

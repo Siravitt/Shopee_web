@@ -17,7 +17,7 @@ let OmiseCard;
 export default function CheckoutPage() {
   const [showAddress, setShowAddress] = useState(false);
   const [selectAddress, setSelectAddress] = useState({});
-  const [allAddress, setAllAddress] = useState([]);
+  const [allAddress, setAllAddress] = useState([]);  
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ export default function CheckoutPage() {
   const handleScriptLoad = () => {
     OmiseCard = window.OmiseCard;
     OmiseCard.configure({
-      publicKey: "pkey_test_5v0j2grgzo97645tnze",
+      publicKey: process.env.REACT_APP_OMISE_PUBLIC_KEY,
     });
   };
 
