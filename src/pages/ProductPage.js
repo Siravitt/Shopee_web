@@ -22,7 +22,7 @@ export default function ProductPage() {
   let { productId } = useParams();
 
   const dispatch = useDispatch();
-  const state = useSelector(state => state.allProduct.product);
+  const state = useSelector((state) => state.allProduct.product);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

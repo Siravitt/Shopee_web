@@ -15,8 +15,9 @@ export default function Card(props) {
   const cardList = useSelector((state) => state.allProduct.cardList);
   // useEffect(() => {
   //   dispatch(thunkFetchAllProduct());
-  // }, [dispatch]);
+  // }, []);
   // useEffect สำหรับ get ข้อมูล product
+
   return (
     <>
       {cardList?.length > 0 &&
