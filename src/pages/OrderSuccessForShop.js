@@ -6,6 +6,7 @@ import Pending from "../images/Pending.png";
 import ReadyToShip from "../images/ReadyToShip.png";
 import Shipping from "../images/Shipping.png";
 import { Link } from "react-router-dom";
+import CardpendingShop from "../components/CardpendingShop";
 
 export default function OrderSuccessForShop() {
   return (
@@ -41,7 +42,9 @@ export default function OrderSuccessForShop() {
         {/* <OrderNavbar /> */}
         <hr />
         {/* body */}
-        <OrderListForShop />
+        {/* <CardpendingShop pendingShop={"SUCCESS"} /> */}
+        <CardpendingShop pendingShop={"SUCCESS"} />
+
         {/* body */}
         <div className="h-[80px] w-[390px] flex px-[10px]  px-10"></div>
       </div>
