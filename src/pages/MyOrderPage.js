@@ -18,8 +18,8 @@ export default function MyOrderPage() {
   }, []);
   const dispatch = useDispatch();
   const [item, setItem] = useState({});
-  const getUser = useSelector((state) => state.auth.auth); //???
-  console.log("---------------->>", getUser);
+  const getUser = useSelector((state) => state.auth.auth);
+
   useEffect(() => {
     dispatch(thunkFetchUser());
   }, [dispatch]);
@@ -37,22 +37,24 @@ export default function MyOrderPage() {
       <div className="w-full min-h-[844px] bg-white mx-auto border ">
         <HeaderProfile />
 
-        <div className="mt-10">
+        <div className="my-8 bg-red-100 mx-4 rounded-xl justify-between ">
           <OrderNavbar />
         </div>
 
         <div className="" key={item.id}>
-          <p className="text-red-400 my-2 text-md font-bold mx-8">
-            UserName : {item.username}
+          <p className="text-red-400 my-2 text-md font-bold mx-8 ">
+            UserName :{item.username}
           </p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 text-md my-2 font-bold mx-8">
-            First Name : {item.firstName}
+          <p className="text-red-400 text-md my-2 font-bold mx-8 ">
+            First Name: {item.firstName}
           </p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 my-2 text-md font-bold mx-8">
-            Last Name : {item.lastName}
+          <p className="text-red-400 my-2 text-md font-bold mx-8 uppercase">
+            Last Name
           </p>
+          <p className="text-red-400 my-2 text-sm mx-8">{item.lastName}</p>
+
           <hr className="mx-8 border-1 my-2 border-red-400" />
           <p className="text-red-400 text-md my-2 font-bold mx-8">
             Email : {item.email}

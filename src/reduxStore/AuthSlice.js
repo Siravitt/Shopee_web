@@ -20,6 +20,10 @@ const authSlice = createSlice({
     googleLogin: (state, action) => {
       state.auth = action.payload;
     },
+    updateUserProfile: (state, action) => {
+      state.auth = action.payload;
+      console.log(action.payload);
+    },
   },
 });
 
@@ -56,16 +60,15 @@ export const thunkGoogleLogin = (token) => async (dispatch) => {
 };
 
 //??
-// export const thunkUpdateUser = (FormData) => async (dispatch) => {
-//   try {
-//     const res = await authService.updateUserProfile(FormData);
-//     setAccessToken(res.data.accessToken);
-//     dispatch(updateUserProfile(jwtDecode(res.data.accessToken)));
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const thunkUpdateUser = (FormData) => async (dispatch) => {
+  try {
+    const res = await authService.updateUserProfile(FormData);
+    // dispatch();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export default authSlice.reducer;
 
-export const { login, googleLogin } = authSlice.actions;
+export const { login, googleLogin, updateUserProfile } = authSlice.actions;

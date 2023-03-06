@@ -7,7 +7,7 @@ import Shipping from "../../images/Shipping.png";
 export default function OrderNavbar(props) {
   return (
     <>
-      <div className="h-[100px] w-[390px] flex px-[10px]  px-10">
+      <div className="h-[100px] w-[360px] flex px-[10px]  ">
         <div
           className={` flex flex-col justify-center w-[150px]  items-center ${props.shipping} ${props.order}`}
         >
