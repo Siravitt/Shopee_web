@@ -1,3 +1,5 @@
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+
 import UserRegisterForm from "../components/user/UserRegisterForm";
 import UserLoginGoogleFrom from "../components/user/UserLoginGoogleFrom";
 import Bgbg from "../components/bgbg";
@@ -6,7 +8,12 @@ import { Link } from "react-router-dom";
 export default function UserRegisterPage() {
   return (
     <>
-      <div className="bg-red-200 h-800">
+      <div className="bg-red-200 h-800 static">
+        <div className="absolute mt-4 ml-4 z-10">
+          <Link to="/Authenticate">
+            <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
+          </Link>
+        </div>
         <div className="">
           <Bgbg />
 

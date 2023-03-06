@@ -28,11 +28,11 @@ export default function UserLoginForm() {
     // }
   }, [navigate]);
   const [input, setInput] = useState(initialInput);
-  const handleChangeInput = async e => {
+  const handleChangeInput = async (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   const dispatch = useDispatch();
-  const handleSubmitForm = async e => {
+  const handleSubmitForm = async (e) => {
     let errorCheck = false;
     try {
       e.preventDefault();

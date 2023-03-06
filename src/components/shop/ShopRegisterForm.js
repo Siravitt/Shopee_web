@@ -15,11 +15,11 @@ const initialInput = {
 export default function ShopRegisterForm() {
   const [input, setInput] = useState(initialInput);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handleSubmitForm = async e => {
+  const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
       await shopRegister(input);

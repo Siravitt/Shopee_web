@@ -1,3 +1,5 @@
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+
 import { Link } from "react-router-dom";
 import signupShop from "../images/signupShop.mp4";
 
@@ -6,7 +8,12 @@ import Logo from "../images/logo.png";
 
 export default function ShopRegisterPage() {
   return (
-    <div className="relative w-[390px] min-h-[845px] mx-auto border">
+    <div className="relative w-[390px] min-h-[845px] mx-auto border static">
+      <div className="absolute mt-4 ml-4 z-10">
+        <Link to="/MyOrderPage">
+          <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
+        </Link>
+      </div>
       <div className="absolute inset-0 h-[full] w-full ">
         <video
           className="h-[845px] object-cover"

@@ -18,7 +18,7 @@ export default function UserRegisterForm() {
 
   const [input, setInput] = useState(initialInput);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   // ======================================================
@@ -38,7 +38,7 @@ export default function UserRegisterForm() {
   const [passwordColor, setPasswordColor] = useState("");
   const [rePasswordColor, setRePasswordColor] = useState("");
   // ======================================================
-  const handleSubmitForm = async e => {
+  const handleSubmitForm = async (e) => {
     let errorCheck = false;
     try {
       e.preventDefault();

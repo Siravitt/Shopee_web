@@ -1,16 +1,18 @@
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+
 import React from "react";
 import { Link } from "react-router-dom";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function ChatBox() {
   return (
-    <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
+    <div className="w-[390px] min-h-[845px] bg-white mx-auto border static">
+      <div className="absolute mt-4 ml-4">
+        <Link to="/chat">
+          <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
+        </Link>
+      </div>
       <div className="w-full h-[70px] px-4 bg-red-400 flex flex-col items-center">
-        <button className="absolute top-4 left-2">
-          <Link to="/my-cart">
-            <ArrowBackIcon sx={{ fontSize: 35, color: "white" }} />
-          </Link>
-        </button>
+        <button className="absolute top-4 left-2"></button>
         <div className="text-[25px] text-white font-bold mt-5">Shop Name</div>
       </div>
       <div className="w-full  ">

@@ -19,7 +19,7 @@ export default function ShopEditProfile() {
         <Link to="/myShoppage">
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
-        <h4 className="text-2xl text-white font-bold ">Edit Shop</h4>
+        <h4 className="text-2xl text-white font-bold px-20 mr-10">Edit Shop</h4>
       </div>
       <div className=" flex justify-center">
         <img src={editShop} alt="" />

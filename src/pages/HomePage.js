@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function HomePage() {
   const [searchItem, setSearchItem] = useState("");
-  const stateLoading = useSelector(state => state.allProduct.loading);
+  const stateLoading = useSelector((state) => state.allProduct.loading);
 
   const displayImages = [
     { image: Home, title: "Home", slash: "ProductHome" },

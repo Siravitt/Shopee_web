@@ -33,7 +33,6 @@ export default function MyOrderPage() {
   // }, []);
   return (
     <>
-      return (
       <div className="w-full min-h-[844px] bg-white mx-auto border ">
         <HeaderProfile />
 
@@ -68,7 +67,6 @@ export default function MyOrderPage() {
           <hr className="mx-8 border-1 my-2 border-red-400" />
         </div>
       </div>
-      );
     </>
   );
 }
