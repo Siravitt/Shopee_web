@@ -24,7 +24,7 @@ code {
   top: 0;
   left: 0;
   z-index: 999999999;
-  background: black;
+  background: rgb(255, 255, 255);
   opacity: 0.5;
   position: fixed;
   height: 100vh;
@@ -35,7 +35,7 @@ code {
 }
 .loader {
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #3498db;
+  border-top: 10px solid #838586;
   border-radius: 50%;
   width: 80px;
   height: 80px;

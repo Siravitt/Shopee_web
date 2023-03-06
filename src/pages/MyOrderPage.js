@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 export default function MyOrderPage() {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!getAccessToken()) {
-  //     navigate("/Authenticate");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!getAccessToken()) {
+      navigate("/Authenticate");
+    }
+  }, []);
   return (
     <>
       <div className="w-full min-h-[844px] bg-white mx-auto border ">
