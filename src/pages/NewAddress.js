@@ -20,15 +20,19 @@ export default function NewAddressPage() {
             Contact
           </div>
         </div>
-
+        <div className="w-[388px] h-[38px] bg-white  text-gray-400">
+          <div className="ml-5 w-[388px] h-[32px] py-1">Reciever Name</div>
+        </div>
+        <SmallLine />
         <div className="w-[388px] h-[38px] bg-white  text-gray-400">
           <div className="ml-5 w-[388px] h-[32px] py-1">Phone Number</div>
         </div>
         <div className="w-[388px] h-[28px] bg-gray-200 text-gray-500 ">
-          <div className="ml-5">Adress</div>
+          <div className="ml-5">Address</div>
         </div>
+        <SmallLine />
         <div className="w-[388px] h-[38px] bg-white  text-gray-400">
-          <div className="ml-5 w-[388px] h-[32px] py-1">Adress</div>
+          <div className="ml-5 w-[388px] h-[32px] py-1">Address</div>
         </div>
 
         <SmallLine />
