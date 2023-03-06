@@ -1,5 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { addCart, getCart, updateCart } from "../apis/cart-api";
+import { createOrder } from "../apis/checkout-user-api";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -120,6 +121,14 @@ export const thunkUpdateCart = (input) => async (dispatch) => {
   }
 };
 
+export const thunkCheckoutCart = (input) => async (dispatch) => {
+  try {
+    await createOrder(input);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export default cartSlice.reducer;
 
 export const {
@@ -134,5 +143,5 @@ export const {
   unSelectShop,
   selectProduct,
   unSelectProduct,
-  clearSelectCart
+  clearSelectCart,
 } = cartSlice.actions;

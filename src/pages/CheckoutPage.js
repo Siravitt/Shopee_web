@@ -10,7 +10,7 @@ import { getAllAddress } from "../apis/address-user-api";
 import SelectAddress from "../components/user/SelectAddress";
 import ShopInOrder from "../components/user/ShopInOrder";
 import { createCharge } from "../apis/checkout-user-api";
-import { clearSelectCart } from "../reduxStore/CartSlice";
+import { clearSelectCart, thunkCheckoutCart } from "../reduxStore/CartSlice";
 
 let OmiseCard;
 
@@ -18,7 +18,6 @@ export default function CheckoutPage() {
   const [showAddress, setShowAddress] = useState(false);
   const [selectAddress, setSelectAddress] = useState({});
   const [allAddress, setAllAddress] = useState([]);
-  const [charge, setCharge] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -77,9 +76,7 @@ export default function CheckoutPage() {
       onCreateTokenSuccess: (token) => {
         createCreditCharge(token);
       },
-      onFormClosed: () => {
-        navigate("/PendingPage")
-      },
+      onFormClosed: () => {},
     });
   };
 
@@ -92,11 +89,15 @@ export default function CheckoutPage() {
         token: token,
       });
       const resData = res.data;
-      console.log(resData);
-      setCharge(resData);
       if (resData.status === "successful") {
-        console.log("SUCCESS");
-        dispatch(clearSelectCart);
+        dispatch(clearSelectCart());
+        dispatch(
+          thunkCheckoutCart({
+            productId: selectProductId,
+            addressId: selectAddress.id,
+          })
+        );
+        navigate("/PendingPage");
       } else {
         navigate("/my-cart");
       }
