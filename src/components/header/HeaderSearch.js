@@ -46,7 +46,7 @@ function HeaderSearch({ searchItem, setSearchItem }) {
               type="search"
               id="search"
               value={searchItem}
-              onChange={(e) => setSearchItem(e.target.value)}
+              onChange={e => setSearchItem(e.target.value)}
               placeholder="Search"
               className="block w-72 h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
               required

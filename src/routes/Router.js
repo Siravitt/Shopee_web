@@ -41,6 +41,9 @@ import ProductBeautyPage from "../pages/ProductBeautyPage";
 import ProductLifestylePage from "../pages/ProductLifestylePage";
 import ProductKidPage from "../pages/ProductKidPage";
 import ShopEditProfile from "../pages/ShopEditProfile";
+import EditProduct from "../pages/EditProduct";
+import NewAddressPage from "../pages/NewAddress";
+import Payment from "../pages/Payment";
 
 const router = createBrowserRouter([
   {
@@ -54,10 +57,7 @@ const router = createBrowserRouter([
         path: "/chatBox",
         element: <ChatBox />,
       },
-      {
-        path: "/product/:productId",
-        element: <ProductPage />,
-      },
+
       {
         path: "/",
         element: <HomePage />,
@@ -110,6 +110,10 @@ const router = createBrowserRouter([
         path: "/ProductKid",
         element: <ProductKidPage />,
       },
+      {
+        path: "/payment",
+        element: <Payment />,
+      },
     ],
   },
   {
@@ -134,6 +138,7 @@ const router = createBrowserRouter([
       { path: "/ShipingForShop", element: <ShipingForShop /> },
       { path: "/ChatPageForShop", element: <ChatPageForShop /> },
       { path: "/addProduct", element: <AddProduct /> },
+      { path: "/editProduct", element: <EditProduct /> },
     ],
   },
   {
@@ -170,6 +175,14 @@ const router = createBrowserRouter([
   {
     path: "/shopEditProfile",
     element: <ShopEditProfile />,
+  },
+  {
+    path: "/newaddress",
+    element: <NewAddressPage />,
+  },
+  {
+    path: "/product/:productId",
+    element: <ProductPage />,
   },
 ]);
 

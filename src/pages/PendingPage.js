@@ -7,7 +7,9 @@ export default function PendingPage(pending) {
     <>
       <div className="w-[390px] min-h-[844px] bg-white mx-auto border  ">
         <HeaderProfile />
-        <OrderNavbar pending="opacity-40" />
+        <div className="mt-10">
+          <OrderNavbar pending="opacity-40" />
+        </div>
 
         <div className="flex justify-center items-center mt-16">
           <img src={Logo2} alt="" />

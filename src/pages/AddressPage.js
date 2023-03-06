@@ -47,7 +47,7 @@ export default function AddressPage() {
         </div>
         <SmallLine />
         <div>
-          <button class="w-[390px] h-[60px] bg-white hover:bg-blue-500 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
+          <button class="w-[390px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
             ⊕ Add New Address
           </button>
         </div>

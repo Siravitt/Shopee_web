@@ -11,15 +11,16 @@ export default function Card(props) {
   const dispatch = useDispatch();
 
   // useEffect สำหรับ get ข้อมูล product
-  const cardList = useSelector(state => state.allProduct.cardList);
-  useEffect(() => {
-    dispatch(thunkFetchAllProduct());
-  }, [dispatch]);
+
+  const cardList = useSelector((state) => state.allProduct.cardList);
+  // useEffect(() => {
+  //   dispatch(thunkFetchAllProduct());
+  // }, [dispatch]);
   // useEffect สำหรับ get ข้อมูล product
   return (
     <>
       {cardList?.length > 0 &&
-        cardList?.map(item => {
+        cardList?.map((item) => {
           return (
             <div className="" key={item.id + "card"}>
               <Link to={`/product/${item.id}`}>
@@ -33,7 +34,7 @@ export default function Card(props) {
                 >
                   <img
                     className="p-auto rounded-t-lg  "
-                    src={item.ProductImages.find(i => !!i.isMain)?.image}
+                    src={item?.ProductImages?.find((i) => !!i.isMain)?.image}
                     alt="product"
                     key={item.id + "cardImage"}
                   />
