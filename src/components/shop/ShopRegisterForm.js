@@ -4,7 +4,7 @@ import { shopRegister } from "../../apis/auth-shop-api";
 import Input from "../Input";
 
 const initialInput = {
-  shopName: "",
+  name: "",
   address: "",
   subDistrict: "",
   district: "",
@@ -15,17 +15,20 @@ const initialInput = {
 export default function ShopRegisterForm() {
   const [input, setInput] = useState(initialInput);
 
-  const handleChangeInput = e => {
+  const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
+    console.log("-------input", input);
   };
 
-  const handleSubmitForm = async e => {
+  const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
       await shopRegister(input);
+
       setInput(initialInput);
     } catch (err) {
-      console.log(err.data?.response);
+      // console.log(err.data?.response);
+      console.log(err.message);
     }
   };
   return (
@@ -43,8 +46,8 @@ export default function ShopRegisterForm() {
           </label>
           <input
             type="text"
-            name="shopName"
-            value={input.shopName}
+            name="name"
+            value={input.name}
             onChange={handleChangeInput}
             className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
           />
