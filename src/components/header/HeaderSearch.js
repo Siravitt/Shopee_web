@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useDebounce from "../../hooks/UseDebounce";
 
 // import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
+// import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 
 function HeaderSearch({ searchItem, setSearchItem }) {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function HeaderSearch({ searchItem, setSearchItem }) {
           >
             Search
           </label>
-          <div className="relative">
+          <div className="relative mx-4">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
@@ -48,17 +48,11 @@ function HeaderSearch({ searchItem, setSearchItem }) {
               value={searchItem}
               onChange={(e) => setSearchItem(e.target.value)}
               placeholder="Search"
-              className="block w-72 h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+              className="block w-80   h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
               required
             />
           </div>
         </form>
-        <button className="w-[50px] h-[50px] ml-4 flex items-center justify-center">
-          {/* <ShoppingCartOutlinedIcon sx={{ fontSize: 30, color: "white" }} /> */}
-          <NotificationsActiveOutlinedIcon
-            sx={{ fontSize: 30, color: "white" }}
-          />
-        </button>
       </div>
     </>
   );
