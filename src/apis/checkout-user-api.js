@@ -14,3 +14,14 @@ export const getcheckoutProductUser = (pending) => {
 
 //   return axios.get(`/product?${queryString}`);
 // };
+export const getshinppingOrderShop = (shinpping) => {
+  // const queryString = new URLSearchParams().toString();
+
+  return axios.get(`/user/order/all-order?status=${shinpping}`);
+};
+
+export const updateOderShopForUser = (orderShopId) => {
+  return axios.patch(
+    `http://localhost:8000/user/order/update-order/${orderShopId}`
+  );
+};

@@ -24,6 +24,7 @@ export default function Cardpending(props) {
   useEffect(() => {
     dispatch(thunkFetcheckProductShop(props.pendingShop));
   }, [dispatch]);
+
   useEffect(() => {
     dispatch(thunkFetcheckOrderShop(props.pendingShop));
   }, [dispatch]);
@@ -59,12 +60,12 @@ export default function Cardpending(props) {
                     <hr />
 
                     {cardPenShop
-                      .filter((i) => i.OrderShop.id === item.id)
-                      .map((data) => {
+                      ?.filter((i) => i?.OrderShop?.id === item?.id)
+                      ?.map((data) => {
                         return (
                           <div className="flex justify-between px-[16px] pt-[8px]">
                             <h2>{data?.Product?.name}</h2>
-                            <span>x {data.quantity}</span>
+                            <span>x {data?.quantity}</span>
                           </div>
                         );
                       })}

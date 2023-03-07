@@ -16,6 +16,7 @@ const productSlice = createSlice({
     shopInfo: {},
     loading: false,
     checkoutUser: [],
+    orderShopUser: [],
   },
 
   reducers: {
@@ -39,6 +40,9 @@ const productSlice = createSlice({
     },
     setcheckoutProductUser: (state, action) => {
       state.checkoutUser = action.payload;
+    },
+    setOrderShopUser: (state, action) => {
+      state.orderShopUser = action.payload;
     },
   },
 });
@@ -118,6 +122,21 @@ export const thunkFetcheckProductUser = (pending) => async (dispatch) => {
     const res = await checkoutServiceUser.getcheckoutProductUser(pending);
     // console.log(res.data.products, "kram id shop");
     dispatch(setcheckoutProductUser(res.data));
+    // console.log("BBB", res.data);
+  } catch (err) {
+    // removeAccessToken();
+    console.log(err);
+  }
+};
+
+export const thunkFetcheckOderShoptUser = (shinpping) => async (dispatch) => {
+  try {
+    // console.log("mu dfsadf");
+    // alert("555");
+    const res = await checkoutServiceUser.getshinppingOrderShop(shinpping);
+    // console.log(res.data.products, "kram id shop");
+    dispatch(setOrderShopUser(res.data));
+    // console.log("AAA", res.data);
   } catch (err) {
     // removeAccessToken();
     console.log(err);
@@ -134,6 +153,7 @@ const {
   setShopInfo,
   setLoading,
   setcheckoutProductUser,
+  setOrderShopUser,
 } = productSlice.actions;
 export {
   setProduct,
@@ -143,4 +163,5 @@ export {
   setShopInfo,
   setLoading,
   setcheckoutProductUser,
+  setOrderShopUser,
 };

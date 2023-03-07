@@ -39,6 +39,7 @@ export const thunkFetcheckOrderShop = (pendingShop) => async (dispatch) => {
     const res = await checkoutServiceShop.getcheckoutOrderShop(pendingShop);
     // console.log(res.data.products, "kram id shop");
     dispatch(setOrderShop(res.data));
+    // console.log("aaa", res.data);
   } catch (err) {
     // removeAccessToken();
     console.log(err);
