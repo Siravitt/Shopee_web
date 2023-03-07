@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { thunkUpdateProduct } from "../reduxStore/ProductSlice";
 // import { toast } from "react-toastify";
 
-// import Input from "../Input";
-
 export default function EditProduct() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const updateInfo = useSelector((state) => state.auth.auth);
+  const updateInfo = useSelector((state) => state.allproduct.cardList); //??
   const [input, setInput] = useState({
     name: "",
     price: "",
@@ -39,6 +39,13 @@ export default function EditProduct() {
     // setAuthenticatedUser(res.data.newUser); //??
     // onSuccess();
     // toast.success("Product Successfully updated");
+
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + " - " + pair[1]);
+    // }
+
+    dispatch(thunkUpdateProduct(formData));
+    navigate("/MyOrderPage");
   };
 
   return (

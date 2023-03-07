@@ -124,6 +124,15 @@ export const thunkFetcheckProductUser = (pending) => async (dispatch) => {
   }
 };
 
+export const thunkUpdateProduct = (FormData) => async (dispatch) => {
+  try {
+    const res = await productServiceShop.createProduct(FormData);
+    // dispatch();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default productSlice.reducer;
 
 const {

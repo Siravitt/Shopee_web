@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import profile2 from "../images/profile2.png";
 import Red from "../images/Red.png";
 import { thunkUpdateUser, updateUserProfile } from "../reduxStore/AuthSlice";
 
 export default function UserEditProfile() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const updateInfo = useSelector((state) => state.auth.auth);
   const [input, setInput] = useState({
@@ -36,6 +37,7 @@ export default function UserEditProfile() {
     //   console.log(pair[0] + " - " + pair[1]);
     // }
     dispatch(thunkUpdateUser(formData));
+    navigate("/MyOrderPage");
   };
   return (
     <>

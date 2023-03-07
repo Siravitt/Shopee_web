@@ -37,36 +37,46 @@ export default function MyOrderPage() {
       <div className="w-full min-h-[844px] bg-white mx-auto border ">
         <HeaderProfile />
 
-        <div className="my-8 bg-red-100 mx-4 rounded-xl justify-between ">
+        <p className="mx-8 mt-6 text-red-400 text-lg font-bold  ">
+          Order Status
+        </p>
+        <div className="my-3 bg-red-100 mx-6 rounded-xl justify-between  ">
           <OrderNavbar />
         </div>
 
         <div className="" key={item.id}>
-          <p className="text-red-400 my-2 text-md font-bold mx-8 ">
-            UserName :{item.username}
-          </p>
+          {/* UserName */}
+          <p className="text-red-400 text-md font-bold mx-8 ">UserName</p>
+          <p className="text-gray-500 text-md mx-8">{item.userName}</p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 text-md my-2 font-bold mx-8 ">
-            First Name: {item.firstName}
+
+          {/* FirstName */}
+          <p className="text-red-400 text-md font-bold mx-8 uppercase">
+            First Name
           </p>
+          <p className="text-gray-500 text-md mx-8 ">{item.firstName}</p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 my-2 text-md font-bold mx-8 uppercase">
+
+          {/* LastName */}
+          <p className="text-red-400  text-md font-bold mx-8 uppercase">
             Last Name
           </p>
-          <p className="text-red-400 my-2 text-sm mx-8">{item.lastName}</p>
+          <p className="text-gray-500 text-md mx-8 ">{item.lastName}</p>
+          <hr className="mx-8 border-1 my-2 border-red-400" />
 
+          {/* Email */}
+          <p className="text-red-400 text-md font-bold mx-8 uppercase">Email</p>
+          <p className="text-gray-500 text-md mx-8 ">{item.email}</p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 text-md my-2 font-bold mx-8">
-            Email : {item.email}
-          </p>
+
+          {/* Phone */}
+          <p className="text-red-400 text-md font-bold mx-8 uppercase">Phone</p>
+          <p className="text-gray-500 text-md  mx-8 ">{item.phone}</p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 my-2 text-md font-bold mx-8">
-            Phone : {item.phone}
+          <p className="text-red-400 text-md  font-bold mx-8 uppercase">
+            Address
           </p>
-          <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 text-md my-2 font-bold mx-8">
-            Address : Address
-          </p>
+          <p className="text-gray-500 text-md mx-8 ">Address</p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
         </div>
       </div>

@@ -22,7 +22,6 @@ const authSlice = createSlice({
     },
     updateUserProfile: (state, action) => {
       state.auth = action.payload;
-      console.log(action.payload);
     },
   },
 });
@@ -32,10 +31,10 @@ const authSlice = createSlice({
 export const thunkFetchUser = (data) => async (dispatch) => {
   try {
     const res = await authService.getMe();
-    console.log(res.data);
+    // console.log(res.data);
     dispatch(login(res.data));
   } catch (err) {
-    console.log(err.response?.data);
+    // console.log(err.response?.data);
   }
 };
 
@@ -63,7 +62,6 @@ export const thunkGoogleLogin = (token) => async (dispatch) => {
 export const thunkUpdateUser = (FormData) => async (dispatch) => {
   try {
     const res = await authService.updateUserProfile(FormData);
-    // dispatch();
   } catch (error) {
     console.log(error);
   }
