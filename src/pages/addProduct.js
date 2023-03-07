@@ -34,7 +34,7 @@ export default function AddProduct() {
       // toast.error(err.response?.data.message);
     }
 
-    // navigate("/shop-home");
+    navigate("/shop-home");
   };
 
   return (
