@@ -8,7 +8,7 @@ import { thunkUpdateProduct } from "../reduxStore/ProductSlice";
 export default function EditProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const updateInfo = useSelector((state) => state.allproduct.cardList); //??
+  // const updateInfo = useSelector((state) => state.allproduct.cardList);
   const [input, setInput] = useState({
     name: "",
     price: "",

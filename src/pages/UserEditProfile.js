@@ -15,7 +15,7 @@ export default function UserEditProfile() {
     userName: "",
     email: "",
     phone: "",
-    image: null,
+    profileImage: null,
   });
   // console.log("------", input);
   const handleChangeInput = (e) => {
@@ -31,7 +31,7 @@ export default function UserEditProfile() {
     formData.append("userName", input.userName);
     formData.append("email", input.email);
     formData.append("phone", input.phone);
-    // formData.append("profileImage", input.profileImage);
+    formData.append("profileImage", input.profileImage);
 
     // for (var pair of formData.entries()) {
     //   console.log(pair[0] + " - " + pair[1]);
