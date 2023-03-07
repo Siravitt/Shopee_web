@@ -1,18 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import editShop from "../images/editShop.png";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { editShopProfile } from "../apis/auth-shop-api";
 
 const initialInput = {
-  shopName: "",
+  name: "",
   address: "",
   subDistrict: "",
   district: "",
   province: "",
   postalCode: "",
+  // profileImage: null,
 };
 
 export default function ShopEditProfile() {
+  const [input, setInput] = useState({
+    name: "",
+    address: "",
+    subDistrict: "",
+    district: "",
+    province: "",
+    postalCode: "",
+    // profileImage: null,
+  });
+
+  const handleChangeInput = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  console.log("********", input);
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", input.name);
+    formData.append("address", input.address);
+    formData.append("subDistrict", input.subDistrict);
+    formData.append("district", input.district);
+    formData.append("province", input.province);
+    formData.append("postalCode", input.postalCode);
+    // formData.append("profileImage", input.profileImage);
+    await editShopProfile(formData);
+    // toast.success("Shop profile successfully updated")
+  };
   return (
     <div className="w-[390px] min-h-[845px] bg- mx-auto border bg-blue-400">
       <div className="w-full flex flex-row justify-between h-[70px] px-4 items-center">
@@ -24,11 +54,14 @@ export default function ShopEditProfile() {
       <div className=" flex justify-center">
         <img src={editShop} alt="" />
       </div>
-      <form className="gap-4 p-8 bg-white mt-4 rounded-xl mx-4">
+      <form
+        onSubmit={handleSubmitForm}
+        className="gap-4 p-8 bg-white mt-4 rounded-xl mx-4"
+      >
         <div className="flex items-center justify-center w-full border rounded-xl border-blue-400 ">
           <label
             htmlFor="dropzone-file"
-            className="flex flex-col items-center justify-center w-full h-48 border-blue-400 rounded-xl cursor-pointer bg-blue-50 "
+            className="flex flex-col items-center justify-center w-full h-36 border-blue-400 rounded-xl cursor-pointer bg-blue-50 "
           >
             <div className="flex flex-col items-center justify-center pt-5 pb-6 ">
               <svg
@@ -59,10 +92,10 @@ export default function ShopEditProfile() {
           </label>
           <input
             type="text"
-            name="shopName"
-            // value={input.shopName}
-            // onChange={handleChangeInput}
-            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md py-2 pl-10 pr-4 block w-full sm:text-sm "
+            name="name"
+            value={input.name}
+            onChange={handleChangeInput}
+            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md pt-4 pb-2  pl-4 pr-4 block w-full sm:text-md text-gray-500"
           />
         </div>
         <div className="relative">
@@ -72,9 +105,9 @@ export default function ShopEditProfile() {
           <input
             type="text"
             name="address"
-            className="border border-blue-400 bg-white my-4 rounded-md py-2 pl-10 pr-4 block w-full sm:text-sm "
-            // value={input.address}
-            // onChange={handleChangeInput}
+            value={input.address}
+            onChange={handleChangeInput}
+            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md pt-4 pb-2  pl-4 pr-4 block w-full sm:text-md text-gray-500"
           />
         </div>
         <div className="relative">
@@ -84,9 +117,9 @@ export default function ShopEditProfile() {
           <input
             type="text"
             name="subDistrict"
-            // value={input.subDistrict}
-            // onChange={handleChangeInput}
-            className="border border-blue-400 bg-white my-4 rounded-md py-2 pl-10 pr-4 block w-full sm:text-sm "
+            value={input.subDistrict}
+            onChange={handleChangeInput}
+            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md pt-4 pb-2  pl-4 pr-4 block w-full sm:text-md text-gray-500"
           />
         </div>
         <div className="relative">
@@ -96,9 +129,9 @@ export default function ShopEditProfile() {
           <input
             type="text"
             name="district"
-            // value={input.district}
-            // onChange={handleChangeInput}
-            className="border border-blue-400 bg-white my-4 rounded-md py-2 pl-10 pr-4 block w-full sm:text-sm "
+            value={input.district}
+            onChange={handleChangeInput}
+            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md pt-4 pb-2  pl-4 pr-4 block w-full sm:text-md text-gray-500"
           />
         </div>
         <div className="relative">
@@ -108,9 +141,9 @@ export default function ShopEditProfile() {
           <input
             type="text"
             name="province"
-            // value={input.province}
-            // onChange={handleChangeInput}
-            className="border border-blue-400 bg-white my-4 rounded-md py-2 pl-10 pr-4 block w-full sm:text-sm "
+            value={input.province}
+            onChange={handleChangeInput}
+            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md pt-4 pb-2  pl-4 pr-4 block w-full sm:text-md text-gray-500"
           />
         </div>
         <div className="relative">
@@ -120,9 +153,9 @@ export default function ShopEditProfile() {
           <input
             type="text"
             name="postalCode"
-            className="border border-blue-400 bg-white my-4 rounded-md py-2 pl-10 pr-4 block w-full sm:text-sm "
-            // value={input.postalCode}
-            // onChange={handleChangeInput}
+            className=" border border-blue-400 bg-white mb-4 mt-6 rounded-md pt-4 pb-2 pl-4 pr-4 block w-full sm:text-md text-gray-500"
+            value={input.postalCode}
+            onChange={handleChangeInput}
           />
         </div>
         <div className="flex justify-center pt-2">

@@ -1,5 +1,8 @@
 import axios from "../configs/axios";
 
+export const createProduct = (input) =>
+  axios.post("/shop/product/create-product", input);
+
 // export const getAllproductShop = () => {
 //   return axios.get(`/product`);
 // };

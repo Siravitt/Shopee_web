@@ -1,34 +1,51 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { thunkUpdateProduct } from "../reduxStore/ProductSlice";
 // import { toast } from "react-toastify";
 
-// import Input from "../Input";
-
 export default function EditProduct() {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [weight, setWeight] = useState("");
-  const [quantity, setQuantity] = useState("");
-  //   const [category, setCatagory] = useState("");
-  //   const [editImage, setEditImage] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const updateInfo = useSelector((state) => state.allproduct.cardList);
+  const [input, setInput] = useState({
+    name: "",
+    price: "",
+    name: "",
+    description: "",
+    weight: "",
+    quantity: "",
+    category: "",
+    image: null,
+  });
 
-  const handleClickEdit = async (e) => {
+  const handleChangeInput = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmitForm = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("price", price);
-    formData.append("description", description);
-    formData.append("weight", weight);
-    formData.append("quantity", quantity);
-    // formData.append("category", category);
-    // formData.append("image", editImage);
+    formData.append("name", input.name);
+    formData.append("price", input.price);
+    formData.append("description", input.description);
+    formData.append("weight", input.weight);
+    formData.append("quantity", input.quantity);
+    formData.append("category", input.category);
+    formData.append("image", input.editImage);
 
     // const res = await userApi.updateProfile(formData); //??
     // setAuthenticatedUser(res.data.newUser); //??
     // onSuccess();
     // toast.success("Product Successfully updated");
+
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + " - " + pair[1]);
+    // }
+
+    dispatch(thunkUpdateProduct(formData));
+    navigate("/MyOrderPage");
   };
 
   return (
@@ -42,7 +59,7 @@ export default function EditProduct() {
 
       <div className=" bg-blue-400 mx-4 ">
         <form
-          onSubmit={handleClickEdit}
+          onSubmit={handleSubmitForm}
           className="gap-4 p-8 bg-white mt-4 rounded-xl"
         >
           <div className="flex items-center justify-center w-full border rounded-xl border-blue-400 ">
@@ -81,11 +98,9 @@ export default function EditProduct() {
             <input
               type="text"
               name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={input.name}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
-              //   value={input.address}
-              //   onChange={handleChangeInput}
             />
           </div>
 
@@ -96,8 +111,8 @@ export default function EditProduct() {
             <input
               type="text"
               name="price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
+              value={input.price}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -108,8 +123,8 @@ export default function EditProduct() {
             <input
               type="text"
               name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={input.description}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -120,8 +135,8 @@ export default function EditProduct() {
             <input
               type="number"
               name="weight"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
+              value={input.weight}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -130,10 +145,10 @@ export default function EditProduct() {
               Quantity
             </label>
             <input
-              type="number"
+              type="text"
               name="quantityAvailable"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              value={input.quantityAvailable}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
               //   value={input.address}
               //   onChange={handleChangeInput}

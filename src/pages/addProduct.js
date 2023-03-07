@@ -1,8 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Link } from "react-router-dom";
+import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import { createProduct } from "../apis/shop-product-api";
+
+const initialInput = {
+  name: "",
+  price: "",
+  description: "",
+  weight: "",
+  quantityAvailable: "",
+  categoryId: "",
+};
 
 export default function AddProduct() {
+  const navigate = useNavigate();
+
+  const [input, setInput] = useState(initialInput);
+  console.log(input);
+  const handleChangeInput = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmitForm = async (e) => {
+    try {
+      e.preventDefault();
+      await createProduct(input);
+      setInput(initialInput);
+      // console.log(">>>>>>>>> ", initialInput);
+      // toast.success("Success add product");
+    } catch (err) {
+      // console.log(err);
+      // toast.error(err.response?.data.message);
+    }
+
+    navigate("/shop-home");
+  };
+
   return (
     <div className="w-[390px] min-h-[845px]  mx-auto border bg-blue-400 ">
       <div className="w-full flex flex-row h-[70px] px-4 items-center justify-between">
@@ -12,44 +46,54 @@ export default function AddProduct() {
         <h4 className="text-2xl text-white font-bold ">Add Product</h4>
       </div>
 
-      {/* <div className="flex flex-row justify-evenly m-4">
-        <button className="bg-orange-400 p-2 rounded-md text-white font-bold">
-          Add Product
-        </button>
-        <button className="bg-orange-400 p-2 rounded-md text-white font-bold">
-          Edit Product
-        </button>
-      </div> */}
-
       <div className=" bg-blue-400 mx-4 ">
-        <form className="gap-4 p-8 bg-white mt-4 rounded-xl">
-          <div className="flex items-center justify-center w-full border rounded-xl border-blue-400 ">
-            <label
-              htmlFor="dropzone-file"
-              className="flex flex-col items-center justify-center w-full h-48 border-blue-400 rounded-xl cursor-pointer bg-blue-50 "
-            >
-              <div className="flex flex-col items-center justify-center pt-5 pb-6 ">
-                <svg
-                  aria-hidden="true"
-                  className="w-10 h-10 mb-3 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                  ></path>
-                </svg>
-                <p className="mb-2 text-sm text-blue-400 ">
-                  <span className="font-semibold">Upload Product Photo</span>
-                </p>
-              </div>
-              <input id="dropzone-file" type="file" className="hidden" />
-            </label>
+        <form
+          onSubmit={handleSubmitForm}
+          className="gap-2 p-8 bg-white mt-4 rounded-xl"
+        >
+          <p className="text-blue-400 text-md ">Add Images +</p>
+          <div className="flex flex-row gap-4 my-4">
+            {/* UploadPhoto */}
+            <div className=" flex items-center justify-center w-52 border rounded-xl border-blue-400 ">
+              <label
+                htmlFor="dropzone-file"
+                className="flex flex-col items-center justify-center w-full rounded-xl cursor-pointer "
+              >
+                <div className="flex flex-col items-center justify-center pt-5 pb-6 ">
+                  <AddAPhotoIcon sx={{ color: "royalblue", fontSize: 30 }} />
+                </div>
+                <input id="dropzone-file" type="file" className="hidden" />
+              </label>
+            </div>
+            {/* End-UploadPhoto */}
+
+            {/* UploadPhoto */}
+            <div className=" flex items-center justify-center w-52 border rounded-xl border-blue-400 ">
+              <label
+                htmlFor="dropzone-file"
+                className="flex flex-col items-center justify-center w-full rounded-xl cursor-pointer "
+              >
+                <div className="flex flex-col items-center justify-center pt-5 pb-6 ">
+                  <AddAPhotoIcon sx={{ color: "royalblue", fontSize: 30 }} />
+                </div>
+                <input id="dropzone-file" type="file" className="hidden" />
+              </label>
+            </div>
+            {/* End-UploadPhoto */}
+
+            {/* UploadPhoto */}
+            <div className=" flex items-center justify-center w-52 border rounded-xl border-blue-400 ">
+              <label
+                htmlFor="dropzone-file"
+                className="flex flex-col items-center justify-center w-full rounded-xl cursor-pointer "
+              >
+                <div className="flex flex-col items-center justify-center pt-5 pb-6 ">
+                  <AddAPhotoIcon sx={{ color: "royalblue", fontSize: 30 }} />
+                </div>
+                <input id="dropzone-file" type="file" className="hidden" />
+              </label>
+            </div>
+            {/* End-UploadPhoto */}
           </div>
 
           <div className="relative">
@@ -59,10 +103,9 @@ export default function AddProduct() {
             <input
               type="text"
               name="name"
-              // value={name}
+              value={input.name}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
-              //   value={input.address}
-              //   onChange={handleChangeInput}
             />
           </div>
 
@@ -73,7 +116,8 @@ export default function AddProduct() {
             <input
               type="text"
               name="price"
-              // value={price}
+              value={input.price}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -84,7 +128,8 @@ export default function AddProduct() {
             <input
               type="text"
               name="description"
-              // value={description}
+              value={input.description}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -95,8 +140,8 @@ export default function AddProduct() {
             <input
               type="number"
               name="weight"
-              // value={weight}
-
+              value={input.weight}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
@@ -105,22 +150,27 @@ export default function AddProduct() {
               Quantity
             </label>
             <input
-              type="number"
+              type="text"
               name="quantityAvailable"
-              // value={quantity}
+              value={input.quantityAvailable}
+              onChange={handleChangeInput}
               className="border border-blue-400 bg-white my-4 rounded-md px-4 pt-4 pb-2 block w-full sm:text-sm "
             />
           </div>
-          <select className="select w-full max-w-md bg-white border-blue-400  mx-auto  text-blue-400">
+          <select
+            name="categoryId"
+            onChange={handleChangeInput}
+            className="select w-full max-w-md bg-white border-blue-400  mx-auto  text-blue-400"
+          >
             <option defaultChecked>Category</option>
             {/* <option disabled selected>
               Category
             </option> */}
-            <option>Beauty</option>
-            <option>Kids</option>
-            <option>Home</option>
-            <option>Lifestyle</option>
-            <option>Technology</option>
+            <option value={1}>Beauty</option>
+            <option value={2}>Kids</option>
+            <option value={3}>Home</option>
+            <option value={4}>Lifestyle</option>
+            <option value={5}>Technology</option>
           </select>
 
           <div className="flex justify-center">
