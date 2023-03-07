@@ -1,11 +1,72 @@
-import { Link } from "react-router-dom";
-import Cart from "../components/Cart";
+import { useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import SmallLine from "../components/SmallLine";
-import BigLine from "../components/BigLine";
+import ItemInCart from "../components/cart/ItemInCart";
+import {
+  selectAllCart,
+  thunkGetCart,
+  thunkUpdateCart,
+  unSelectAllCart,
+} from "../reduxStore/CartSlice";
 
 export default function Mycart() {
+  const state = useSelector((state) => state.cart.itemInCart);
+  const selectedCart = useSelector((state) => state.cart.selectedItem);
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const newState = useRef();
+
+  useEffect(() => {
+    dispatch(thunkGetCart());
+  }, []);
+
+  const cart = state.reduce((acc, el) => {
+    if (acc[el.Shop?.name]) {
+      acc[el.Shop?.name].push(el);
+    } else {
+      acc[el.Shop?.name] = [];
+      acc[el.Shop?.name].push(el);
+    }
+    return acc;
+  }, {});
+
+  const totalPrice = Object.values(selectedCart).flat().reduce((acc, el) => {
+    acc += +el.Product?.price * el.quantity;
+    return acc;
+  }, 0);
+
+  useEffect(() => {
+    newState.current = state;
+  }, [state]);
+
+  useEffect(() => {
+    return () => dispatch(thunkUpdateCart(newState.current));
+  }, []);
+
+  // const handleCheckAll = () => {
+  //   setIsCheckAll(!isCheckAll);
+  //   setIsShopCheck([...Object.keys(cart)]);
+  //   const products = Object.values(cart);
+  //   const newProduct = [].concat(...products);
+  //   setIsItemCheck(newProduct.map((el) => el.Product?.name));
+  //   if (isCheckAll) {
+  //     setIsShopCheck([]);
+  //     setIsItemCheck([]);
+  //   }
+  // };
+
+  const handleCheckAll = () => {
+    if (Object.keys(selectedCart).length !== 0) {
+      dispatch(unSelectAllCart());
+    } else {
+      dispatch(selectAllCart(cart));
+    }
+  };
+
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto">
       <div className="w-full h-[60px] px-4 bg-red-400 flex flex-row justify-between items-center">
@@ -15,37 +76,35 @@ export default function Mycart() {
         <div className="text-[25px] text-white font-bold ">My Cart</div>
         <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 30 }} />
       </div>
-
-      <div className="mx-4 my-4 flex items-center gap-4">
-        <input type="checkbox" className="" />
-        <div className="text-[25px] text-black font-bold">Shop Name</div>
-      </div>
-
-      <div>
-        <Cart />
-      </div>
-      <div className=" mt-10 pb-6 ">
-        <SmallLine />
-      </div>
-      <div>
-        <Cart />
-      </div>
-      <div className=" mt-10">
-        <BigLine />
-      </div>
+      {Object.keys(cart).map((el, idx) => (
+        <ItemInCart
+          key={idx}
+          name={el}
+        />
+      ))}
       <div className="h-[50px] w-[390px] bg-white flex gap-4 border-t fixed bottom-0">
         <div className="">
-          <input type="checkbox" className="checkbox ml-5 mt-2" />
+          <input
+            type="checkbox"
+            className="checkbox ml-5 mt-2"
+            onChange={handleCheckAll}
+            checked={Object.keys(selectedCart).length !== 0}
+          />
         </div>
 
         <div className="w-1/2 h-full flex flex-col items-end ">
-          <div className="text-[20px]">All</div>
+          <div className="text-[16px]">All</div>
+          <div>฿ {totalPrice || 0}</div>
         </div>
-        <Link to="/checkout">
-          <button className="w-[157px] h-[49px] bg-red-500 flex items-center justify-center text-white font-bold">
+          <button onClick={() => {
+            if (Object.values(selectedCart).length === 0) {
+              toast.error("Please selete your item")
+            } else {
+              navigate("/checkout")
+            }
+          }} className="w-[157px] h-[49px] bg-red-500 flex items-center justify-center text-white font-bold">
             Checkout
           </button>
-        </Link>
       </div>
     </div>
   );

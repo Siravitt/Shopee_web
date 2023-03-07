@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { formatNumber } from "../reduxStore/formatNumber";
 
 export default function ShopProductUser() {
+<<<<<<< HEAD
   let { shopId } = useParams();
   const dispatch = useDispatch();
   const stateShop = useSelector((state) => state.allProduct.shopInfo);
@@ -25,6 +26,9 @@ export default function ShopProductUser() {
   }, [dispatch]);
 
   // console.log("kram1", shopId);
+=======
+  const { shopId } = useParams();
+>>>>>>> omise
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
       {/* header */}
@@ -32,6 +36,7 @@ export default function ShopProductUser() {
         <img
           src={stateShop.profileImage}
           className="w-[89px] h-[89px] rounded-full"
+          alt=""
         ></img>
         <div className="flexbox">
           <div className="text-3xl ml-8  text-white flex item-center font-bold ">

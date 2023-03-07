@@ -1,10 +1,4 @@
-import {
-  thunkSearchProduct,
-  thunkFetchAllProduct,
-} from "../reduxStore/ProductSlice";
-
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { formatNumber } from "../reduxStore/formatNumber";
 export default function Card(props) {
@@ -42,7 +36,7 @@ export default function Card(props) {
                 </div>
 
                 <div className="px-3 pb-1">
-                  <h5 className="text-xl tracking-tight text-gray-900 flex justify-left pl-0 pt-2">
+                  <h5 className="text-[16px] font-bold tracking-tight text-black flex justify-left pl-0 pt-2">
                     {item.name}
                   </h5>
 
@@ -50,7 +44,7 @@ export default function Card(props) {
                     <span className="text-[20px] mt-[8px] text-gray-900  text-red">
                       {formatNumber(Number(item.price))}
                     </span>
-                    <div className="text-black  font-medium rounded-lg text-sm mt-[16px]   text-center  ">
+                    <div className="text-black rounded-lg text-[12px] mt-[16px] text-center">
                       ขายแล้ว 0 ชิ้น
                     </div>
                   </div>

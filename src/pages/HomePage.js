@@ -70,7 +70,7 @@ export default function HomePage() {
           <h1>Product</h1>
         </div>
         <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
-          <Card catId="" />
+          <Card />
         </div>
         {/* +++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++ */}
 

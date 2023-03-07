@@ -1,18 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+import { useDispatch } from "react-redux";
 import profile2 from "../../images/profile2.png";
 import Red from "../../images/Red.png";
 import { removeAccessToken } from "../../utils/local-storage";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { clearCart } from "../../reduxStore/CartSlice";
+import { logout } from "../../reduxStore/AuthSlice";
 
-const refresh = () => window.location.reload(true);
 
 export default function HeaderProfile() {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const logOut = () => {
+    dispatch(clearCart())
+    dispatch(logout())
     removeAccessToken();
     navigate("/");
-    // refresh();
   };
 
   return (
