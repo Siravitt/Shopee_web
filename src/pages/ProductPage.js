@@ -7,49 +7,35 @@ import SmallLine from "../components/SmallLine.js";
 import { useEffect } from "react";
 import BigLine from "../components/BigLine.js";
 import { useDispatch, useSelector } from "react-redux";
-<<<<<<< HEAD
 
 import movie from "../images/movie.png";
 // import logomovie from "../images/logomovie.png";
 import ImageSlider from "../components/imgProduct/ImageSlider.js";
 import { thunkFetchGetProduct } from "../reduxStore/ProductSlice.js";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import { formatNumber } from "../reduxStore/formatNumber";
-=======
-import ImageSlider from "../components/imgProduct/ImageSlider.js";
-import { thunkFetchGetProduct } from "../reduxStore/ProductSlice.js";
-import { useParams } from "react-router-dom";
 import ChatIcon from "@mui/icons-material/Chat";
 import CartIcon from "../components/CartIcon.js";
 import { thunkAddToCart } from "../reduxStore/CartSlice.js";
 
->>>>>>> omise
 // import { useDispatch } from "react-redux";
 
 export default function ProductPage() {
   let { productId } = useParams();
   const dispatch = useDispatch();
-<<<<<<< HEAD
-  const state = useSelector((state) => state.allProduct.product);
-=======
   const navigate = useNavigate();
 
   const state = useSelector((state) => state.allProduct.product);
   const user = useSelector((state) => state.auth.auth);
   const cart = useSelector((state) => state.cart.itemInCart);
 
->>>>>>> omise
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
     dispatch(thunkFetchGetProduct(productId));
-<<<<<<< HEAD
-  }, [dispatch]);
-=======
   }, [dispatch, productId]);
->>>>>>> omise
 
   return (
     <>
@@ -65,37 +51,17 @@ export default function ProductPage() {
         <div className="w-full h-[355px] rounded-full flex items-center justify-center my-2">
           <ImageSlider ProductId={productId} />
         </div>
-<<<<<<< HEAD
-
-        {/* +++++++++++++++++++++++++++++ END movie +++++++++++++++++++++++++++++ */}
-
-        {/* +++++++++++++++++++++++++++++ line +++++++++++++++++++++++++++++ */}
-        <BigLine />
-        {/* +++++++++++++++++++++++++++++ END line +++++++++++++++++++++++++++++ */}
-
-        {/* +++++++++++++++++++++++++++++ detail name price amount +++++++++++++++++++++++++++++ */}
-
-        <PriceProduct
-          name={state.name}
-          price={formatNumber(Number(state.price))}
-        />
-
-        {/* +++++++++++++++++++++++++++++ END detail name price amount +++++++++++++++++++++++++++++ */}
-        {/* +++++++++++++++++++++++++++++ line +++++++++++++++++++++++++++++ */}
-=======
         <SmallLine />
         <PriceProduct
           name={state.name}
-          price={state.price}
+          price={formatNumber(Number(state.price))}
           totalSale={state.totalSale}
         />
->>>>>>> omise
         <BigLine />
         {/* +++++++++++++++++++++++++++++ END line +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++ logoProduct shop +++++++++++++++++++++++++++++ */}
 
-<<<<<<< HEAD
         <div className="h-[126px] w-[390px] flex justify-between items-center px-2 ">
           <div className="h-[86px] w-[66px] pl-[6px] pt-[16px]">
             <img
@@ -111,36 +77,14 @@ export default function ProductPage() {
             <div className=" flex justify-between pr-[24px]">
               <div className=" text-orange-400 ">
                 <p>{formatNumber(1000)}</p>
-=======
-        <div className="h-[126px] w-full flex justify-between items-center px-6">
-          <div className="h-[70px] w-[70px] rounded-full bg-gray-400">
-            <img
-              src={state.Shop?.profileImage}
-              alt=""
-              className="w-full h-full rounded-full object-cover"
-            />
-          </div>
-          <div>
-            <div className="my-2">
-              <div className="font-bold">{state.Shop?.name}</div>
-            </div>
-            <div className=" flex justify-between text-[12px]">
-              <div className=" text-orange-400 ">
-                <p>10</p>
->>>>>>> omise
               </div>
               <div className=" pl-2">
                 <p>รายการสินค้า</p>
               </div>
             </div>
           </div>
-<<<<<<< HEAD
           <div className="h-[39px] w-[80px] text-orange-400 border-2 border-orange-400 flex justify-center items-center mr-[17px]">
             <Link to={`/shopProducts/${state.shopId}`}>
-=======
-          <div className="h-[39px] w-[80px] text-orange-400 border-2 border-orange-400 flex justify-center items-center mr-[17px] hover:text-white hover:bg-orange-400 duration-200">
-            <Link to={`/shopProducts/` + state.Shop?.id}>
->>>>>>> omise
               <button>ดูร้านค้า</button>
             </Link>
           </div>

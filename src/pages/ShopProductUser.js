@@ -12,7 +12,6 @@ import { useEffect } from "react";
 import { formatNumber } from "../reduxStore/formatNumber";
 
 export default function ShopProductUser() {
-<<<<<<< HEAD
   let { shopId } = useParams();
   const dispatch = useDispatch();
   const stateShop = useSelector((state) => state.allProduct.shopInfo);
@@ -26,9 +25,6 @@ export default function ShopProductUser() {
   }, [dispatch]);
 
   // console.log("kram1", shopId);
-=======
-  const { shopId } = useParams();
->>>>>>> omise
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
       {/* header */}
