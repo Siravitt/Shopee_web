@@ -31,6 +31,7 @@ const authSlice = createSlice({
 export const thunkFetchUser = (data) => async (dispatch) => {
   try {
     const res = await authService.getMe();
+    // console.log(res.data);
     dispatch(login(res.data));
   } catch (err) {
     console.log(err.response?.data);

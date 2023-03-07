@@ -17,4 +17,16 @@ export const getcheckoutProductUser = (pending) => {
 export const createCharge = (input) =>
   axios.post("/user/checkout/create-charge", input);
 
-export const createOrder = (input) => axios.post("/user/order/create-order", input)
+export const createOrder = (input) =>
+  axios.post("/user/order/create-order", input);
+export const getshinppingOrderShop = (shinpping) => {
+  // const queryString = new URLSearchParams().toString();
+
+  return axios.get(`/user/order/all-order?status=${shinpping}`);
+};
+
+export const updateOderShopForUser = (orderShopId) => {
+  return axios.patch(
+    `http://localhost:8000/user/order/update-order/${orderShopId}`
+  );
+};
