@@ -1,9 +1,53 @@
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-
-import React from "react";
-import { Link } from "react-router-dom";
+import SendIcon from "@mui/icons-material/Send";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getMessage } from "../apis/chat-user-api";
+import UserMessage from "../components/chat/UserMessage";
+import ShopMessage from "../components/chat/ShopMessage";
+import { getShopInfoPublic } from "../apis/shop-product-api";
 
 export default function ChatBox() {
+  const [allMessage, setAllMessage] = useState([]);
+  const [message, setMessage] = useState("");
+  const [shop, setShop] = useState({});
+  const { shopId } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchChat = async () => {
+      const res = await getMessage(shopId);
+      setAllMessage(res.data.chats);
+    };
+    const fetchShop = async () => {
+      const res = await getShopInfoPublic(shopId);
+      if (res.data.shop) {
+        fetchChat();
+        setShop(res.data.shop);
+      } else {
+        navigate("/chat");
+      }
+    };
+    fetchShop();
+  }, []);
+
+  const handleOnChange = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    const newMessage = {
+      id: allMessage.length + 1,
+      message: message,
+      sender: "user",
+    };
+    const newAllMessage = structuredClone(allMessage);
+    newAllMessage.push(newMessage);
+    setAllMessage(newAllMessage);
+    setMessage("");
+  };
+
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border static">
       <div className="absolute mt-4 ml-4">
@@ -11,37 +55,29 @@ export default function ChatBox() {
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
       </div>
-      <div className="w-full h-[70px] px-4 bg-red-400 flex flex-col items-center">
-        <button className="absolute top-4 left-2"></button>
-        <div className="text-[25px] text-white font-bold mt-5">Shop Name</div>
+      <div className="w-full h-[60px] px-4 bg-red-400 flex flex-col items-center justify-center">
+        <div className="text-[25px] text-white font-bold">{shop.name}</div>
       </div>
-      <div className="w-full  ">
-        <div className="w-full chat chat-start my-2">
-          <div className="chat-bubble mt-4 bg-red-300 text-black">
-            Can I help you?
-          </div>
-        </div>
-
-        <div className="w-full chat chat-end my-2">
-          <div className="chat-bubble bg-red-100 text-black">
-            Help me please, Shop.
-          </div>
-        </div>
+      <div className="w-full pb-[100px]">
+        {allMessage.map((el) =>
+          el.sender === "user" ? (
+            <UserMessage key={el.id} msg={el.message} />
+          ) : (
+            <ShopMessage key={el.id} msg={el.message} />
+          )
+        )}
       </div>
-      {/* <br />
-      <br />
-      <br />
-      <br />
-      <br /> */}
-      <div className="flex  pt-[400px] pl-[20px] fixed ">
-        <form className="gap-4 ">
-          <div className="flex flex-row gap-2 ">
+      <div className="flex pl-[20px] pb-[5px] fixed bottom-[50px] bg-white">
+        <form className="gap-4" onSubmit={handleSubmitForm}>
+          <div className="flex flex-row gap-2">
             <input
               placeholder="พิมพ์ข้อความของคุณ"
-              className="w-[300px] rounded-xl border px-4  bg-red-200 mx-auto rounded-3xl text-black "
+              className="w-[300px] border py-2 px-4 bg-red-200 mx-auto rounded-3xl text-black"
+              onChange={handleOnChange}
+              value={message}
             />
-            <button className="border bg-gray-200 rounded-full w-15 hover:bg-red-400">
-              SEND
+            <button className="px-4">
+              <SendIcon sx={{ color: "black", fontSize: 25 }} />
             </button>
           </div>
         </form>

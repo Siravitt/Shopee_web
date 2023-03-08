@@ -51,7 +51,7 @@ export default function EditProduct() {
   return (
     <div className="w-[390px] min-h-[845px]  mx-auto border bg-blue-400 ">
       <div className="w-full flex flex-row h-[70px] px-4 items-center">
-        <Link to="/myShoppage">
+        <Link to="/shop-profile">
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
         <h4 className="text-2xl text-white font-bold ">Edit Product</h4>

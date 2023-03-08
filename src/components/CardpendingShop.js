@@ -13,7 +13,7 @@ export default function Cardpending(props) {
 
   const handlechangeupdatestate = (updateid, inputstatus) => {
     updateOderShop(updateid, inputstatus);
-    navigate("/ShipingForShop");
+    navigate("/ShippingForShop");
   };
 
   const cardPenShop = useSelector((state) => state.allShop.checkoutShop.order);

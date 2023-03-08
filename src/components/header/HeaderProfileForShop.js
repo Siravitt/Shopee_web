@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import shopbg from "../../images/shopbg.png";
-import profile2 from "../../images/profile2.png";
+import { useSelector } from "react-redux";
 
 export default function HeaderProfileForShop() {
+  const shop = useSelector(state => state.auth.authShop);
+
   return (
     <>
       <div className="flex flex-col justify-center items-center  ">
@@ -11,22 +13,24 @@ export default function HeaderProfileForShop() {
         </div>
         <div className="w-56 md:w-64  -mt-16 overflow-hidden">
           <div className="flex justify-center items-center">
-            <img src={profile2} alt="" />
+            <img src={shop.profileImage} alt="" className="w-[100px] h-[100px] rounded-full object-cover"/>
           </div>
           <div className="py-2 text-center font-bold uppercase tracking-wide text-white">
-            Username
+            {shop.name}
           </div>
           <div className="flex flex-col items-center justify-center">
-            <Link to="/ShopEditProfile">
-              <button className=" bg-sky-400 text-xs text-white mt-4 px-2 py-1 font-semibold rounded uppercase hover:bg-blue-300">
-                Edit profile
-              </button>
+            <Link
+              to="/ShopEditProfile"
+              className="bg-sky-400 text-xs text-white mt-4 px-2 py-1 font-semibold rounded uppercase hover:bg-blue-300"
+            >
+              Edit profile
             </Link>
 
-            <Link to="/">
-              <button className=" bg-sky-400 text-xs text-white py-1 font-semibold rounded uppercase hover:bg-blue-300 px-4 mt-2 mb-8">
-                Log out
-              </button>
+            <Link
+              to="/"
+              className="bg-sky-400 text-xs text-white py-1 font-semibold rounded uppercase hover:bg-blue-300 px-4 mt-2 mb-8"
+            >
+              Log out
             </Link>
           </div>
         </div>

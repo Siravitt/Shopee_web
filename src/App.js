@@ -1,14 +1,16 @@
 import Router from "./routes/Router";
 import { Toaster } from "react-hot-toast";
-import { thunkFetchUser } from "./reduxStore/AuthSlice";
+import { thunkFetchUser, thunkGetShop } from "./reduxStore/AuthSlice";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAccessToken } from "./utils/local-storage";
 import { thunkGetCart } from "./reduxStore/CartSlice";
+import socket from "./configs/socket";
 
 function App() {
   const dispatch = useDispatch();
-
+  const auth = useSelector((state) => state.auth.auth);
+  const authShop = useSelector((state) => state.auth.authShop);
   useEffect(() => {
     const fetchMe = async () => {
       try {
@@ -22,6 +24,20 @@ function App() {
     };
     fetchMe();
   }, [dispatch]);
+
+  useEffect(() => {
+    if (auth?.id) {
+      socket.auth = {userId: auth.id}
+      if (auth.is_shop) {
+        dispatch(thunkGetShop());
+        socket.auth.shopId = authShop.id
+      }
+      socket.connect();
+    }
+    return () => {
+      socket.disconnect();
+    };
+  }, [auth]);
 
   return (
     <>

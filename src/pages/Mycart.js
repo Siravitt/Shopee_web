@@ -15,13 +15,18 @@ import {
 export default function Mycart() {
   const state = useSelector((state) => state.cart.itemInCart);
   const selectedCart = useSelector((state) => state.cart.selectedItem);
+  const auth = useSelector((state) => state.auth.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const newState = useRef();
 
   useEffect(() => {
-    dispatch(thunkGetCart());
+    if (auth) {
+      dispatch(thunkGetCart());
+    } else {
+      navigate("/Authenticate");
+    }
   }, []);
 
   const cart = state.reduce((acc, el) => {
@@ -34,30 +39,24 @@ export default function Mycart() {
     return acc;
   }, {});
 
-  const totalPrice = Object.values(selectedCart).flat().reduce((acc, el) => {
-    acc += +el.Product?.price * el.quantity;
-    return acc;
-  }, 0);
+  const totalPrice = Object.values(selectedCart)
+    .flat()
+    .reduce((acc, el) => {
+      acc += +el.Product?.price * el.quantity;
+      return acc;
+    }, 0);
 
   useEffect(() => {
     newState.current = state;
   }, [state]);
 
   useEffect(() => {
-    return () => dispatch(thunkUpdateCart(newState.current));
+    return () => {
+      if (auth) {
+        dispatch(thunkUpdateCart(newState.current));
+      }
+    };
   }, []);
-
-  // const handleCheckAll = () => {
-  //   setIsCheckAll(!isCheckAll);
-  //   setIsShopCheck([...Object.keys(cart)]);
-  //   const products = Object.values(cart);
-  //   const newProduct = [].concat(...products);
-  //   setIsItemCheck(newProduct.map((el) => el.Product?.name));
-  //   if (isCheckAll) {
-  //     setIsShopCheck([]);
-  //     setIsItemCheck([]);
-  //   }
-  // };
 
   const handleCheckAll = () => {
     if (Object.keys(selectedCart).length !== 0) {
@@ -77,10 +76,7 @@ export default function Mycart() {
         <ShoppingCartOutlinedIcon sx={{ color: "white", fontSize: 30 }} />
       </div>
       {Object.keys(cart).map((el, idx) => (
-        <ItemInCart
-          key={idx}
-          name={el}
-        />
+        <ItemInCart key={idx} name={el} />
       ))}
       <div className="h-[50px] w-[390px] bg-white flex gap-4 border-t fixed bottom-0">
         <div className="">
@@ -96,15 +92,18 @@ export default function Mycart() {
           <div className="text-[16px]">All</div>
           <div>฿ {totalPrice || 0}</div>
         </div>
-          <button onClick={() => {
+        <button
+          onClick={() => {
             if (Object.values(selectedCart).length === 0) {
-              toast.error("Please selete your item")
+              toast.error("Please selete your item");
             } else {
-              navigate("/checkout")
+              navigate("/checkout");
             }
-          }} className="w-[157px] h-[49px] bg-red-500 flex items-center justify-center text-white font-bold">
-            Checkout
-          </button>
+          }}
+          className="w-[157px] h-[49px] bg-red-500 flex items-center justify-center text-white font-bold"
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );

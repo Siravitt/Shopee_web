@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import signupShop from "../images/signupShop.mp4";
 
 import ShopRegisterForm from "../components/shop/ShopRegisterForm";
-import Logo from "../images/logo.png";
 
 export default function ShopRegisterPage() {
   return (

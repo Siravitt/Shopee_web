@@ -9,7 +9,7 @@ export default function ItemInCart({ name }) {
   const selectedCart = useSelector((state) => state.cart.selectedItem);
   const product = cart.filter((el) => el.Shop?.name === name);
   const isCheck = Object.keys(selectedCart).includes(name);
-
+  
   const checkShop = (e) => {
     if (e.target.checked) {
       dispatch(selectShop({ [name]: product }));

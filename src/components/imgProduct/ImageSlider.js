@@ -4,12 +4,11 @@ import axios from "axios";
 const ImageSlider = props => {
   const [current, setCurrent] = useState(0);
   const [image, setImage] = useState([]);
-
   const getImage = async () => {
     const res = await axios.get(
       "http://localhost:8000/image/" + props.ProductId,
     );
-    setImage(res.data.product);
+    setImage(res.data.image);
   };
   useEffect(() => {
     getImage();

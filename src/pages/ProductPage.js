@@ -7,14 +7,9 @@ import SmallLine from "../components/SmallLine.js";
 import { useEffect } from "react";
 import BigLine from "../components/BigLine.js";
 import { useDispatch, useSelector } from "react-redux";
-
-import movie from "../images/movie.png";
-// import logomovie from "../images/logomovie.png";
 import ImageSlider from "../components/imgProduct/ImageSlider.js";
 import { thunkFetchGetProduct } from "../reduxStore/ProductSlice.js";
 import { useParams } from "react-router-dom";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
-import { formatNumber } from "../reduxStore/formatNumber";
 import ChatIcon from "@mui/icons-material/Chat";
 import CartIcon from "../components/CartIcon.js";
 import { thunkAddToCart } from "../reduxStore/CartSlice.js";
@@ -54,7 +49,7 @@ export default function ProductPage() {
         <SmallLine />
         <PriceProduct
           name={state.name}
-          price={formatNumber(Number(state.price))}
+          price={state.price}
           totalSale={state.totalSale}
         />
         <BigLine />
@@ -62,29 +57,29 @@ export default function ProductPage() {
 
         {/* +++++++++++++++++++++++++++++ logoProduct shop +++++++++++++++++++++++++++++ */}
 
-        <div className="h-[126px] w-[390px] flex justify-between items-center px-2 ">
-          <div className="h-[86px] w-[66px] pl-[6px] pt-[16px]">
+        <div className="h-[126px] w-full flex justify-between items-center px-6">
+          <div className="h-[70px] w-[70px] rounded-full bg-gray-400">
             <img
-              className="rounded-full"
-              src={state?.Shop?.profileImage}
+              src={state.Shop?.profileImage}
               alt=""
+              className="w-full h-full rounded-full object-cover"
             />
           </div>
           <div>
-            <div className=" my-4">
-              <h1 className="text-[18px] font-semibold">{state?.Shop?.name}</h1>
+            <div className="my-2">
+              <div className="font-bold">{state.Shop?.name}</div>
             </div>
-            <div className=" flex justify-between pr-[24px]">
+            <div className=" flex justify-between text-[12px]">
               <div className=" text-orange-400 ">
-                <p>{formatNumber(1000)}</p>
+                <p>10</p>
               </div>
               <div className=" pl-2">
                 <p>รายการสินค้า</p>
               </div>
             </div>
           </div>
-          <div className="h-[39px] w-[80px] text-orange-400 border-2 border-orange-400 flex justify-center items-center mr-[17px]">
-            <Link to={`/shopProducts/${state.shopId}`}>
+          <div className="h-[39px] w-[80px] text-orange-400 border-2 border-orange-400 flex justify-center items-center mr-[17px] hover:text-white hover:bg-orange-400 duration-200">
+            <Link to={`/shopProducts/` + state.Shop?.id}>
               <button>ดูร้านค้า</button>
             </Link>
           </div>
@@ -149,20 +144,9 @@ export default function ProductPage() {
         {/* +++++++++++++++++++++++++++++ END line +++++++++++++++++++++++++++++ */}
 
         {/* +++++++++++++++++++++++++++++ footer +++++++++++++++++++++++++++++ */}
-        <div className="h-[50px] w-[390px] bg-white justify-between flex  border-t fixed bottom-0 z-50 bottom-0 ">
-          <div className="w-full h-full  items-center bg-green-300 flex justify-center ">
-            <ChatOutlinedIcon className="w-auto h-auto relative text-black pr-[5px]" />
-            <p className="text-[20px] text-black flex justify-center">
-              CHAT NOW
-            </p>
-          </div>
 
-          <button className="w-[100%] h-full bg-red-500 flex  items-center justify-center text-white font-bold">
-            Add to Cart
-          </button>
-        </div>
         {/* +++++++++++++++++++++++++++++ END footer +++++++++++++++++++++++++++++ */}
-        <div className="h-[50px] w-[390px] bg-white justify-between flex  border-t bottom-0 "></div>
+
         {/* before end */}
         <div className="w-[388px] h-[50px] bg-white fixed bottom-0 flex justify-between border-t">
           <button className="w-1/2 flex items-center justify-center gap-2 font-bold">

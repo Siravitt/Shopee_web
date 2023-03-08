@@ -24,7 +24,7 @@ import NormalLayout from "../layouts/NormalLayout";
 import Category from "../pages/Category";
 import MyShopPage from "../pages/MyShopPage";
 import PendingForShop from "../pages/PendingForShop";
-import ShipingForShop from "../pages/ShipingForShop";
+import ShippingForShop from "../pages/ShippingForShop";
 import OrderSuccessForShop from "../pages/OrderSuccessForShop";
 
 import Mycart from "../pages/Mycart";
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         element: <ChatPage />,
       },
       {
-        path: "/chatBox",
+        path: "/chatBox/:shopId",
         element: <ChatBox />,
       },
       {
@@ -131,10 +131,10 @@ const router = createBrowserRouter([
     element: <MobileLayoutForShop />,
     children: [
       { path: "/shop-home", element: <ShopHome /> },
-      { path: "/MyShopPage", element: <MyShopPage /> },
+      { path: "/shop-profile", element: <MyShopPage /> },
       { path: "/PendingForShop", element: <PendingForShop /> },
       { path: "/OrderSuccessForShop", element: <OrderSuccessForShop /> },
-      { path: "/ShipingForShop", element: <ShipingForShop /> },
+      { path: "/ShippingForShop", element: <ShippingForShop /> },
       { path: "/ChatPageForShop", element: <ChatPageForShop /> },
       { path: "/addProduct", element: <AddProduct /> },
       { path: "/editProduct", element: <EditProduct /> },

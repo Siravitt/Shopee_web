@@ -10,19 +10,18 @@ import { thunkFetchUser } from "../reduxStore/AuthSlice";
 
 export default function MyOrderPage() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!getAccessToken()) {
-      navigate("/Authenticate");
-    }
-  }, []);
   const dispatch = useDispatch();
   const [item, setItem] = useState({});
   const getUser = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
-    dispatch(thunkFetchUser());
+    if (getAccessToken()) {
+      dispatch(thunkFetchUser());
+    } else {
+      navigate("/Authenticate");
+    }
   }, [dispatch]);
+  
   useEffect(() => {
     if (getUser?.id) setItem(getUser);
   }, [getUser]);

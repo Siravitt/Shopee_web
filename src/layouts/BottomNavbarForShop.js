@@ -1,31 +1,26 @@
-import home from "../images/home.png";
-import chat from "../images/chat.png";
-import warn from "../images/warn.png";
-import profile from "../images/profile.png";
+import ChatIcon from '@mui/icons-material/Chat';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 
 export default function BottomNavbarForShop() {
   return (
     <>
-      <div className="w-[390px] h-[70px] px-8 bg-blue-400 flex items-center justify-between  bottom-0 fixed">
-        <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
+      <div className="w-[390px] h-[60px] px-8 bg-blue-400 flex items-center justify-evenly gap-10 bottom-0 fixed">
+        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
           <Link to="/shop-home">
-            <img src={home} alt="" />
+            <HomeIcon sx={{color: "white", fontSize: 40}}/>
           </Link>
         </div>
-        <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
+        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
           <Link to="/ChatPageForShop">
-            <img src={chat} alt="" />
+            <ChatIcon sx={{color: "white", fontSize: 35}}/>
           </Link>
         </div>
-        <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <Link to="/PendingForShop">
-            <img src={warn} alt="" />
-          </Link>
-        </div>
-        <div className="w-[38px] h-[38px] rounded-full flex items-center justify-center">
-          <Link to="/MyShopPage">
-            <img src={profile} alt="" />
+        <div className="w-[30px] h-[30px] rounded-full flex items-center justify-center">
+          <Link to="/shop-profile">
+            <AccountCircleIcon sx={{color: "white", fontSize: 40}}/>
           </Link>
         </div>
       </div>

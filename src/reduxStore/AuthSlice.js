@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import jwtDecode from "jwt-decode";
+import { getShopData } from "../apis/auth-shop-api";
 
 import * as authService from "../apis/auth-user-api";
 import {
@@ -12,6 +13,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     auth: getAccessToken() ? true : null,
+    authShop: {},
   },
   reducers: {
     login: (state, action) => {
@@ -25,6 +27,9 @@ const authSlice = createSlice({
     },
     updateUserProfile: (state, action) => {
       state.auth = action.payload;
+    },
+    getShop: (state, action) => {
+      state.authShop = action.payload;
     },
   },
 });
@@ -70,7 +75,17 @@ export const thunkUpdateUser = (FormData) => async (dispatch) => {
   }
 };
 
+export const thunkGetShop = () => async (dispatch) => {
+  try {
+    const res = await getShopData();
+    // console.log(res.data.shop);
+    dispatch(getShop(res.data.shop));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export default authSlice.reducer;
 
-export const { login, googleLogin, updateUserProfile, logout } =
+export const { login, googleLogin, updateUserProfile, logout, getShop } =
   authSlice.actions;

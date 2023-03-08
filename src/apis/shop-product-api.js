@@ -23,3 +23,5 @@ export const getShopInfoPublic = (shopId) => {
 
   return axios.get(`/shop/${shopId}`);
 };
+
+export const getProductByShop = () => axios.get("/shop/product/all-product");

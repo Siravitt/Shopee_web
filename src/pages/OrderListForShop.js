@@ -8,16 +8,16 @@ export default function OrderListForShop() {
       {/* body */}
       <div className="w-[100%] h-auto pb-[16px]">
         <div className="flex justify-between px-[16px] pt-[8px]">
-          <h1>ชื่อร้าน</h1>
-          <h1>อยู่ระหว่างจัดส่ง</h1>
+          <h1>Status :</h1>
+          <h1>Pending</h1>
         </div>
         <hr />
         <div className="flex justify-between px-[16px] pt-[8px]">
-          <h2>ชื่อสินค้า</h2>
+          <h2>Product name</h2>
           <span>x 2</span>
         </div>
         <div className="flex justify-between px-[16px] pt-[8px]">
-          <h2>ชื่อสินค้า</h2>
+          <h2>Product name</h2>
           <span>x 2</span>
         </div>
         {/* total */}

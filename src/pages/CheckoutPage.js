@@ -49,9 +49,10 @@ export default function CheckoutPage() {
   }, []);
 
   const handleOnChange = (e) => {
-    setShowAddress(false);
     setSelectAddress(JSON.parse(e.target.value));
   };
+
+  const closeAddress = () => setShowAddress(false)
 
   const handleScriptLoad = () => {
     OmiseCard = window.OmiseCard;
@@ -132,6 +133,7 @@ export default function CheckoutPage() {
                 value={el}
                 handleOnChange={handleOnChange}
                 selected={selectAddress.id}
+                closeAddress={closeAddress}
               />
             ))}
             <Link

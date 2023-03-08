@@ -92,17 +92,17 @@ export const thunkFetchAllProductByShopId = (shopId) => async (dispatch) => {
 
 export const thunkSearchProduct = (searchText) => async (dispatch) => {
   try {
-    dispatch(setLoading(true));
+    // dispatch(setLoading(true));
 
     const res = await productService.searchProduct(searchText);
     dispatch(setProduct(res.data));
 
-    setTimeout(() => {
-      dispatch(setLoading(false));
-    }, 500);
   } catch (err) {
     console.log(err);
-  }
+  } 
+  // finally {
+  //   dispatch(setLoading(false));
+  // }
 };
 
 export const thunkGetShopInfoPublic = (shopId) => async (dispatch) => {
@@ -151,6 +151,15 @@ export const thunkUpdateProduct = (FormData) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const thunkGetProductByShop = () => async (dispatch) => {
+  try {
+    const res = await productServiceShop.getProductByShop()
+    dispatch(setProductByshop(res.data.products))
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 export default productSlice.reducer;
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { shopRegister } from "../../apis/auth-shop-api";
-import Input from "../Input";
 
 const initialInput = {
   name: "",
@@ -14,21 +13,21 @@ const initialInput = {
 
 export default function ShopRegisterForm() {
   const [input, setInput] = useState(initialInput);
+  const navigate = useNavigate()
 
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
-    console.log("-------input", input);
   };
 
   const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
       await shopRegister(input);
-
       setInput(initialInput);
+      navigate("/shop-home")
     } catch (err) {
       // console.log(err.data?.response);
-      console.log(err.message);
+      console.log(err.response?.data);
     }
   };
   return (

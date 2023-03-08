@@ -1,4 +1,4 @@
-export default function SelectAddress({ value, handleOnChange, selected }) {
+export default function SelectAddress({ value, handleOnChange, selected, closeAddress }) {
   return (
     <div className="w-full h-[auto] px-10 py-5 flex items-center gap-9">
       <input
@@ -6,6 +6,7 @@ export default function SelectAddress({ value, handleOnChange, selected }) {
         name="address"
         value={JSON.stringify(value)}
         onChange={handleOnChange}
+        onClick={closeAddress}
         checked={value.id === selected ? true : ""}
       />
       <div className="text-start flex flex-col gap-1">

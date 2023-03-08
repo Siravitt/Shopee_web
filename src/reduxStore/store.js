@@ -4,6 +4,7 @@ import ProductReducer from "./ProductSlice";
 import loadingReducer from "./Loading";
 import cartReducer from "./CartSlice";
 import ShopReducer from "./ShopSlice";
+import ChatReducer from "./ChatSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     loading: loadingReducer,
     cart: cartReducer,
     allShop: ShopReducer,
+    chat: ChatReducer,
   },
 });

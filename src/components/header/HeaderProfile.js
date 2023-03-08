@@ -1,24 +1,25 @@
 import { Link, useNavigate } from "react-router-dom";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import profile2 from "../../images/profile2.png";
 import Red from "../../images/Red.png";
 import { removeAccessToken } from "../../utils/local-storage";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { clearCart } from "../../reduxStore/CartSlice";
 import { logout } from "../../reduxStore/AuthSlice";
-
+import socket from "../../configs/socket";
 
 export default function HeaderProfile() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const logOut = () => {
-    dispatch(clearCart())
-    dispatch(logout())
+    dispatch(clearCart());
+    dispatch(logout());
     removeAccessToken();
+    socket.off()
     navigate("/");
   };
-
+  const auth = useSelector((state) => state.auth.auth);
   return (
     <>
       <div className="flex flex-col justify-center items-center max-w-sm mx-auto ">
@@ -48,8 +49,8 @@ export default function HeaderProfile() {
         </Link>
 
         <div className="mt-1">
-          <Link to="/shop-register">
-            <button className=" bg-red-700 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
+          <Link to={auth?.is_shop ? "/shop-home" : "/shop-register"}>
+            <button className=" bg-red-700 text-xs flex items-center gap-2 text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
               <LocalMallIcon sx={{ color: "white" }} />
               Go to shop
             </button>
