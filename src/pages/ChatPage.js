@@ -19,11 +19,16 @@ export default function ChatPage() {
             <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
           </Link>
         </div>
-        <div className="w-full h-[60px] bg-red-400 flex items-center justify-center">
+        <div className="w-full h-[60px] bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400 flex items-center justify-center">
           <div className="text-[25px] text-white font-bold">Chat</div>
         </div>
         {chat.map((el) => (
-          <ChatList key={el.id} shopName={el.name} shopId={el.id} image={el.profileImage}/>
+          <ChatList
+            key={el.id}
+            shopName={el.name}
+            shopId={el.id}
+            image={el.profileImage}
+          />
         ))}
       </div>
     </>

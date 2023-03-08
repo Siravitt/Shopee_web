@@ -7,26 +7,28 @@ import { Link } from "react-router-dom";
 export default function Card() {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct);
+  const state = useSelector((state) => state.allProduct);
   useEffect(() => {
     dispatch(thunkFetchAllProduct());
   }, [dispatch]);
   return (
     <>
-      {state.cardList.map(item => {
+      {state.cardList.map((item) => {
         return (
           <div className="" key={item.id + "card"}>
             <Link to={`/product/${item.id}`}>
               <div className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow">
-                {item.ProductImages.map(el => {
-                  if (el.isMain === true) {
+                {item.ProductImages.map((el) => {
+                  if (el?.isMain) {
+                    // console.log(el.image);
                     return (
-                      <img
-                        key={el.id}
-                        className="p-auto rounded-t-lg w-[172px] h-[172px] object-cover"
-                        src={el.image}
-                        alt=""
-                      />
+                      <div key={el?.id} className="w-full h-52">
+                        <img
+                          className="w-full h-full p-auto rounded-t-lg object-cover"
+                          src={el.image}
+                          alt="product"
+                        />
+                      </div>
                     );
                   }
                 })}
@@ -40,7 +42,7 @@ export default function Card() {
                       ฿ {item.price}
                     </span>
                     <div className="text-black rounded-lg text-[12px] mt-[16px] text-center">
-                      ขายแล้ว {item.totalSale} ชิ้น
+                      ขายแล้ว {item.totalSale || 0} ชิ้น
                     </div>
                   </div>
                 </div>

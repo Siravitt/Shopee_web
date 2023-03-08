@@ -22,14 +22,14 @@ export default function Authenticate() {
           </div>
           <div className="-ml-1">
             <Link to="/user-login" className="shrink-0">
-              <button className="absolute bg-red-400 text-white border-2 border-gray-200 font-bold px-24 py-1 rounded-lg hover:bg-gray-200 duration-200 top-80 mt-36 ml-20">
+              <button className="absolute bg-red-400 text-white border-2 border-gray-200 font-bold px-28 py-1 rounded-lg hover:bg-gray-200 duration-200 top-80 mt-40 ml-16">
                 Log In
               </button>
             </Link>
           </div>
           <div className="items-center ml-1">
             <Link to="/user-register" className="shrink-0">
-              <button className="absolute bg-red-500 text-white border-2 font-bold px-24 py-1 rounded-lg hover:bg-red-300 duration-200 ml-16 top-96 mt-36 ">
+              <button className="absolute bg-red-500 text-white border-2 font-bold px-24 py-1 rounded-lg hover:bg-red-300 duration-200 ml-16 top-96 mt-40 ">
                 Register
               </button>
             </Link>

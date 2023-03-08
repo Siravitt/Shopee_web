@@ -13,7 +13,11 @@ function HeaderSearch({ searchItem, setSearchItem }) {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="w-full h-[60px] px-1 bg-red-300 flex items-center top-0 sticky z-10">
+=======
+      <div className="w-full h-[60px] px-4  flex items-center top-0 sticky z-10 bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400">
+>>>>>>> edit-product
         <form>
           <label
             htmlFor="search"

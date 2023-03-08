@@ -48,14 +48,14 @@ export default function HeaderProfile() {
       </div>
       <div className="flex items-center justify-center flex-col">
         <Link to="/UserEditProfile">
-          <button className=" bg-red-400 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
+          <button className=" bg-red-400 text-xs text-white px-6 py-1 font-semibold rounded uppercase hover:bg-gray-700">
             Edit profile
           </button>
         </Link>
 
         <div className="mt-1">
           <Link to={auth?.is_shop ? "/shop-home" : "/shop-register"}>
-            <button className=" bg-red-700 text-xs flex items-center gap-2 text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
+            <button className=" bg-red-500 text-xs flex items-center gap-2 text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
               <LocalMallIcon sx={{ color: "white" }} />
               Go to shop
             </button>

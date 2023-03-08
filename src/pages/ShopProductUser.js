@@ -14,8 +14,8 @@ import { formatNumber } from "../reduxStore/formatNumber";
 export default function ShopProductUser() {
   let { shopId } = useParams();
   const dispatch = useDispatch();
-  const stateShop = useSelector(state => state.allProduct.shopInfo);
-  const state = useSelector(state => state.allProduct.productFilterShop);
+  const stateShop = useSelector((state) => state.allProduct.shopInfo);
+  const state = useSelector((state) => state.allProduct.productFilterShop);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,22 +54,22 @@ export default function ShopProductUser() {
       </div>
       <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
         <>
-          {state?.productShopId?.map(item => {
+          {state?.productShopId?.map((item) => {
             return (
               <div className="" key={item.id + "cardShop"}>
                 <Link to={`/product/${item.id}`}>
                   <div
-                    className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
+                    className="w-auto h-auto border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
                     // key={}
                     // onClick={() => {
 
                     // }}
                   >
-                    <div className=" ">
+                    <div className="w-full h-52">
                       <img
-                        className="p-auto rounded-t-lg  "
-                        src={item.ProductImages.find(i => !!i.isMain)?.image}
+                        className="w-full h-full p-auto rounded-t-lg object-cover "
+                        src={item.ProductImages.find((i) => !!i.isMain)?.image}
                         alt="product"
                         key={item.id + "cardImage"}
                       />

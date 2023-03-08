@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { createProduct } from "../apis/shop-product-api";
+import { getProduct } from "../apis/product-api";
+import axios from "axios";
 
 const initialInput = {
   name: "",
@@ -13,16 +15,34 @@ const initialInput = {
   categoryId: "",
 };
 
-export default function AddProduct() {
+export default function EditProductShop() {
   const navigate = useNavigate();
+  const { productId } = useParams();
 
-  const [input, setInput] = useState(initialInput);
+  const [input, setInput] = useState({
+    name: "",
+    price: "",
+    name: "",
+    description: "",
+    weight: "",
+    quantity: "",
+    category: "",
+    image: null,
+  });
+
   const [productImage, setProductImage] = useState({});
-
+  console.log(input);
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  const getProduct = async () => {
+    const res = await axios.get(`http://localhost:8000/product/${productId}`);
+    console.log("product", res.data);
+  };
+  useEffect(() => {
+    getProduct();
+  }, []);
   const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();

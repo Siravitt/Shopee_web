@@ -27,11 +27,11 @@ function App() {
 
   useEffect(() => {
     if (auth?.id) {
-      socket.auth = {userId: auth.id}
-      if (auth.is_shop) {
-        dispatch(thunkGetShop());
-        socket.auth.shopId = authShop.id
-      }
+      socket.auth = { userId: auth.id };
+      // if (auth.is_shop) {
+      //   dispatch(thunkGetShop());
+      //   socket.auth.shopId = authShop.id
+      // }
       socket.connect();
     }
     return () => {

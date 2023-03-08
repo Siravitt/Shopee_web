@@ -37,7 +37,7 @@ export default function HomePage() {
 
         {/* +++++++++++++++++++++++++++++ END header search +++++++++++++++++++++++++++++ *}
           {/* +++++++++++++++++++++++++++++  body +++++++++++++++++++++++++++++ */}
-        <div className="w-full relative pt-1">
+        <div className="w-full relative">
           <video
             // className="h-[845px] object-cover"
             autoPlay

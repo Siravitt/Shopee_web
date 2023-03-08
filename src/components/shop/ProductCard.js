@@ -5,15 +5,15 @@ import { thunkGetProductByShop } from "../../reduxStore/ProductSlice";
 
 export default function ProductCard() {
   const dispatch = useDispatch();
-  const products = useSelector(state => state.allProduct.productFilterShop);
+  const products = useSelector((state) => state.allProduct.productFilterShop);
   useEffect(() => {
     dispatch(thunkGetProductByShop());
   }, []);
   return (
     <>
-      {products.map(el => (
+      {products.map((el) => (
         <div key={el.id} className="">
-          <Link to={`/product/`}>
+          <Link to={`/EditProductShop/${el.id}`}>
             <div className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow">
               <img
                 className=" w-[172px] h-[172px] rounded object-cover"
