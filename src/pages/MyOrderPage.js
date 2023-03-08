@@ -21,7 +21,7 @@ export default function MyOrderPage() {
       navigate("/Authenticate");
     }
   }, [dispatch]);
-  
+
   useEffect(() => {
     if (getUser?.id) setItem(getUser);
   }, [getUser]);

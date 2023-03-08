@@ -16,10 +16,11 @@ export default function HeaderProfile() {
     dispatch(clearCart());
     dispatch(logout());
     removeAccessToken();
-    socket.off()
+    socket.off();
     navigate("/");
   };
   const auth = useSelector((state) => state.auth.auth);
+  // console.log("first", auth);
   return (
     <>
       <div className="flex flex-col justify-center items-center max-w-sm mx-auto ">
@@ -39,7 +40,11 @@ export default function HeaderProfile() {
         <img src={profile2} alt="" />
       </div>
       <div className="py-2 text-center font-bold uppercase tracking-wide text-white">
-        Username
+        {auth ? (
+          <div>
+            {auth.firstName} {auth.lastName}
+          </div>
+        ) : null}
       </div>
       <div className="flex items-center justify-center flex-col">
         <Link to="/UserEditProfile">

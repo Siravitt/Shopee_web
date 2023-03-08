@@ -4,7 +4,7 @@ import ProductType from "../components/ProductType.js";
 import Card from "../components/Card.js";
 import Home from "../images/Home.jpg";
 import Electronic from "../images/Electronic.jpg";
-import Beauty from "../images/Beauty.jpg";
+import Fashion from "../images/Fashion.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ export default function HomePage() {
   const displayImages = [
     { image: Home, title: "Home", slash: "ProductHome" },
     { image: Electronic, title: "Electronic", slash: "ProductElectronic" },
-    { image: Beauty, title: "Beauty", slash: "ProductBeauty" },
+    { image: Fashion, title: "Fashion", slash: "ProductFashion" },
     { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
     { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
