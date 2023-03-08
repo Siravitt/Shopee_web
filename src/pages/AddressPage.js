@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import SmallLine from "../components/SmallLine";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { deleteAddress } from "../apis/address-user-api";
 
 export default function AddressPage() {
+  const refresh = () => window.location.reload(true);
+
   const [showAddress, setShowAddress] = useState([]);
   console.log("test", showAddress);
 
@@ -20,8 +23,8 @@ export default function AddressPage() {
 
   return (
     <>
-      <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
-        <div className="w-[390px] h-[70px] bg-red-400  flex  items-center ">
+      <div className="w-[388px] min-h-[844px] bg-gray-100 mx-auto border  ">
+        <div className="w-[388px] h-[70px] bg-red-400  flex  items-center ">
           <Link to="/MyOrderPage">
             <ArrowBackIcon
               sx={{ fontSize: 35, color: "white" }}
@@ -41,7 +44,7 @@ export default function AddressPage() {
         {showAddress?.addresses?.map(item => {
           return (
             <div
-              className="w-[390px] h-[140px] bg-white  "
+              className="w-[388px] h-[140px] bg-white  "
               key={item.id + "card"}
             >
               <div className=" flex space-x-4 ">
@@ -58,7 +61,7 @@ export default function AddressPage() {
                   Receiver Name : {item?.receiverName}
                 </div>
                 {item.address}&nbsp;
-                {item.subDistrict} {item.district} {item.province}{" "}
+                {item.subDistrict} {item.district} {item.province}
                 {item.postalCode}
               </div>
               <Link to={`/EditAddress/${item.id}`}>
@@ -67,7 +70,13 @@ export default function AddressPage() {
                 </button>
               </Link>
 
-              <button class="bg-red-400  mb-[10px] hover:bg-red-600 text-white  font-semibold hover:text-white py-0.5 ml-5 px-2 border border-red-400 hover:border-transparent rounded">
+              <button
+                onClick={() => {
+                  deleteAddress(item.id);
+                  refresh();
+                }}
+                class="bg-red-400  mb-[10px] hover:bg-red-600 text-white  font-semibold hover:text-white py-0.5 ml-5 px-2 border border-red-400 hover:border-transparent rounded"
+              >
                 Delete
               </button>
               <SmallLine />
@@ -77,12 +86,14 @@ export default function AddressPage() {
 
         <div>
           <Link to="/newaddress">
-            <button class="w-[390px] fixed bottom-0 mt-[1px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
+            <button class="w-[389px] fixed bottom-0 mt-[1px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
               ⊕ Add New Address
             </button>
           </Link>
-          <div class="w-[390px] mt-[1px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
-            {/* ⊕ Add New Address */}
+
+          <div class="w-[full] mt-[1px] h-[60px] bg-gray-100 text-center text-gray-400 py-2 px-4  hover:border-transparent rounded">
+            {showAddress?.addresses?.length}{" "}
+            {showAddress?.addresses?.length <= 1 ? "Result" : "Results"}
           </div>
         </div>
       </div>

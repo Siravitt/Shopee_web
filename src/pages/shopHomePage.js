@@ -1,8 +1,30 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import HeaderProfileForShop from "../components/header/HeaderProfileForShop";
 import ProductCard from "../components/shop/ProductCard";
+import { getAccessToken } from "../utils/local-storage";
 
 function ShopHome() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const getUser = useSelector(state => state.auth.auth);
+  const shop = useSelector(state => state.auth.auth);
+
+  console.log(shop);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (shop.is_shop == true) {
+      console.log("hello");
+    } else if (!getAccessToken) {
+      navigate("/");
+    } else {
+    }
+  }, [dispatch]);
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto border">
       <HeaderProfileForShop />
