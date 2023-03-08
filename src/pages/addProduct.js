@@ -3,6 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import { createProduct } from "../apis/shop-product-api";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { getLoading } from "../reduxStore/Loading";
+import Spinner from "../components/Spinner";
 
 const initialInput = {
   name: "",
@@ -15,9 +19,10 @@ const initialInput = {
 
 export default function AddProduct() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [input, setInput] = useState(initialInput);
   const [productImage, setProductImage] = useState({});
+  const loading = useSelector((state) => state.loading.loading);
 
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -26,18 +31,30 @@ export default function AddProduct() {
   const handleSubmitForm = async (e) => {
     try {
       e.preventDefault();
-      await createProduct(input);
+      const image = [productImage.one, productImage.two, productImage.three];
+      const formData = new FormData();
+      formData.append("name", input.name);
+      formData.append("price", input.price);
+      formData.append("description", input.description);
+      formData.append("weight", input.weight);
+      formData.append("quantityAvailable", input.quantityAvailable);
+      formData.append("categoryId", input.categoryId);
+      for (const i of image) {
+        formData.append("image", i);
+      }
+      dispatch(getLoading());
+      await createProduct(formData);
       setInput(initialInput);
-      // console.log(">>>>>>>>> ", initialInput);
-      // toast.success("Success add product");
+      toast.success("Success add product");
+      navigate("/shop-home");
     } catch (err) {
-      // console.log(err);
-      // toast.error(err.response?.data.message);
+      toast.error(err.response?.data.message);
+    } finally {
+      dispatch(getLoading());
     }
 
-    navigate("/shop-home");
+    // navigate("/shop-home");
   };
-
   const handleOnChangeImage = (e, number) => {
     const newProductImage = structuredClone(productImage);
     newProductImage[number] = e.target.files[0];
@@ -46,11 +63,12 @@ export default function AddProduct() {
 
   return (
     <div className="w-[390px] min-h-[845px]  mx-auto border bg-blue-400 ">
+      {loading ? <Spinner /> : null}
       <div className="w-full flex flex-row h-[70px] px-4 items-center justify-between">
         <Link to="/shop-profile">
           <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
         </Link>
-        <h4 className="text-2xl text-white font-bold ">Add Product</h4>
+        <h4 className="text-2xl text-white font-bold">Add Product</h4>
       </div>
 
       <div className=" bg-blue-400 mx-4 ">
@@ -81,7 +99,7 @@ export default function AddProduct() {
                 <img
                   src={URL.createObjectURL(productImage.one)}
                   alt=""
-                  className="w-full h-full rounded-xl object-cover"
+                  className="w-[85px] h-[75px] rounded-xl object-cover"
                 />
               )}
             </div>
@@ -108,7 +126,7 @@ export default function AddProduct() {
                 <img
                   src={URL.createObjectURL(productImage.two)}
                   alt=""
-                  className="w-full h-full rounded-xl object-cover"
+                  className="w-[85px] h-[75px] rounded-xl object-cover"
                 />
               )}
             </div>
@@ -135,7 +153,7 @@ export default function AddProduct() {
                 <img
                   src={URL.createObjectURL(productImage.three)}
                   alt=""
-                  className="w-full h-full rounded-xl object-cover"
+                  className="w-[85px] h-[75px] rounded-xl object-cover"
                 />
               )}
             </div>

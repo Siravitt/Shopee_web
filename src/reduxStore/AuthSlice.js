@@ -78,7 +78,6 @@ export const thunkUpdateUser = (FormData) => async (dispatch) => {
 export const thunkGetShop = () => async (dispatch) => {
   try {
     const res = await getShopData();
-    // console.log(res.data.shop);
     dispatch(getShop(res.data.shop));
   } catch (err) {
     console.log(err);

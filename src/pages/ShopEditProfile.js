@@ -22,7 +22,6 @@ export default function ShopEditProfile() {
   const [input, setInput] = useState(initialInput);
   const [profileImage, setProfileImage] = useState(null);
   const loading = useSelector(state => state.loading.loading)
-  console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

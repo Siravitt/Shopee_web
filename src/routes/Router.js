@@ -14,7 +14,7 @@ import PendingPage from "../pages/PendingPage";
 import ShippingPage from "../pages/ShippingPage";
 import OrderPage from "../pages/OrderPage";
 import ChatBox from "../pages/ChatBox";
-
+import ProtectedShop from "../utils/ProtectedShop";
 import ShopHome from "../pages/shopHomePage";
 import MobileLayoutForShop from "../layouts/MobileLayoutForShop";
 // import RegisterShop from "../Shop/register Shop";
@@ -132,7 +132,11 @@ const router = createBrowserRouter([
     element: <ShopLoginPage />,
   },
   {
-    element: <MobileLayoutForShop />,
+    element: (
+      <ProtectedShop>
+        <MobileLayoutForShop />
+      </ProtectedShop>
+    ),
     children: [
       { path: "/shop-home", element: <ShopHome /> },
       { path: "/shop-profile", element: <MyShopPage /> },
@@ -178,7 +182,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/OrderDetailForShop",
-    element: <OrderDetailForShop />,
+    element: (
+      <ProtectedShop>
+        <OrderDetailForShop />
+      </ProtectedShop>
+    ),
   },
   {
     path: "/address",
@@ -186,7 +194,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/shopEditProfile",
-    element: <ShopEditProfile />,
+    element: (
+      <ProtectedShop>
+        <ShopEditProfile />
+      </ProtectedShop>
+    ),
   },
   {
     path: "/newAddress",
