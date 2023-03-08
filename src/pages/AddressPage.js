@@ -77,10 +77,13 @@ export default function AddressPage() {
 
         <div>
           <Link to="/newaddress">
-            <button class="w-[390px] mt-[1px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
+            <button class="w-[390px] fixed bottom-0 mt-[1px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
               ⊕ Add New Address
             </button>
           </Link>
+          <div class="w-[390px] mt-[1px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">
+            {/* ⊕ Add New Address */}
+          </div>
         </div>
       </div>
     </>

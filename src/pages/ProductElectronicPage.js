@@ -10,6 +10,7 @@ import Beauty from "../images/Beauty.jpg";
 import Lifestyle from "../images/Lifestyle.jpg";
 import Kid from "../images/kid.jpg";
 import CardCat from "../components/CardCat";
+import { useEffect } from "react";
 
 export default function ProductElectronic() {
   const displayImages = [
@@ -19,7 +20,9 @@ export default function ProductElectronic() {
     { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
     { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto">
       <div className="w-full h-[60px] px-4  bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400 flex flex-row justify-between items-center">

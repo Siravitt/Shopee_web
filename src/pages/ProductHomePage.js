@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ProductType from "../components/ProductType.js";
+import { useEffect } from "react";
 
 import Home from "../images/Home.jpg";
 import Electronic from "../images/Electronic.jpg";
@@ -19,7 +20,9 @@ export default function ProductHome() {
     { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
     { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-[390px] min-h-[845px] bg-white mx-auto">
       <div className="w-full h-[60px] px-4  bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400 flex flex-row justify-between items-center">

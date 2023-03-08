@@ -17,13 +17,13 @@ let OmiseCard;
 export default function CheckoutPage() {
   const [showAddress, setShowAddress] = useState(false);
   const [selectAddress, setSelectAddress] = useState({});
-  const [allAddress, setAllAddress] = useState([]);  
+  const [allAddress, setAllAddress] = useState([]);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const selectedCart = useSelector((state) => state.cart.selectedItem);
-  const auth = useSelector((state) => state.auth.auth);
+  const selectedCart = useSelector(state => state.cart.selectedItem);
+  const auth = useSelector(state => state.auth.auth);
 
   const selectProductId = Object.values(selectedCart)
     .flat()
@@ -48,11 +48,11 @@ export default function CheckoutPage() {
     fetchAddress();
   }, []);
 
-  const handleOnChange = (e) => {
+  const handleOnChange = e => {
     setSelectAddress(JSON.parse(e.target.value));
   };
 
-  const closeAddress = () => setShowAddress(false)
+  const closeAddress = () => setShowAddress(false);
 
   const handleScriptLoad = () => {
     OmiseCard = window.OmiseCard;
@@ -74,14 +74,14 @@ export default function CheckoutPage() {
     OmiseCard.open({
       amount: totalPrice * 100,
       submitFormTarget: "#checkout-form",
-      onCreateTokenSuccess: (token) => {
+      onCreateTokenSuccess: token => {
         createCreditCharge(token);
       },
       onFormClosed: () => {},
     });
   };
 
-  const createCreditCharge = async (token) => {
+  const createCreditCharge = async token => {
     try {
       const res = await createCharge({
         email: auth.email,
@@ -96,7 +96,7 @@ export default function CheckoutPage() {
           thunkCheckoutCart({
             productId: selectProductId,
             addressId: selectAddress.id,
-          })
+          }),
         );
         navigate("/PendingPage");
       } else {
@@ -107,7 +107,7 @@ export default function CheckoutPage() {
     }
   };
 
-  const handleCheckout = (e) => {
+  const handleCheckout = e => {
     e.preventDefault();
     promptpayConfigure();
     omiseCardHandler();
@@ -127,7 +127,7 @@ export default function CheckoutPage() {
         </div>
         {showAddress ? (
           <>
-            {allAddress.map((el) => (
+            {allAddress.map(el => (
               <SelectAddress
                 key={el.id}
                 value={el}
@@ -178,6 +178,7 @@ export default function CheckoutPage() {
         {Object.keys(selectedCart).map((el, idx) => (
           <ShopInOrder name={el} key={idx} />
         ))}
+        <div className="h-[150px]"></div>
 
         <div className="w-[390px] h-[40px] bg-white py-2 px-4 flex justify-between fixed bottom-[120px] border-t">
           <div className="text-[14px] font-bold">Payment type</div>

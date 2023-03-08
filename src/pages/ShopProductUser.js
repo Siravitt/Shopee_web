@@ -14,9 +14,12 @@ import { formatNumber } from "../reduxStore/formatNumber";
 export default function ShopProductUser() {
   let { shopId } = useParams();
   const dispatch = useDispatch();
-  const stateShop = useSelector((state) => state.allProduct.shopInfo);
-  const state = useSelector((state) => state.allProduct.productFilterShop);
+  const stateShop = useSelector(state => state.allProduct.shopInfo);
+  const state = useSelector(state => state.allProduct.productFilterShop);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     dispatch(thunkFetchAllProductByShopId(shopId));
   }, [dispatch]);
@@ -51,7 +54,7 @@ export default function ShopProductUser() {
       </div>
       <div className="grid grid-cols-2 gap-2 p-2 mb-16 mx-2">
         <>
-          {state?.productShopId?.map((item) => {
+          {state?.productShopId?.map(item => {
             return (
               <div className="" key={item.id + "cardShop"}>
                 <Link to={`/product/${item.id}`}>
@@ -66,7 +69,7 @@ export default function ShopProductUser() {
                     <div className=" ">
                       <img
                         className="p-auto rounded-t-lg  "
-                        src={item.ProductImages.find((i) => !!i.isMain)?.image}
+                        src={item.ProductImages.find(i => !!i.isMain)?.image}
                         alt="product"
                         key={item.id + "cardImage"}
                       />

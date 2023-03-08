@@ -12,10 +12,11 @@ import Welcome from "../images/Welcome.mp4";
 import Spinner from "../components/Spinner.js";
 import { getLoading } from "../reduxStore/Loading";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function HomePage() {
   const [searchItem, setSearchItem] = useState("");
-  const stateLoading = useSelector((state) => state.allProduct.loading);
+  const stateLoading = useSelector(state => state.allProduct.loading);
 
   const displayImages = [
     { image: Home, title: "Home", slash: "ProductHome" },
@@ -24,6 +25,9 @@ export default function HomePage() {
     { image: Lifestyle, title: "Lifestyle", slash: "ProductLifestyle" },
     { image: Kid, title: "Kid", slash: "ProductKid" },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {stateLoading ? <Spinner /> : null}

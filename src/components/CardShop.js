@@ -5,17 +5,17 @@ import { useEffect } from "react";
 export default function CardShop(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.allProduct.productFilterShop);
+  const state = useSelector(state => state.allProduct.productFilterShop);
   useEffect(() => {
     dispatch(thunkFetchAllProductByShopId(props.shopId));
   }, [dispatch]);
   return (
     <>
-      {state?.productShopId?.map((item) => {
+      {state?.productShopId?.map(item => {
         return (
           <div className="" key={item.id + "cardShop"}>
             <div className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s ">
-              {item.ProductImages.map((el) => {
+              {item.ProductImages.map(el => {
                 if (el.isMain === true) {
                   return (
                     <img

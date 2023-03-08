@@ -12,7 +12,10 @@ export default function MyOrderPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [item, setItem] = useState({});
-  const getUser = useSelector((state) => state.auth.auth);
+  const getUser = useSelector(state => state.auth.auth);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (getAccessToken()) {
@@ -21,7 +24,7 @@ export default function MyOrderPage() {
       navigate("/Authenticate");
     }
   }, [dispatch]);
-  
+
   useEffect(() => {
     if (getUser?.id) setItem(getUser);
   }, [getUser]);
@@ -71,12 +74,15 @@ export default function MyOrderPage() {
           <p className="text-red-400 text-md font-bold mx-8 uppercase">Phone</p>
           <p className="text-gray-500 text-md  mx-8 ">{item.phone}</p>
           <hr className="mx-8 border-1 my-2 border-red-400" />
-          <p className="text-red-400 text-md  font-bold mx-8 uppercase">
-            Address
-          </p>
-          <p className="text-gray-500 text-md mx-8 ">Address</p>
+          <Link to="/Address">
+            <p className="text-red-400 text-md  font-bold mx-8 uppercase hover:bg-red-200">
+              Address
+            </p>
+          </Link>
+          {/* <p className="text-gray-500 text-md mx-8 ">Address</p> */}
           <hr className="mx-8 border-1 my-2 border-red-400" />
         </div>
+        <div className="h-[100px]"></div>
       </div>
     </>
   );

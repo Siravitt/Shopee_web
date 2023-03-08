@@ -7,23 +7,23 @@ import { Link } from "react-router-dom";
 export default function Card() {
   const dispatch = useDispatch();
 
-  const state = useSelector((state) => state.allProduct);
+  const state = useSelector(state => state.allProduct);
   useEffect(() => {
     dispatch(thunkFetchAllProduct());
   }, [dispatch]);
   return (
     <>
-      {state.cardList.map((item) => {
+      {state.cardList.map(item => {
         return (
           <div className="" key={item.id + "card"}>
             <Link to={`/product/${item.id}`}>
               <div className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow">
-                {item.ProductImages.map((el) => {
+                {item.ProductImages.map(el => {
                   if (el.isMain === true) {
                     return (
                       <img
                         key={el.id}
-                        className="p-auto rounded-t-lg"
+                        className="p-auto rounded-t-lg w-[172px] h-[172px] object-cover"
                         src={el.image}
                         alt=""
                       />
