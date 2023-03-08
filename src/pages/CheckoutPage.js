@@ -137,7 +137,7 @@ export default function CheckoutPage() {
               />
             ))}
             <Link
-              to="/"
+              to="/NewAddressCheckout"
               className="flex items-center justify-center gap-2 pt-4"
             >
               <AddIcon />
@@ -145,7 +145,10 @@ export default function CheckoutPage() {
             </Link>
           </>
         ) : Object.keys(selectAddress).length === 0 ? (
-          <Link to="/" className="flex items-center justify-center gap-2 pt-4">
+          <Link
+            to="/NewAddressCheckout"
+            className="flex items-center justify-center gap-2 pt-4"
+          >
             <AddIcon />
             Create new address
           </Link>
