@@ -3,27 +3,9 @@ import { thunkSearchProduct } from "../../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useDebounce from "../../hooks/UseDebounce";
 
-import socket from "../../configs/socket";
-import { clearCart } from "../../reduxStore/CartSlice";
-import { logout } from "../../reduxStore/AuthSlice";
-import { removeAccessToken } from "../../utils/local-storage";
-import { Link, useNavigate } from "react-router-dom";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-// import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-// import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
-
 function HeaderSearch({ searchItem, setSearchItem }) {
   const dispatch = useDispatch();
   const dbSearch = useDebounce(searchItem, 1000);
-
-  const navigate = useNavigate();
-  const logOut = () => {
-    dispatch(clearCart());
-    dispatch(logout());
-    removeAccessToken();
-    socket.off();
-    navigate("/");
-  };
 
   useEffect(() => {
     dispatch(thunkSearchProduct(searchItem));
@@ -68,11 +50,6 @@ function HeaderSearch({ searchItem, setSearchItem }) {
                   className="block w-80   h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                   required
                 />
-              </div>
-              <div className="ml-1 " onClick={logOut}>
-                <button>
-                  <ExitToAppIcon sx={{ fontSize: 30, color: "white" }} />
-                </button>
               </div>
             </div>
           </div>
