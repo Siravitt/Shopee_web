@@ -37,7 +37,7 @@ import OrderDetailForShop from "../pages/OrderDetailForShop";
 import AddressPage from "../pages/AddressPage";
 import ProductHomePage from "../pages/ProductHomePage";
 import ProductElectronicPage from "../pages/ProductElectronicPage";
-import ProductBeautyPage from "../pages/ProductBeautyPage";
+import ProductFashionPage from "../pages/ProductFashionPage";
 import ProductLifestylePage from "../pages/ProductLifestylePage";
 import ProductKidPage from "../pages/ProductKidPage";
 import ShopEditProfile from "../pages/ShopEditProfile";
@@ -100,8 +100,8 @@ const router = createBrowserRouter([
         element: <ProductElectronicPage />,
       },
       {
-        path: "/ProductBeauty",
-        element: <ProductBeautyPage />,
+        path: "/ProductFashion",
+        element: <ProductFashionPage />,
       },
       {
         path: "/ProductLifestyle",

@@ -3,9 +3,6 @@ import { thunkSearchProduct } from "../../reduxStore/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useDebounce from "../../hooks/UseDebounce";
 
-// import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-// import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
-
 function HeaderSearch({ searchItem, setSearchItem }) {
   const dispatch = useDispatch();
   const dbSearch = useDebounce(searchItem, 1000);
@@ -16,7 +13,7 @@ function HeaderSearch({ searchItem, setSearchItem }) {
 
   return (
     <>
-      <div className="w-full h-[60px] px-4 bg-red-300 flex items-center top-0 sticky z-10">
+      <div className="w-full h-[60px] px-1 bg-red-300 flex items-center top-0 sticky z-10">
         <form>
           <label
             htmlFor="search"
@@ -42,15 +39,19 @@ function HeaderSearch({ searchItem, setSearchItem }) {
                 ></path>
               </svg>
             </div>
-            <input
-              type="search"
-              id="search"
-              value={searchItem}
-              onChange={(e) => setSearchItem(e.target.value)}
-              placeholder="Search"
-              className="block w-80   h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
-              required
-            />
+            <div className="flex justify-center">
+              <div>
+                <input
+                  type="search"
+                  id="search"
+                  value={searchItem}
+                  onChange={(e) => setSearchItem(e.target.value)}
+                  placeholder="Search"
+                  className="block w-80   h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+                  required
+                />
+              </div>
+            </div>
           </div>
         </form>
       </div>

@@ -96,10 +96,9 @@ export const thunkSearchProduct = (searchText) => async (dispatch) => {
 
     const res = await productService.searchProduct(searchText);
     dispatch(setProduct(res.data));
-
   } catch (err) {
     console.log(err);
-  } 
+  }
   // finally {
   //   dispatch(setLoading(false));
   // }
@@ -154,12 +153,12 @@ export const thunkUpdateProduct = (FormData) => async (dispatch) => {
 
 export const thunkGetProductByShop = () => async (dispatch) => {
   try {
-    const res = await productServiceShop.getProductByShop()
-    dispatch(setProductByshop(res.data.products))
+    const res = await productServiceShop.getProductByShop();
+    dispatch(setProductByshop(res.data.products));
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 export default productSlice.reducer;
 

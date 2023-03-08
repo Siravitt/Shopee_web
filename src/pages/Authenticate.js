@@ -36,18 +36,10 @@ export default function Authenticate() {
           </div>
         </div>
 
-        <div className="absolute w-[390px] h-[50px] top-0 px-4 flex items-center gap-4 bg-red-700">
-          <LocalMallIcon sx={{ color: "white" }} />
-
-          <Link to="/shop-register">
-            <div className="text-white text-sm">Go to shop</div>
-          </Link>
-        </div>
-
         <SmallLine />
 
         <div className="w-[auto] h-[220px] absolute opacity-50 flex justify-center mt-20 top-0 -ml-18 z-40">
-          <img className="mr-20 -mt-1" src={Props} alt="" />
+          <img className=" -mt-1 " src={Props} alt="" />
         </div>
         <div className="w-[auto] h-[220px] absolute opacity-50 flex justify-center -mt-60 buttom-0 ml-32">
           {/* <img className="" src={} alt="" /> */}

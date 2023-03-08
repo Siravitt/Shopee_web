@@ -16,7 +16,9 @@ export default function ShippingPage() {
           </Link>
         </div>
         <HeaderProfile />
-        <OrderNavbar shipping="opacity-40" />
+        <div className="my-3 bg-red-100 mx-6 rounded-xl justify-between mt-6 ">
+          <OrderNavbar shipping="opacity-40" />
+        </div>
         <Cardpending pending={"SHIPPING"} />
 
         {/* <OrderListForShopUser /> */}

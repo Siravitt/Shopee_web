@@ -11,8 +11,8 @@ export default function Cardpending(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handlechangeupdatestate = (updateid, inputstatus) => {
-    updateOderShop(updateid, inputstatus);
+  const handlechangeupdatestate = async (updateid, inputstatus) => {
+    await updateOderShop(updateid, inputstatus);
     navigate("/ShippingForShop");
   };
 
@@ -20,7 +20,7 @@ export default function Cardpending(props) {
   const cardordershop = useSelector(
     (state) => state.allShop.orderShop.orderShop
   );
-  console.log("cardPenShop", cardPenShop);
+  console.log("cardordershop", cardordershop);
   useEffect(() => {
     dispatch(thunkFetcheckProductShop(props.pendingShop));
   }, [dispatch]);
@@ -54,7 +54,7 @@ export default function Cardpending(props) {
 
                   <div className="w-[100%] h-auto pb-[16px]">
                     <div className="flex justify-between place-items-center px-[16px] pt-[8px]">
-                      <h1>ชื่อร้าน {item?.Shop?.name}</h1>
+                      <h1>Shop Name {item?.Shop?.name}</h1>
                       <h1>อยู่ระหว่างจัดส่ง</h1>
                     </div>
                     <hr />

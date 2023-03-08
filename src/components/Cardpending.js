@@ -11,8 +11,9 @@ export default function Cardpending(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handlechangeupdatestateUser = (orderShopId) => {
-    updateOderShopForUser(orderShopId);
+  const handlechangeupdatestateUser = async (orderShopId) => {
+    await updateOderShopForUser(orderShopId);
+
     navigate("/OrderPage");
   };
 
@@ -23,7 +24,7 @@ export default function Cardpending(props) {
     (state) => state?.allProduct?.orderShopUser
   );
   // console.log("first", cardUserordershop);
-
+  // console.log("kram", cardUserordershop);
   useEffect(() => {
     dispatch(thunkFetcheckProductUser(props.pending));
   }, [dispatch]);
@@ -32,18 +33,24 @@ export default function Cardpending(props) {
     dispatch(thunkFetcheckOderShoptUser(props.pending));
   }, [dispatch]);
 
+  const nameshop = useSelector(
+    (state) => state?.allProduct?.orderShopName?.orderShop
+  );
+
+  // console.log("nameshop", nameshop);
+
   let orderShopCard = [];
   for (const property in cardUserordershop) {
     orderShopCard.push(cardUserordershop[property]);
   }
 
   // const merge3 = orderShopCard.flat();
-  console.log("last", orderShopCard);
+  // console.log("last", orderShopCard);
 
   return (
     <>
       {orderShopCard?.map((item) => {
-        // console.log("item", cardUserordershop);
+        // console.log("item", orderShopCard);
         // console.log("item2", cardUserordershop);
         return (
           <div className="mb-2" key={item.id}>
@@ -64,27 +71,59 @@ export default function Cardpending(props) {
                     {item?.Order?.totalPrice} */}
                   </span>
 
-                  <div className="w-[100%] h-auto pb-[16px]">
-                    <div className="flex justify-around  px-[16px] pt-[8px]">
-                      <h1>ชื่อร้าน</h1>
-                      <h1>{item?.Order?.status}</h1>
-                      <h1></h1>
-                      {/* <h1>{item.status}</h1> */}
+                  <div className="w-[100%] h-auto pb-[16px] pt-[8px]">
+                    <div className="flex justify-around ">
+                      <h1>Shop Name : </h1>
+
+                      {/*  1*/}
+                      {item?.map((el, index) => {
+                        const islast = item.length - 1 === index;
+
+                        return (
+                          <div className="   ">
+                            {islast && el?.OrderShop?.Shop?.name}
+                          </div>
+                        );
+                      })}
+                      {/* 1 */}
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <h1>Status : </h1>
+                      {/* 2 */}
+                      {item?.map((el, index) => {
+                        const islast = item.length - 1 === index;
+
+                        return <div>{islast && el?.OrderShop?.status}</div>;
+                      })}
+
+                      {/* 2 */}
                     </div>
                     <hr />
-                    {item?.map((el) => {
+                    {item?.map((el, index) => {
+                      const islast = item.length - 1 === index;
+                      const islast2 = item.length - 1 === index;
+                      // console.log("el", el);
                       return (
-                        <div className="flex justify-between px-[16px] pt-[8px]">
-                          <div>{el?.Product?.name}</div>
-                          <div>X {el?.quantity}</div>
-                        </div>
-                      );
-                    })}
-                    {/* total */}
-                    <h1>total : {}</h1>
-                    {item?.status === "SHIPPING" ? (
-                      <div className="flex gap-2 justify-center ">
-                        {/* <input
+                        <>
+                          <div className="flex justify-between px-[16px] pt-[8px]">
+                            <div>{el?.Product?.name}</div>
+                            <div>X {el?.quantity}</div>
+                          </div>
+                          {islast && (
+                            <div className="flex justify-between">
+                              <div></div>
+                              <div className="mx-4 mt-4">
+                                <h1>total : {el?.totalPrice}</h1>
+                              </div>
+                            </div>
+                          )}
+
+                          {islast2 && (
+                            <div>
+                              {el?.OrderShop?.status === "SHIPPING" ? (
+                                <div className="flex gap-2 justify-center ">
+                                  {/* <input
                           type="text"
                           // name={name}
                           placeholder="TRACKING NUMBER"
@@ -92,23 +131,34 @@ export default function Cardpending(props) {
                           // onChange={onChange}
                           className="w-[75%] rounded-xl border px-4 py-2 mt-4 bg-blue-100 "
                         /> */}
-                        <button
-                          className="w-[25%] rounded-xl border px-4 py-2 mt-4 bg-red-400 text-gray-50 "
-                          // onClick={() =>
-                          //   handlechangeupdatestate(item?.id, "CANCELLED")
-                          // }
-                        >
-                          REJECT
-                        </button>
-                        <button
-                          className="w-[25%] rounded-xl border px-4 py-2 mt-4 bg-lime-400 text-gray-50 "
-                          onClick={() => handlechangeupdatestateUser(item?.id)}
-                        >
-                          SEND
-                        </button>
-                      </div>
-                    ) : null}
-                    <div className="flex justify-between px-[16px] pt-[8px]"></div>
+
+                                  <button
+                                    className="w-[25%] rounded-xl border px-4 py-2 mt-4 bg-red-400 text-gray-50 "
+                                    // onClick={() =>
+                                    //   handlechangeupdatestate(item?.id, "CANCELLED")
+                                    // }
+                                  >
+                                    REJECT
+                                  </button>
+                                  <button
+                                    className="w-[25%] rounded-xl border px-4 py-2 mt-4 bg-lime-400 text-gray-50 "
+                                    onClick={() =>
+                                      handlechangeupdatestateUser(
+                                        el?.OrderShop?.id
+                                      )
+                                    }
+                                  >
+                                    SEND
+                                  </button>
+                                </div>
+                              ) : null}
+
+                              <div className="flex justify-between px-[16px] pt-[8px]"></div>
+                            </div>
+                          )}
+                        </>
+                      );
+                    })}
                   </div>
                   <hr />
                   <hr />
