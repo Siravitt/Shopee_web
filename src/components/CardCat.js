@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function CardCat(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(state => state.allProduct.productFilter.products);
+  const state = useSelector((state) => state.allProduct.productFilter.products);
   console.log(state);
   useEffect(() => {
     dispatch(thunkFetchAllProductByCatId(props.catId));
@@ -21,22 +21,22 @@ export default function CardCat(props) {
   // }, [dispatch]);
   return (
     <>
-      {state?.map(item => {
+      {state?.map((item) => {
         return (
           <div className="" key={item.id + "hello"}>
             <Link to={`/product/${item.id}`}>
               <div
-                className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
+                className="w-auto h-auto border border-gray-200 rounded-lg shadow bg-white border-gray-700s "
 
                 // onClick={() => {
 
                 // }}
               >
-                <div className=" ">
+                <div className="w-full h-52">
                   {
                     <img
-                      className="p-auto rounded-t-lg w-[172px] h-[172px] object-cover"
-                      src={item?.ProductImages?.find(i => !!i.isMain)?.image}
+                      className="p-auto rounded-t-lg w-full h-full "
+                      src={item?.ProductImages?.find((i) => !!i.isMain)?.image}
                       alt="product"
                       key={item.id + "cardImage"}
                     />

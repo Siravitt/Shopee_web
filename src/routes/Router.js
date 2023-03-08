@@ -46,6 +46,7 @@ import NewAddressPage from "../pages/NewAddress";
 import Payment from "../pages/Payment";
 import EditAddress from "../pages/EditAddress";
 import NewAddressCheckout from "../pages/NewAddressCheckout";
+import EditProductShop from "../pages/editProductShop";
 
 const router = createBrowserRouter([
   {
@@ -139,6 +140,7 @@ const router = createBrowserRouter([
       { path: "/ShippingForShop", element: <ShippingForShop /> },
       { path: "/ChatPageForShop", element: <ChatPageForShop /> },
       { path: "/addProduct", element: <AddProduct /> },
+      { path: "/EditProductShop/:productId", element: <EditProductShop /> },
       { path: "/editProduct", element: <EditProduct /> },
     ],
   },

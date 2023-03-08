@@ -35,7 +35,7 @@ export default function ProductPage() {
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-white mx-auto overflow-y-scroll border">
-        <div className="bg-red-300 w-full h-[60px] flex justify-between items-center px-4">
+        <div className="bg-gradient-to-r from-orange-400 via-Amber-200 to-red-400 w-full h-[60px] flex justify-between items-center px-4">
           <Link to={"/"}>
             <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
           </Link>
@@ -43,7 +43,7 @@ export default function ProductPage() {
             <CartIcon />
           </Link>
         </div>
-        <div className="w-full h-[355px] rounded-full flex items-center justify-center my-2">
+        <div className="w-full h-[355px] flex items-center justify-center my-2">
           <ImageSlider ProductId={productId} />
         </div>
         <SmallLine />
@@ -53,9 +53,9 @@ export default function ProductPage() {
           totalSale={state.totalSale}
         />
         <BigLine />
-        {/* +++++++++++++++++++++++++++++ END line +++++++++++++++++++++++++++++ */}
+        {/* ++++++++++++++++ END line +++++++++++++++++++++ */}
 
-        {/* +++++++++++++++++++++++++++++ logoProduct shop +++++++++++++++++++++++++++++ */}
+        {/* +++++++++++++++++++ logoProduct shop ++++++++++++++++ */}
 
         <div className="h-[126px] w-full flex justify-between items-center px-6">
           <div className="h-[70px] w-[70px] rounded-full bg-gray-400">
@@ -67,7 +67,7 @@ export default function ProductPage() {
           </div>
           <div>
             <div className="my-2">
-              <div className="font-bold">{state.Shop?.name}</div>
+              <div className="font-bold  text-red-400">{state.Shop?.name}</div>
             </div>
             <div className=" flex justify-between text-[12px]">
               <div className=" text-orange-400 ">
@@ -78,26 +78,26 @@ export default function ProductPage() {
               </div>
             </div>
           </div>
-          <div className="h-[39px] w-[80px] text-orange-400 border-2 border-orange-400 flex justify-center items-center mr-[17px] hover:text-white hover:bg-orange-400 duration-200">
+          <div className="p-2 text-red-300 border-2 border-red-400 flex justify-center items-center mr-[17px] hover:text-white hover:bg-red-400 duration-200">
             <Link to={`/shopProducts/` + state.Shop?.id}>
-              <button>ดูร้านค้า</button>
+              <button className="font-bold">Visit Shop</button>
             </Link>
           </div>
         </div>
-        {/* +++++++++++++++++++++++++++++ END logoProduct shop +++++++++++++++++++++++++++++ */}
+        {/* ++++++++++++++++ END logoProduct shop ++++++++++++++++++ */}
 
-        {/* +++++++++++++++++++++++++++++ line +++++++++++++++++++++++++++++ */}
+        {/* +++++++++++++++++ line +++++++++++++++++++ */}
         <BigLine />
-        {/* +++++++++++++++++++++++++++++ END line +++++++++++++++++++++++++++++ */}
+        {/* ++++++++++++++++++++ END line ++++++++++++++++++++ */}
 
-        {/* +++++++++++++++++++++++++++++ detail product +++++++++++++++++++++++++++++ */}
+        {/* ++++++++++++++++ detail product ++++++++++++++++++ */}
         <div>
-          <h1 className="px-4 py-2">คุณลักษณะ</h1>
-          {/* +++++++++++++++++++++++++++++ line small+++++++++++++++++++++++++++++ */}
-          <SmallLine />
-          {/* +++++++++++++++++++++++++++++ END line small+++++++++++++++++++++++++++++ */}
-          <div className="px-4 py-2">
-            <h1>รายละเอียด</h1>
+          {/* <h1 className="px-4 py-2">คุณลักษณะ</h1> */}
+          {/* ++++++++++++++++++ line small++++++++++++++++ */}
+          {/* <SmallLine /> */}
+          {/* +++++++++++++++++++ END line small++++++++++++++++ */}
+          <div className="px-4 py-2 text-bold">
+            <h1 className="font-semibold pb-2 text-red-400">Description</h1>
 
             <p>{state.description}</p>
           </div>
@@ -105,8 +105,8 @@ export default function ProductPage() {
           <SmallLine />
           {/* +++++++++++++++++++++++++++++ END line small+++++++++++++++++++++++++++++ */}
         </div>
-        <div className="flex justify-center py-2 text-orange-400">
-          <button>เพิ่มเติม</button>
+        <div className="flex justify-center py-2 text-red-400">
+          <button>More details</button>
         </div>
 
         {/* +++++++++++++++++++++++++++++ END detail product +++++++++++++++++++++++++++++ */}
@@ -118,7 +118,7 @@ export default function ProductPage() {
         {/* +++++++++++++++++++++++++++++ review product +++++++++++++++++++++++++++++ */}
 
         <div>
-          <h1 className="px-4 py-2">รีวิวสินค้า</h1>
+          <h1 className="px-4 py-2 text-red-400">Review</h1>
           {/* +++++++++++++++++++++++++++++ line small+++++++++++++++++++++++++++++ */}
           <SmallLine />
           {/* +++++++++++++++++++++++++++++ END line small+++++++++++++++++++++++++++++ */}
@@ -149,10 +149,13 @@ export default function ProductPage() {
 
         {/* before end */}
         <div className="w-[388px] h-[50px] bg-white fixed bottom-0 flex justify-between border-t">
-          <button className="w-1/2 flex items-center justify-center gap-2 font-bold">
-            <ChatIcon sx={{ color: "black", fontSize: 20 }} />
+          <Link
+            to="/chat"
+            className="w-1/2 flex items-center justify-center gap-2 font-bold text-red-400"
+          >
+            <ChatIcon sx={{ color: "lightred", fontSize: 20 }} />
             Chat
-          </button>
+          </Link>
           <button
             onClick={() => {
               const isExist = cart.findIndex(
@@ -176,7 +179,7 @@ export default function ProductPage() {
                 toast.success("Add to cart success");
               }
             }}
-            className="bg-red-300 w-1/2 flex items-center justify-center text-white font-bold"
+            className="bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400 w-1/2 flex items-center justify-center text-white font-bold hover:text-white hover:bg-red-500 "
           >
             Add to cart
           </button>

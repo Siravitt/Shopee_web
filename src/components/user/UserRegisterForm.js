@@ -44,19 +44,19 @@ export default function UserRegisterForm() {
       e.preventDefault();
       // ============================================
 
-      if (input.userName.length > 3) {
+      if (input.userName.length > 2) {
         setErrorUserName("");
         SetUserNameColor("green");
       } else {
-        setErrorUserName("UserNameไม่ถูกต้อง");
+        setErrorUserName("Invalid username");
         SetUserNameColor("red");
         errorCheck = true;
       }
-      if (input.firstName.length > 3) {
+      if (input.firstName.length > 2) {
         setErrorFirstName("");
         setNameFirstColor("green");
       } else {
-        setErrorFirstName("ชื่อจริงไม่ถูกต้อง");
+        setErrorFirstName("Please enter your first name");
         setNameFirstColor("red");
         errorCheck = true;
       }
@@ -66,7 +66,7 @@ export default function UserRegisterForm() {
 
         setLastColor("green");
       } else {
-        setErrorLastName("เบอร์ไม่ถูกต้อง");
+        setErrorLastName("Please enter your last name");
         setLastColor("red");
         errorCheck = true;
       }
@@ -75,7 +75,7 @@ export default function UserRegisterForm() {
         setPhone("");
         setPhoneColor("green");
       } else {
-        setPhone("test");
+        setPhone("Please enter a valid phone number");
         setPhoneColor("red");
         errorCheck = true;
       }
@@ -84,7 +84,7 @@ export default function UserRegisterForm() {
         setErrorEmail("");
         setEmailColor("green");
       } else {
-        setErrorEmail("รูปแบบ Email ไม่ถูกต้อง");
+        setErrorEmail("Please enter a valid email");
         setEmailColor("red");
         errorCheck = true;
       }
@@ -99,13 +99,13 @@ export default function UserRegisterForm() {
           setErrorRePassword("");
           setPasswordColor("green");
         } else {
-          setErrorRePassword("กรุณากยืนยัน password ให้ถูกต้อง");
+          setErrorRePassword("please enter a valid password");
           setRePasswordColor("red");
           errorCheck = true;
         }
       } else {
-        setErrorPassword("พาสเวิร์ดต้องมากกว่า 6 ตัวอักษร");
-        setErrorRePassword("กรุณากยืนยัน password");
+        setErrorPassword("Password must be at least 6 characters");
+        setErrorRePassword("Password must be matching");
         setPasswordColor("red");
         setRePasswordColor("red");
         errorCheck = true;
