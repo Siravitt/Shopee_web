@@ -44,6 +44,7 @@ import ShopEditProfile from "../pages/ShopEditProfile";
 import EditProduct from "../pages/EditProduct";
 import NewAddressPage from "../pages/NewAddress";
 import Payment from "../pages/Payment";
+import EditAddress from "../pages/EditAddress";
 
 const router = createBrowserRouter([
   {
@@ -183,8 +184,12 @@ const router = createBrowserRouter([
     element: <ShopEditProfile />,
   },
   {
-    path: "/newaddress",
+    path: "/newAddress",
     element: <NewAddressPage />,
+  },
+  {
+    path: "/EditAddress/:addressId",
+    element: <EditAddress />,
   },
   {
     path: "/product/:productId",

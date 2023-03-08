@@ -1,40 +1,63 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SmallLine from "../components/SmallLine";
 import BigLine from "../components/BigLine";
 import { useEffect, useState } from "react";
-import { createAddress } from "../apis/address-user-api";
+import { createAddress, editAddress } from "../apis/address-user-api";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
-export default function NewAddressPage() {
-  const auth = useSelector(state => state.auth.auth);
+export default function EditAddress() {
   const navigate = useNavigate();
-
-  console.log("kram2", auth.userName);
+  const auth = useSelector(state => state.auth.auth);
+  let { addressId } = useParams();
+  // const [showAddress, setShowAddress] = useState({});
+  // console.log(showAddress);
+  // console.log(showAddress?.receiverName, "addres");
   const [input, setInput] = useState({
     receiverName: "",
     receiverPhone: "",
-    name: auth.userName,
     address: "",
     subDistrict: "",
     district: "",
     province: "",
     postalCode: "",
   });
+  const getAddressById = async () => {
+    const res = await axios.get(
+      "http://localhost:8000/user/address/id-address/" + addressId,
+    );
+    // setShowAddress(res.data.address);
+    setInput({
+      receiverName: res.data.address.receiverName,
+      receiverPhone: res.data.address.receiverPhone,
+      address: res.data.address.address,
+      subDistrict: res.data.address.subDistrict,
+      district: res.data.address.district,
+      province: res.data.address.province,
+      postalCode: res.data.address.postalCode,
+    });
+  };
+  useEffect(() => {
+    getAddressById();
+  }, []);
+
   const handleChangleinput = e => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
+
   const handleSubmitForm = async () => {
     try {
-      console.log("input", input);
-      await createAddress(input);
-      navigate("/address");
-
-      // setInput(initialInput);
+      // console.log("input", input);
+      await editAddress(addressId, input);
+      navigate("/Address");
+      // setInput();
     } catch (err) {
       console.log(err.data?.response);
     }
   };
+
+  console.log("input", input.receiverName);
   return (
     <>
       <div className="w-[390px] min-h-[844px] bg-gray-100 mx-auto border  ">
@@ -145,7 +168,9 @@ export default function NewAddressPage() {
         <div>
           <button
             class="w-[390px] h-[60px] bg-white hover:bg-red-400 text-red-400 font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded"
-            onClick={handleSubmitForm}
+            onClick={() => {
+              handleSubmitForm(addressId);
+            }}
           >
             SUBMIT
           </button>
