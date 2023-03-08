@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { useDispatch, useSelector } from "react-redux";
 import profile2 from "../../images/profile2.png";
@@ -6,7 +7,7 @@ import Red from "../../images/Red.png";
 import { removeAccessToken } from "../../utils/local-storage";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { clearCart } from "../../reduxStore/CartSlice";
-import { logout } from "../../reduxStore/AuthSlice";
+import { logout, thunkFetchUser } from "../../reduxStore/AuthSlice";
 import socket from "../../configs/socket";
 
 export default function HeaderProfile() {
@@ -16,10 +17,13 @@ export default function HeaderProfile() {
     dispatch(clearCart());
     dispatch(logout());
     removeAccessToken();
-    socket.off()
+    socket.off();
     navigate("/");
   };
   const auth = useSelector((state) => state.auth.auth);
+  useEffect(() => {
+    dispatch(thunkFetchUser());
+  }, []);
   return (
     <>
       <div className="flex flex-col justify-center items-center max-w-sm mx-auto ">
@@ -36,10 +40,18 @@ export default function HeaderProfile() {
         </div>
       </div>
       <div className="flex justify-center items-center -mt-2">
-        <img src={profile2} alt="" />
+        {!auth?.profileImage ? (
+          <img src={profile2} alt="" />
+        ) : (
+          <img
+            src={auth.profileImage}
+            alt=""
+            className="w-[100px] h-[100px] rounded-full object-cover"
+          />
+        )}
       </div>
       <div className="py-2 text-center font-bold uppercase tracking-wide text-white">
-        Username
+        {auth?.userName}
       </div>
       <div className="flex items-center justify-center flex-col">
         <Link to="/UserEditProfile">

@@ -1,41 +1,75 @@
-import { Link } from "react-router-dom";
-
-import Pending from "../../images/Pending.png";
-import ReadyToShip from "../../images/ReadyToShip.png";
-import Shipping from "../../images/Shipping.png";
+import { Link, useLocation } from "react-router-dom";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 
 export default function OrderNavbar(props) {
+  const location = useLocation()
   return (
     <>
-      <div className="h-[100px] w-[360px] flex px-[10px]  ">
-        <div
-          className={` flex flex-col justify-center w-[150px]  items-center ${props.shipping} ${props.order}`}
+      <div className="h-[100px] w-[390px] flex px-[10px]">
+      <div className={`flex flex-col justify-center w-[150px] items-center`}>
+        <Link to="/PendingPage">
+          {location.pathname === "/PendingPage" || location.pathname === "/shop-profile" ? (
+            <AccountBalanceWalletIcon
+              sx={{ color: "salmon", fontSize: 30 }}
+            />
+          ) : (
+            <AccountBalanceWalletOutlinedIcon
+              sx={{ color: "salmon", fontSize: 30 }}
+            />
+          )}
+        </Link>
+        <h1
+          className={`${
+            location.pathname === "/PendingPage" || location.pathname === "/MyShopPage" ? "font-bold" : ""
+          }`}
         >
-          <Link to="/PendingPage">
-            <img className=" w-[40px] " src={Pending} alt="" />
-          </Link>
-
-          <h1 className="\ ">Pending</h1>
-        </div>
-        <div
-          className={` flex flex-col justify-center w-[180px]  items-center ${props.pending} ${props.order}`}
-        >
-          <Link to="/ShippingPage">
-            <img className=" w-[40px] " src={Shipping} alt="" />
-          </Link>
-
-          <h1 className="">Shipping</h1>
-        </div>
-        <div
-          className={` flex flex-col justify-center w-[180px]  items-center ${props.pending}  ${props.shipping}`}
-        >
-          <Link to="/OrderPage">
-            <img className=" w-[40px] " src={ReadyToShip} alt="" />
-          </Link>
-
-          <h1 className="">Success</h1>
-        </div>
+          Pending
+        </h1>
       </div>
+      <div className={`flex flex-col justify-center w-[150px] items-center`}>
+        <Link to="/ShippingPage">
+          {location.pathname === "/ShippingPage" ? (
+            <LocalShippingIcon
+              sx={{ color: "salmon", fontSize: 30 }}
+            />
+          ) : (
+            <LocalShippingOutlinedIcon
+              sx={{ color: "salmon", fontSize: 30 }}
+            />
+          )}
+        </Link>
+        <h1
+          className={`${
+            location.pathname === "/ShippingPage" ? "font-bold" : ""
+          }`}
+        >
+          Shipping
+        </h1>
+      </div>
+      <div className={`flex flex-col justify-center w-[150px] items-center`}>
+        <Link to="/OrderPage">
+          {location.pathname === "/OrderPage" ? (
+            <CheckBoxIcon sx={{ color: "salmon", fontSize: 30 }} />
+          ) : (
+            <CheckBoxOutlinedIcon
+              sx={{ color: "salmon", fontSize: 30 }}
+            />
+          )}
+        </Link>
+        <h1
+          className={`${
+            location.pathname === "/OrderPage" ? "font-bold" : ""
+          }`}
+        >
+          Order Success
+        </h1>
+      </div>
+    </div>
     </>
   );
 }

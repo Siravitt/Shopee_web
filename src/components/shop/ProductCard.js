@@ -11,7 +11,7 @@ export default function ProductCard() {
   }, []);
   return (
     <>
-      {products.map((el) => (
+      {products?.map((el) => (
         <div key={el.id} className="">
           <Link to={`/product/`}>
             <div className="w-auto h-auto bg-white border border-gray-200 rounded-lg shadow">
@@ -25,7 +25,7 @@ export default function ProductCard() {
                 <div className="flex justify-between">
                   <span className="text-[14px] mt-[8px] text-black">฿ {el.price}</span>
                   <div className="text-black rounded-lg text-[12px] mt-[16px] text-center">
-                    ขายแล้ว {el.totalSale} ชิ้น
+                    ขายแล้ว {el.totalSale || 0} ชิ้น
                   </div>
                 </div>
               </div>

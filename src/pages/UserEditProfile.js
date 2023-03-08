@@ -6,46 +6,75 @@ import { Link, useNavigate } from "react-router-dom";
 import profile2 from "../images/profile2.png";
 import Red from "../images/Red.png";
 import { thunkUpdateUser, updateUserProfile } from "../reduxStore/AuthSlice";
+import { getLoading } from "../reduxStore/Loading";
+import toast from "react-hot-toast";
+import Spinner from "../components/Spinner";
 
 export default function UserEditProfile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const updateInfo = useSelector((state) => state.auth.auth);
+  const loading = useSelector((state) => state.loading.loading);
+
   const [input, setInput] = useState({
     firstName: "",
     lastName: "",
     userName: "",
     email: "",
     phone: "",
-    profileImage: null,
   });
-  // console.log("------", input);
+
+  const [profileImage, setProfileImage] = useState(null);
+
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-
-    formData.append("firstName", input.firstName);
-    formData.append("lastName", input.lastName);
-    formData.append("userName", input.userName);
-    formData.append("email", input.email);
-    formData.append("phone", input.phone);
-    formData.append("profileImage", input.profileImage);
-
-    // for (var pair of formData.entries()) {
-    //   console.log(pair[0] + " - " + pair[1]);
-    // }
-    dispatch(thunkUpdateUser(formData));
-    navigate("/MyOrderPage");
+    try {
+      e.preventDefault();
+      const formData = new FormData();
+      if (input.firstName) {
+        formData.append("firstName", input.firstName);
+      }
+      if (input.lastName) {
+        formData.append("lastName", input.lastName);
+      }
+      if (input.userName) {
+        formData.append("userName", input.userName);
+      }
+      if (input.email) {
+        formData.append("email", input.email);
+      }
+      if (input.phone) {
+        formData.append("phone", input.phone);
+      }
+      if (profileImage) {
+        formData.append("profileImage", profileImage);
+      }
+      dispatch(getLoading());
+      dispatch(thunkUpdateUser(formData));
+      setInput({
+        firstName: "",
+        lastName: "",
+        userName: "",
+        email: "",
+        phone: "",
+      });
+      setProfileImage(null);
+      toast.success("Success");
+      navigate("/MyOrderPage");
+    } catch (err) {
+      toast.error("Cannot update");
+      console.log(err.response?.data);
+    } finally {
+      dispatch(getLoading());
+    }
   };
   return (
     <>
       <div className="w-full min-h-[844px] bg-red-300 mx-auto border  ">
         {/* <div className="w-[390px] min-h-[188px]grid justify-items-center"> */}
-
+        {loading ? <Spinner /> : null}
         <div className="absolute mt-4 ml-4">
           <Link to="/MyOrderPage">
             <ArrowBackIosIcon sx={{ color: "white", fontSize: 25 }} />
@@ -58,7 +87,25 @@ export default function UserEditProfile() {
           </div>
           <div className="w-56 md:w-64  -mt-16  rounded-lg overflow-hidden">
             <div className="flex justify-center items-center">
-              <img src={profile2} alt="" />
+              <button
+                onClick={() => document.getElementById("profileImage").click()}
+              >
+                {!profileImage ? (
+                  <img src={profile2} alt="" />
+                ) : (
+                  <img
+                    className="w-[100px] h-[100px] bg-black rounded-full"
+                    alt=""
+                    src={URL.createObjectURL(profileImage)}
+                  />
+                )}
+              </button>
+              <input
+                type="file"
+                className="hidden"
+                id="profileImage"
+                onChange={(e) => setProfileImage(e.target.files[0])}
+              />
             </div>
             <div className="py-4 text-center font-bold tracking-wide text-white text-xl">
               EDIT PROFILE

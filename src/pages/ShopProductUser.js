@@ -18,6 +18,10 @@ export default function ShopProductUser() {
   const state = useSelector((state) => state.allProduct.productFilterShop);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  useEffect(() => {
     dispatch(thunkFetchAllProductByShopId(shopId));
   }, [dispatch]);
   useEffect(() => {

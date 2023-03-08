@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { shopRegister } from "../../apis/auth-shop-api";
+import toast from "react-hot-toast";
 
 const initialInput = {
   name: "",
@@ -13,7 +14,7 @@ const initialInput = {
 
 export default function ShopRegisterForm() {
   const [input, setInput] = useState(initialInput);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -24,7 +25,8 @@ export default function ShopRegisterForm() {
       e.preventDefault();
       await shopRegister(input);
       setInput(initialInput);
-      navigate("/shop-home")
+      toast.success("Success register");
+      navigate("/shop-home");
     } catch (err) {
       // console.log(err.data?.response);
       console.log(err.response?.data);

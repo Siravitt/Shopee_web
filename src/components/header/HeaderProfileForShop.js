@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import shopbg from "../../images/shopbg.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {useEffect} from "react"
+import profile2 from "../../images/profile2.png";
+import { thunkGetShop } from "../../reduxStore/AuthSlice";
+
 
 export default function HeaderProfileForShop() {
   const shop = useSelector(state => state.auth.authShop);
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(thunkGetShop())
+  },[])
 
   return (
     <>
@@ -13,7 +22,7 @@ export default function HeaderProfileForShop() {
         </div>
         <div className="w-56 md:w-64  -mt-16 overflow-hidden">
           <div className="flex justify-center items-center">
-            <img src={shop.profileImage} alt="" className="w-[100px] h-[100px] rounded-full object-cover"/>
+            <img src={shop.profileImage || profile2} alt="" className="w-[100px] h-[100px] rounded-full object-cover"/>
           </div>
           <div className="py-2 text-center font-bold uppercase tracking-wide text-white">
             {shop.name}
