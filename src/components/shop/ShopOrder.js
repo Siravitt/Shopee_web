@@ -12,7 +12,8 @@ export default function ShopOrder() {
     <div className="h-[100px] w-[390px] flex px-[10px]">
       <div className={`flex flex-col justify-center w-[150px] items-center`}>
         <Link to="/PendingForShop">
-          {location.pathname === "/PendingForShop" || location.pathname === "/shop-profile" ? (
+          {location.pathname === "/PendingForShop" ||
+          location.pathname === "/shop-profile" ? (
             <AccountBalanceWalletIcon
               sx={{ color: "rgb(96,165,250)", fontSize: 30 }}
             />
@@ -24,7 +25,10 @@ export default function ShopOrder() {
         </Link>
         <h1
           className={`${
-            location.pathname === "/PendingForShop" || location.pathname === "/MyShopPage" ? "font-bold" : ""
+            location.pathname === "/PendingForShop" ||
+            location.pathname === "/MyShopPage"
+              ? "font-bold"
+              : ""
           }`}
         >
           Pending

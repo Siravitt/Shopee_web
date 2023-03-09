@@ -11,7 +11,7 @@ export default function MyShopPage() {
         {/* <OrderNavbar /> */}
         <hr />
         {/* body */}
-        <OrderListForShop />
+        {/* <OrderListForShop /> */}
         {/* body */}
       </div>
     </>

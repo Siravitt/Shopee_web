@@ -13,11 +13,7 @@ function HeaderSearch({ searchItem, setSearchItem }) {
 
   return (
     <>
-<<<<<<< HEAD
-      <div className="w-full h-[60px] px-1 bg-red-300 flex items-center top-0 sticky z-10">
-=======
       <div className="w-full h-[60px] px-4  flex items-center top-0 sticky z-10 bg-gradient-to-r from-orange-400 via-Amber-200  to-red-400">
->>>>>>> edit-product
         <form>
           <label
             htmlFor="search"
@@ -49,7 +45,7 @@ function HeaderSearch({ searchItem, setSearchItem }) {
                   type="search"
                   id="search"
                   value={searchItem}
-                  onChange={(e) => setSearchItem(e.target.value)}
+                  onChange={e => setSearchItem(e.target.value)}
                   placeholder="Search"
                   className="block w-80   h-8 p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                   required
