@@ -147,7 +147,7 @@ const router = createBrowserRouter([
       { path: "/addProduct", element: <AddProduct /> },
       { path: "/EditProductShop/:productId", element: <EditProductShop /> },
       { path: "/editProduct", element: <EditProduct /> },
-      { path: "/shop-chat", element: <ShopChatBox /> },
+      { path: "/shop-chat/:userId", element: <ShopChatBox /> },
     ],
   },
   {
