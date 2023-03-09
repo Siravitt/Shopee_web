@@ -22,6 +22,10 @@ export default function Mycart() {
   const newState = useRef();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  useEffect(() => {
     if (auth) {
       dispatch(thunkGetCart());
     } else {

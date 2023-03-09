@@ -1,11 +1,13 @@
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import SendIcon from "@mui/icons-material/Send";
+import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getMessage } from "../apis/chat-user-api";
 import UserMessage from "../components/chat/UserMessage";
 import ShopMessage from "../components/chat/ShopMessage";
 import { getShopInfoPublic } from "../apis/shop-product-api";
+import socket from "../configs/socket";
 
 export default function ChatBox() {
   const [allMessage, setAllMessage] = useState([]);
@@ -13,6 +15,7 @@ export default function ChatBox() {
   const [shop, setShop] = useState({});
   const { shopId } = useParams();
   const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth.auth);
 
   useEffect(() => {
     const fetchChat = async () => {
@@ -31,6 +34,19 @@ export default function ChatBox() {
     fetchShop();
   }, []);
 
+  useEffect(() => {
+    socket.on("receive_message", ({ message }) => {
+      const newMessage = {
+        id: allMessage.length + 1,
+        message: message,
+        sender: "shop",
+      };
+      const newAllMessage = structuredClone(allMessage);
+      newAllMessage.push(newMessage);
+      setAllMessage(newAllMessage);
+    });
+  }, [allMessage]);
+
   const handleOnChange = (e) => {
     setMessage(e.target.value);
   };
@@ -46,6 +62,11 @@ export default function ChatBox() {
     newAllMessage.push(newMessage);
     setAllMessage(newAllMessage);
     setMessage("");
+    socket.emit("send_message", {
+      to: shopId,
+      from: auth.id,
+      message: message,
+    });
   };
 
   return (

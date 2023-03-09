@@ -37,7 +37,7 @@ export default function MyOrderPage() {
         <p className="mx-8 mt-6 text-red-400 text-lg font-bold  ">
           Order Status
         </p>
-        <div className="my-3 bg-red-100 mx-6 rounded-xl justify-between">
+        <div className="my-3 bg-red-100 mx-4 rounded-xl justify-between">
           <OrderNavbar />
         </div>
 
