@@ -20,6 +20,7 @@ export default function ShopProductUser() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   useEffect(() => {
     dispatch(thunkFetchAllProductByShopId(shopId));
   }, [dispatch]);

@@ -69,14 +69,6 @@ export default function ProductPage() {
             <div className="my-2">
               <div className="font-bold  text-red-400">{state.Shop?.name}</div>
             </div>
-            <div className=" flex justify-between text-[12px]">
-              <div className=" text-orange-400 ">
-                <p>10</p>
-              </div>
-              <div className=" pl-2">
-                <p>รายการสินค้า</p>
-              </div>
-            </div>
           </div>
           <div className="p-2 text-red-300 border-2 border-red-400 flex justify-center items-center mr-[17px] hover:text-white hover:bg-red-400 duration-200">
             <Link to={`/shopProducts/` + state.Shop?.id}>

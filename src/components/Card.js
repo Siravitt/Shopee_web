@@ -30,8 +30,12 @@ export default function Card() {
                         />
                       </div>
                     );
-                  }
+                  } 
+                  // else {
+                  //   return console.log(item.name, el.image);
+                  // }
                 })}
+                {/* <img src={item?.ProductImages?.find((i) => i.isMain)?.image} alt=""/> */}
                 <div className="px-3 pb-1">
                   <h5 className="text-[16px] font-bold tracking-tight text-black flex justify-left pl-0 pt-2">
                     {item.name}
