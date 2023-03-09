@@ -23,6 +23,7 @@ export default function Cardpending(props) {
   const cardUserordershop = useSelector(
     (state) => state?.allProduct?.orderShopUser
   );
+
   // console.log("first", cardUserordershop);
   // console.log("kram", cardUserordershop);
   useEffect(() => {
@@ -46,10 +47,36 @@ export default function Cardpending(props) {
 
   // const merge3 = orderShopCard.flat();
   // console.log("last", orderShopCard);
+  const total = [];
+  const totalPrice = Object.values(cardUserordershop);
+  for (let i = 0; i < Object.values(cardUserordershop).length; i++) {
+    // console.log(Object.values(cardUserordershop)[i]);
+    const price = Object.values(cardUserordershop)[i].reduce((acc, el) => {
+      acc += el?.Product.price * el.quantity;
+      return acc;
+    }, 0);
+    total.push(price);
+  }
+
+  // console.log(total);
+  // .reduce((acc, el) => {
+  //   acc += +el.Product?.price * el.quantity;
+  //   return acc;
+  // }, 0);
+
+  // const totalPrice = cardUserordershop?.[2]?.reduce((acc, el) => {
+  //   acc += +el.Product?.price * el.quantity;
+  //   return acc;
+  // }, 0);
+
+  // const totalPrice = {};
+
+  // console.log(totalPrice);
+  // console.log(cardUserordershop);
 
   return (
     <>
-      {orderShopCard?.map((item) => {
+      {orderShopCard?.map((item, idx) => {
         // console.log("item", orderShopCard);
         // console.log("item2", cardUserordershop);
         return (
@@ -104,21 +131,23 @@ export default function Cardpending(props) {
                       const islast = item.length - 1 === index;
                       const islast2 = item.length - 1 === index;
                       // console.log("el", el);
+                      // console.log(index);
+
                       return (
                         <>
                           <div className="flex justify-between px-[16px] pt-[8px]">
                             <div>{el?.Product?.name}</div>
                             <div>X {el?.quantity}</div>
+                            {el?.quantity * el?.Product.price}
                           </div>
                           {islast && (
                             <div className="flex justify-between">
                               <div></div>
                               <div className="mx-4 mt-4">
-                                <h1>total : {el?.totalPrice}</h1>
+                                <h1>total : {total[idx]}</h1>
                               </div>
                             </div>
                           )}
-
                           {islast2 && (
                             <div>
                               {el?.OrderShop?.status === "SHIPPING" ? (
